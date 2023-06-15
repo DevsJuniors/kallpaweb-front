@@ -1,52 +1,65 @@
 <template>
   <div>
-    <v-col cols="12" sm="6" md="3">
+    <form name="registrarEmpleado" @submit.prevent="createEmpleado">
       <div class="empleado">
-        <h2>DATOS DEL EMPLEADO</h2>
+        <h2>Guardar Genero</h2>
         <v-text-field
           label="DNI"
-          placeholder="Ingresar documento"
-          filled></v-text-field>
+          placeholder="Ingresa el IDGenero"
+          filled
+          v-model="frmEmpleado.DNI_Em"></v-text-field>
         <v-text-field
           label="Nombre"
-          placeholder="Ingresar nombre"
-          filled></v-text-field>
+          placeholder="Ingresa Nombre"
+          filled
+          v-model="frmEmpleado.Nombre_Em"></v-text-field>
         <v-text-field
           label="Apellido"
-          placeholder="Ingresar apellido"
-          filled></v-text-field>
+          placeholder="Ingresa Apellido"
+          filled
+          v-model="frmEmpleado.Apellido_Em"></v-text-field>
         <v-text-field
           label="Celular"
-          placeholder="Ingresar numero de celular"
-          filled></v-text-field>
-        <v-combobox
-          v-model="categoria"
-          :items="items"
+          placeholder="Ingresa su numero de celular"
+          filled
+          v-model="frmEmpleado.Celular_Em"></v-text-field>
+        <v-text-field
           label="Categoria"
-          multiple
-          outlined
-          dense></v-combobox>
+          placeholder="Ingresa la categoria"
+          filled
+          v-model="frmEmpleado.IDCategoria"></v-text-field>
+        <div>
+          <v-btn type="submit" class="button-1" depressed color="primary">
+            REGISTRAR
+          </v-btn>
+          <form
+            name="credencialesEmpleado"
+            @submit.prevent="createCredenciales">
+            <div class="credenciales">
+              <h2>CREDENCIALES DEL EMPLEADO</h2>
+              <v-text-field
+                label="DNI EMPLEADO"
+                placeholder="Ingresa el DNI del Empleado"
+                filled
+                v-model="frmCredenciales.DNI_Em"></v-text-field>
+              <v-text-field
+                label="Nombre de Usuario"
+                placeholder="Ingresa un nombre de usuario"
+                filled
+                v-model="frmCredenciales.nombreusuario"></v-text-field>
+              <v-text-field
+                label="Contraseña"
+                placeholder="Ingresa una contraseña"
+                filled
+                v-model="frmCredenciales.contraseña"></v-text-field>
+            </div>
+            <v-btn type="submit" class="button-1" depressed color="primary">
+              AGREGAR CREDENCIALES
+            </v-btn>
+          </form>
+        </div>
       </div>
-    </v-col>
-    <div class="credenciales">
-      <h2>CREDENCIALES DEL EMPLEADO</h2>
-      <v-text-field
-        label="Usuario"
-        placeholder="Ingresar nombre de usuario"
-        filled></v-text-field>
-      <v-text-field
-        label="Contraseña"
-        placeholder="Ingresar una contraseña segura"
-        filled></v-text-field>
-    </div>
-    <div>
-      <v-btn type="submit" class="button-1" depressed color="primary">
-        REGISTRAR
-      </v-btn>
-      <v-btn type="submit" class="button-1" depressed color="primary">
-        LIMPIAR
-      </v-btn>
-    </div>
+    </form>
   </div>
 </template>
 <style>
@@ -58,6 +71,7 @@
 }
 .empleado {
   margin: 20px;
+  max-width: 30%;
 }
 .button-1 {
   background: #033076;
