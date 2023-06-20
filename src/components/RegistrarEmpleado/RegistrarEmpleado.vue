@@ -3,6 +3,7 @@
     <form name="registrarEmpleado" @submit.prevent="createEmpleado">
       <div class="empleado">
         <h2>Guardar Genero</h2>
+        <br />
         <v-text-field
           label="DNI"
           placeholder="Ingresa el IDGenero"
