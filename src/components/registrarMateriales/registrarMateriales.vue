@@ -29,9 +29,9 @@
           filled
           v-model="frmMateriales.Stock_Ma"></v-text-field>
       </div>
-      <v-btm type="submit" class="button-1" depressed color="primary">
+      <v-btn type="submit" class="button-1" depressed color="primary">
         REGISTRAR MATERIALES
-      </v-btm>
+      </v-btn>
     </form>
   </div>
 </template>
