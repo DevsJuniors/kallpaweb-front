@@ -1,5 +1,5 @@
 export default {
-  name: "Genero",
+  name: "Empleado",
   data() {
     return {
       frmEmpleado: {

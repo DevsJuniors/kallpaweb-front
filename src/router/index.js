@@ -40,7 +40,7 @@ const routes = [
     path: "/menu/registrarContrato",
     name: "Registrar Contrato",
     component: () =>
-      import("../components/Registrar Contrato/RegistrarContrato.vue"),
+      import("../components/RegistrarContrato/RegistrarContrato.vue"),
   },
   {
     path: "/menu/consultarCliente",
