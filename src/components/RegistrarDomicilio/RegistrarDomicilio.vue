@@ -1,5 +1,4 @@
-<template>
-  <div>
+<template>nprm  <div>
     <v-app-bar color="green accent-4" dense dark>
       <v-toolbar-title>KALLPA</v-toolbar-title>
       <v-spacer></v-spacer>
@@ -66,6 +65,7 @@
   </div>
 </template>
 <style>
+
 .domicilio {
   margin: 20px;
   max-width: 30%;
