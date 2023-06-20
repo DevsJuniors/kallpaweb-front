@@ -4,7 +4,7 @@
         <v-spacer></v-spacer>
         <v-icon>mdi-account-circle</v-icon>
     </v-app-bar>
-        <form name="registrarContrato" @submit.prevent="createDomicilio">
+        <form name="registrarContrato" @submit.prevent="createContrato">
         <div class="Contrato">
         <h2>Registrar Contrato</h2>
     <v-text-field
