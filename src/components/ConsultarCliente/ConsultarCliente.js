@@ -15,6 +15,7 @@ export default {
       },
       clientes: [],
       selectedClientes: null,
+      TextFieldAble: false,
     };
   },
   created() {
@@ -39,6 +40,9 @@ export default {
     },
   },
   methods: {
+    habilitarText() {
+      this.TextFieldAble = true;
+    },
     getCliente() {
       this.axios
         .get("http://localhost:3000/cliente")
@@ -57,6 +61,30 @@ export default {
       this.frmCliente.IDNacionalidad = "";
       this.frmCliente.IDEstadoCivil = "";
       this.frmCliente.IDDomicilio = "";
+    },
+    updateCliente() {
+      const dniCliente = this.frmCliente.DNI_cli;
+
+      const dataUpdate = {
+        DNI_cli: this.frmCliente.DNI_cli,
+        Nombre_cli: this.frmCliente.Nombre_cli,
+        Apellido_cli: this.frmCliente.Apellido_cli,
+        Celular_cli: this.frmCliente.Celular_cli,
+        FechaNacimiento_cli: this.frmCliente.FechaNacimiento_cli,
+        IDGenero: this.frmCliente.IDGenero,
+        IDNacionalidad: this.frmCliente.IDNacionalidad,
+        IDEstadoCivil: this.frmCliente.IDEstadoCivil,
+        IDDomicilio: this.frmCliente.IDDomicilio,
+      };
+      this.axios
+        .patch(`http://localhost:3000/cliente/${dniCliente}`, dataUpdate)
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((e) => e);
+    },
+    desText() {
+      this.TextFieldAble = false;
     },
   },
 };
