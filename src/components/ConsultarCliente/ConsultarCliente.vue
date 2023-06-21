@@ -6,8 +6,7 @@
           <v-combobox
             :items="
               clientes.map(
-                (cliente) =>
-                  `${cliente.DNI_cli} -> ${cliente.Nombre_cli} ${cliente.Apellido_cli}`
+                (cliente) => `${cliente.Nombre_cli} ${cliente.Apellido_cli}`
               )
             "
             label="Buscar Cliente"
