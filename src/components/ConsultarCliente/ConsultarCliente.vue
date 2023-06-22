@@ -12,7 +12,8 @@
             label="Buscar Cliente"
             outlined
             v-model="selectedClientes"
-            dense></v-combobox>
+            dense>
+          </v-combobox>
         </v-col>
       </v-row>
       <v-btn

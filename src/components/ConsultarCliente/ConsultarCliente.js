@@ -24,7 +24,7 @@ export default {
   watch: {
     selectedClientes(val) {
       if (val) {
-        const cliente = this.clientes.find((cliente) => cliente.DNI_cli);
+        const cliente = this.clientes.find((cliente) => cliente.Nombre_cli+ ' '+cliente.Apellido_cli ===val);
         this.frmCliente.DNI_cli = cliente.DNI_cli;
         this.frmCliente.Nombre_cli = cliente.Nombre_cli;
         this.frmCliente.Apellido_cli = cliente.Apellido_cli;

@@ -33,24 +33,27 @@
           placeholder="Ingrese la fecha de nacimiento del Cliente"
           filled
           v-model="frmCliente.FechaNacimiento_cli"></v-text-field>
-        <v-text-field
-          label="ID Genero"
-          placeholder="Ingrese el código del género del Cliente"
-          filled
-          v-model="frmCliente.IDGenero"></v-text-field>
-        <v-text-field
-          label="ID Nacionalidad"
-          placeholder="Ingrese el código de la naacionalidad del Cliente"
-          filled
-          v-model="frmCliente.IDNacionalidad"></v-text-field>
-        <v-text-field
-          label="ID Estado Civil"
-          placeholder="Ingrese el código del estado civil del Cliente"
-          filled
-          v-model="frmCliente.IDEstadoCivil"></v-text-field>
-        <v-text-field
-          label="IDDomicilio"
-          placeholder="Ingrese el código del domicilio del Cliente"
+        <v-select
+         v-model="selectedGenero"
+         :items="generos.map((genero) => genero.Descripcion_G)"
+         label="Selecciona el Género"
+         outlined
+         ></v-select>
+         <v-select
+         v-model="selectedNacionalidad"
+         :items="nacionalidades.map((nacionalidad) => nacionalidad.Descripcion_NA)"
+         label="Selecciona la Nacionalidad"
+         outlined
+         ></v-select>
+         <v-select
+         v-model="selectedEstado"
+         :items="estadosciviles.map((estadocivil) => estadocivil.Descripcion_Es)"
+         label="Selecciona el Estado Civil"
+         outlined
+         ></v-select>
+         <v-text-field
+          label="ID Domicilio"
+          placeholder="Ingrese el código de domicilio"
           filled
           v-model="frmCliente.IDDomicilio"></v-text-field>
       </div>
