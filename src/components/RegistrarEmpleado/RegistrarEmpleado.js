@@ -14,9 +14,28 @@ export default {
         nombreusuario: "",
         contraseña: "",
       },
-      message: "",
+      categorias: [],
+      selectedCategoria: null,
     };
   },
+
+
+  created() {
+    this.getCategoria();
+  },
+
+  // Recuperando ID correspondiente de cada variable
+  watch: {
+  selectedCategoria(val){
+          if (val) {
+            const categoria = this.categorias.find((categoria) => categoria.Cargo_CE===val);
+              this.frmEmpleado.IDCategoria = categoria.IDCategoria;
+
+          } else {
+            this.resetForm();
+          }
+   },
+},
   methods: {
     createEmpleado() {
       this.axios
@@ -36,6 +55,14 @@ export default {
           console.log(res);
         })
         .catch((e) => e);
+    },
+    getCategoria() {
+      this.axios
+        .get("http://localhost:3000/categoria-empleado")
+        .then((res) => {
+          this.categorias = res.data;
+        })
+        .catch((error) => e);
     },
   },
 };

@@ -45,7 +45,7 @@ watch: {
   },
   selectedDistrito(P){
      if(P){
-      const distrito = this.distritos.find((distrito) => distrito.Nombre_Dis===P);
+      const distrito = this.distritos.find((distrito) => distrito.Nombre_Di===P);
       this.frmDomicilio.IDDistrito =distrito.IDDistrito;
      }
   },
