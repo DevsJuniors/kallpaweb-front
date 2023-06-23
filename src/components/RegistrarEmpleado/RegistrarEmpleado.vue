@@ -24,11 +24,12 @@
           placeholder="Ingresa su numero de celular"
           filled
           v-model="frmEmpleado.Celular_Em"></v-text-field>
-        <v-text-field
-          label="Categoria"
-          placeholder="Ingresa la categoria"
-          filled
-          v-model="frmEmpleado.IDCategoria"></v-text-field>
+          <v-select
+          v-model="selectedCategoria"
+          :items="categorias.map((categoria) => categoria.Cargo_CE)"
+          label="Selecciona la categoria del Empleado"
+          outlined
+         ></v-select>
         <div>
           <v-btn type="submit" class="button-1" depressed color="primary">
             REGISTRAR
