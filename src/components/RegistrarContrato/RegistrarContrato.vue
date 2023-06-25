@@ -88,9 +88,6 @@
          outlined
          ></v-select>
       </div>
-      <div id="ventanaEmergente" class="centrado">
-      <p>Contenido de la ventana emergente</p>
-      </div>
       <v-btn type="submit" class="button-1 mt-2" depressed color="primary"> 
         REGISTRAR CONTRATO
         <v-icon class="mx-1">mdi-apple-keyboard-caps</v-icon>
