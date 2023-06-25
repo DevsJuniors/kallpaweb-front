@@ -2,7 +2,7 @@
   <div>
     <form name="registrarEmpleado" @submit.prevent="createEmpleado">
       <div class="empleado">
-        <h2>Guardar Genero</h2>
+        <h2>DATOS GENERALES DEL EMPLEADO</h2>
         <br />
         <v-text-field
           label="DNI"
@@ -31,9 +31,26 @@
           outlined
          ></v-select>
         <div>
-          <v-btn type="submit" class="button-1" depressed color="primary">
+          <v-btn type="submit" class="button-1 mt-2" depressed color="primary">
             REGISTRAR
+            <v-icon  class="mx-1">mdi-account-badge-outline</v-icon>
           </v-btn>
+          <v-btn
+              depressed
+              color="primary"
+              class="button-1 mt-2"
+              @click="volverMenu">
+              Atras
+              <v-icon class="mx-1">mdi-keyboard-backspace</v-icon>
+            </v-btn>
+            <v-btn
+              depressed
+              color="primary"
+              class="button-1 mt-2"
+              @click="resetForm">
+              Limpiar
+              <v-icon class="mx-1">mdi-backup-restore</v-icon>
+      </v-btn>
           <form
             name="credencialesEmpleado"
             @submit.prevent="createCredenciales">
@@ -55,8 +72,9 @@
                 filled
                 v-model="frmCredenciales.contraseña"></v-text-field>
             </div>
-            <v-btn type="submit" class="button-1" depressed color="primary">
+            <v-btn type="submit" class="button-1 mt-2" depressed color="primary">
               AGREGAR CREDENCIALES
+              <v-icon class="mx-1">mdi-badge-account-horizontal</v-icon>
             </v-btn>
           </form>
         </div>

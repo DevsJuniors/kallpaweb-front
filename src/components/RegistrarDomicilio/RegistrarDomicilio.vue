@@ -58,11 +58,29 @@
          outlined
          ></v-select>
       </div>
-      <v-btn type="submit" class="button-1" depressed color="primary">
+      <v-btn type="submit" class="button-1 mt-2" depressed color="primary">
         REGISTRAR DOMICILIO
+        <v-icon class="mx-1">mdi-apple-keyboard-caps</v-icon>
       </v-btn>
-      <v-btn  class="button-1" depressed color="primary" @click="guardarValor">
+      <v-btn
+              depressed
+              color="primary"
+              class="button-1 mt-2"
+              @click="resetForm">
+              LIMPIAR
+              <v-icon class="mx-1">mdi-backup-restore</v-icon>
+      </v-btn>
+      <v-btn  class="button-1 mt-2" depressed color="primary" @click="guardarValor">
         CARGAR
+        <v-icon class="mx-1">mdi-archive-arrow-up</v-icon>
+      </v-btn>
+      <v-btn
+              depressed
+              color="primary"
+              class="button-1 mt-2"
+              @click="volverMenu">
+              ATRAS
+              <v-icon class="mx-1">mdi-keyboard-backspace</v-icon>
       </v-btn>
     </form>
   </div>
