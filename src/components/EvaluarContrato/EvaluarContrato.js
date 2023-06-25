@@ -2,6 +2,7 @@ export default {
   data() {
     return {
       search: "",
+      searchF: "",
       contratos: [],
     };
   },
@@ -19,6 +20,20 @@ export default {
         { text: "DNI Cliente", value: "DNI_cli" },
         { text: "DNI Empleado", value: "DNI_Em" },
       ];
+    },
+    contratosFiltrados() {
+      const searchTerm = this.search.toLowerCase().trim();
+      const searchFecha = this.searchF.toLowerCase().trim();
+      if (!searchTerm && !searchFecha) {
+        return this.contratos;
+      }
+
+      return this.contratos.filter((contrato) => {
+        const idC = contrato.IDContrato.toString().includes(searchTerm);
+        const FeC = contrato.Fecha_Con.toString().includes(searchFecha);
+
+        return idC && FeC;
+      });
     },
   },
   mounted() {
