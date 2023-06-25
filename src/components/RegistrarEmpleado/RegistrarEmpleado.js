@@ -64,5 +64,15 @@ export default {
         })
         .catch((error) => e);
     },
+    volverMenu() {
+      this.$router.push("/menu");
+    },
+    resetForm() {
+      this.frmEmpleado.DNI_Em = "";
+      this.frmEmpleado.Nombre_Em = "";
+      this.frmEmpleado.Apellido_Em = "";
+      this.frmEmpleado.Celular_Em= "";
+      this.selectedCategoria= null;
+    },
   },
 };

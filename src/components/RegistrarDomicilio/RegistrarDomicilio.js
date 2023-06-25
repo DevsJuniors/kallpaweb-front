@@ -108,7 +108,23 @@ watch: {
       localStorage.setItem("valorCampo1", valorCampo1);
       console.log(valorCampo1);
       window.location.href = "http://localhost:3003/menu/registrarCliente";
-    }
-
+    },
+    volverMenu() {
+      this.$router.push("/menu");
+    },
+    resetForm() {
+      this.frmDomicilio.IDDomicilio = "";
+      this.frmDomicilio.Direccion_Dom = "";
+      this.frmDomicilio.Piso_Dom = "";
+      this.frmDomicilio.Interior_Dom = "";
+      this.frmDomicilio.Nomb_Malla_Dom= "";
+      this.frmContrato.PuntoInstalacion_Con="";
+      this.frmContrato.NumeroRadicado_Con="";
+      this.frmContrato.nomCli="";
+      this.selectedEstrato = null;
+      this.selectedDistrito =null;
+      this.selectedCondicion= null;
+      this.selectedTipoPredio= null;
+    },
   },
 };

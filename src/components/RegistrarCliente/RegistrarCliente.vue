@@ -118,4 +118,3 @@
 <script src="./RegistrarCliente.js">
 </script>
 
-
