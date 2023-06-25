@@ -14,7 +14,8 @@ export default {
             IDEstadoCivil: "",
             IDDomicilio: "",
             },
-
+            TextFieldAble: false,
+            Select: false,
             generos:[],
             nacionalidades:[],
             estadosciviles : [],
@@ -29,7 +30,10 @@ export default {
         this.getGenero();
         this.getNacionalidad();
         this.getEstadoCivil();
-      },
+        this.obtenerDato();
+        this.habilitarCombox();
+        this.habilitarText();
+    },
     
     // Recuperando ID correspondiente de cada variable
       watch: {
@@ -90,7 +94,46 @@ export default {
               })
               .catch((error) => e);
           },    
-
-    },
+          registrarDomicilio() {
+            this.$router.push("/menu/registrarDomicilio");
+          },
+          habilitarText() {
+            if(this.frmCliente.IDDomicilio !== "") {
+            this.TextFieldAble = true;
+            }
+          },
+          habilitarCombox(){
+            if(this.frmCliente.IDDomicilio !== "") {
+              this.Select=true;
+            }
+          },
+          desText() {
+            this.TextFieldAble =false;
+          },
+          desCombox(){
+              this.Select= false;
+          },
+          resetForm() {
+            this.frmCliente.DNI_cli = "";
+            this.frmCliente.Nombre_cli = "";
+            this.frmCliente.Apellido_cli = "";
+            this.frmCliente.Celular_cli = "";
+            this.frmCliente.FechaNacimiento_cli = "";
+            this.selectedEstado = null;
+            this.selectedGenero = null;
+            this.selectedNacionalidad= null;
+          },
+          volverMenu() {
+            this.$router.push("/menu");
+          },
+          obtenerDato() {
+           var valorCampo1 = localStorage.getItem("valorCampo1");
+           if (valorCampo1) {
+            this.frmCliente.IDDomicilio= valorCampo1;
+            console.log(valorCampo1)
+            localStorage.removeItem("valorCampo1"); // Opcional: eliminar el valor almacenado
+          }
+     },
+  }, 
 
 };

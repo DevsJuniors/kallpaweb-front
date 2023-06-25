@@ -33,15 +33,6 @@
               color="primary"
               class="mx-2"
               x-large
-              @click="registrarDomicilio">
-              Registrar Domicilios
-              <v-icon class="mx-1">mdi-home-edit</v-icon>
-            </v-btn>
-            <v-btn
-              depressed
-              color="primary"
-              class="mx-2"
-              x-large
               @click="registrarContrato">
               Registrar Contrato
               <v-icon class="mx-2">mdi-file-sign</v-icon>
@@ -136,9 +127,6 @@ export default {
     },
     registrarCliente() {
       this.$router.push("/menu/registrarCliente");
-    },
-    registrarDomicilio() {
-      this.$router.push("/menu/registrarDomicilio");
     },
     registrarContrato() {
       this.$router.push("/menu/registrarContrato");

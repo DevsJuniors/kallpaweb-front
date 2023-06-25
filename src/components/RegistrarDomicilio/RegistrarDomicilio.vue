@@ -14,11 +14,6 @@
           filled
           v-model="frmDomicilio.IDDomicilio"></v-text-field>
         <v-text-field
-          label="Ubicacion"
-          placeholder="Ingresa la ubicacion del Domicilio"
-          filled
-          v-model="frmDomicilio.Ubicacion_Dom"></v-text-field>
-        <v-text-field
           label="Dirección"
           placeholder="Ingresa la dirección del Domicilio"
           filled
@@ -66,6 +61,9 @@
       <v-btn type="submit" class="button-1" depressed color="primary">
         REGISTRAR DOMICILIO
       </v-btn>
+      <v-btn  class="button-1" depressed color="primary" @click="guardarValor">
+        CARGAR
+      </v-btn>
     </form>
   </div>
 </template>
@@ -87,4 +85,5 @@
   margin: 20px;
 }
 </style>
-<script src="./RegistrarDomicilio.js"></script>
+<script src="./RegistrarDomicilio.js">
+</script>

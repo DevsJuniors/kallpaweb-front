@@ -4,7 +4,6 @@ export default {
     return {
       frmDomicilio: {
         IDDomicilio: "",
-        Ubicacion_Dom: "",
         Direccion_Dom: "",
         Interior_Dom: "",
         Piso_Dom: "",
@@ -104,5 +103,12 @@ watch: {
       })
       .catch((error) => e);
     },
+    guardarValor() {
+      var valorCampo1 = this.frmDomicilio.IDDomicilio;
+      localStorage.setItem("valorCampo1", valorCampo1);
+      console.log(valorCampo1);
+      window.location.href = "http://localhost:3003/menu/registrarCliente";
+    }
+
   },
 };
