@@ -10,8 +10,12 @@
           v-model="search"
           label="Buscar por ID"
           class="mx-16"></v-text-field>
-        <v-combobox class="mx-16" label="Buscar Cliente" dense solo>
-        </v-combobox>
+        <v-combobox
+          v-model="searchEstado"
+          :items="contratos.map((contratos) => contratos.estado)"
+          label="Buscar por estado"
+          class="mx-16"
+          solo></v-combobox>
         <v-text-field
           v-model="searchF"
           label="Buscar por Fecha"

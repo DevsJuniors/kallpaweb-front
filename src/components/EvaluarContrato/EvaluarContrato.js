@@ -1,9 +1,11 @@
 export default {
   data() {
     return {
+      searchEstado: "",
       search: "",
       searchF: "",
       contratos: [],
+      estados: [],
     };
   },
   computed: {
@@ -19,20 +21,24 @@ export default {
         { text: "Tipo Instalación", value: "IDTipoInst" },
         { text: "DNI Cliente", value: "DNI_cli" },
         { text: "DNI Empleado", value: "DNI_Em" },
+        { text: "Modificar Estado", value: "mestado", sortable: false },
       ];
     },
     contratosFiltrados() {
       const searchTerm = this.search.toLowerCase().trim();
       const searchFecha = this.searchF.toLowerCase().trim();
-      if (!searchTerm && !searchFecha) {
+
+      if (!searchTerm && !searchFecha && !this.searchEstado) {
         return this.contratos;
       }
 
       return this.contratos.filter((contrato) => {
         const idC = contrato.IDContrato.toString().includes(searchTerm);
         const FeC = contrato.Fecha_Con.toString().includes(searchFecha);
-
-        return idC && FeC;
+        const estadoC = contrato.estado
+          .toLowerCase()
+          .includes(this.searchEstado);
+        return idC && FeC && estadoC;
       });
     },
   },
