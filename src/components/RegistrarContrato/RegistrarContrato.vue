@@ -82,7 +82,8 @@
           outlined
          ></v-select>
         <v-select
-         v-model="selectedEstado"
+         v-model="SelectedEstado"
+         onchange="SelectedEstado(this.value)"
          :items="estados"
          label="Selecciona el Estado"
          outlined

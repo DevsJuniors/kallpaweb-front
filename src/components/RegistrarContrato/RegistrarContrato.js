@@ -23,7 +23,7 @@ export default {
         categoriasGabinetes: [],
         empleados: [],
         tiposinstalacion: [],
-        selectedEstado: null,
+        SelectedEstado: null,
         SelectedGabinete: null,
         SelectedTipoInstalacion: null,
         SelectedEmpleado: null,
@@ -43,10 +43,7 @@ export default {
         SelectedEstado(val){
                 if (val) {
                     this.frmContrato.estado = val;
-                } else {
-                  this.resetForm();
-                }
-              
+                }  
         },
         SelectedGabinete(P){
             if (P) {
