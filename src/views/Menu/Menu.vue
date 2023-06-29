@@ -153,7 +153,7 @@ export default {
       this.$router.push("/menu/asignarHabilitador");
     },
     reportes() {
-      this.$router.push("/menu/reportes");
+      this.$router.push("/reportes");
     },
   },
 };

@@ -86,6 +86,23 @@ const routes = [
     name: "Reportes",
     component: () => import("../views/Reportes/Reportes.vue"),
   },
+  {
+    path: "/reportes/contratos",
+    name: "Reporte Contrato",
+    component: () =>
+      import("../components/ReporteContrato/ReporteContrato.vue"),
+  },
+  {
+    path: "/reportes/clientes",
+    name: "Reporte Clientes",
+    component: () =>
+      import("../components/ReporteClientes/ReporteClientes.vue"),
+  },
+  {
+    path: "/reportes/ordenes",
+    name: "Reporte Ordenes",
+    component: () => import("../components/ReporteOrdenes/ReporteOrdenes.vue"),
+  },
 ];
 
 const router = new VueRouter({
