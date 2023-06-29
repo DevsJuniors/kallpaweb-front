@@ -2,123 +2,193 @@
   <div>
     <v-app-bar color="green accent-4" dense dark>
       <v-toolbar-title>KALLPA</v-toolbar-title>
-
       <v-spacer></v-spacer>
       <v-icon>mdi-account-circle</v-icon>
     </v-app-bar>
     <div class="btn-container">
       <v-container fluid>
-        <v-row class="btns" justify-content="flex-end" wrap>
-          <v-flex xs12 sm6 md4 lg3 xl2 class="ml-auto">
+        <v-row class="btns" justify="flex-end" wrap>
+          <!-- Primera fila de botones -->
+          <v-col cols="12" sm="6" md="4" lg="3" xl="2" class="ml-auto">
             <v-btn
               depressed
-              color="primary"
-              class="mx-2"
+              color="blue darken-4"
+              dark
+              class="mx-2 rounded-pill btn-wide"
               x-large
-              @click="registrarEmpleado">
-              Registrar Empleado
-              <v-icon class="mx-2">mdi-account-hard-hat</v-icon>
+              block
+              height="130px"
+              @click="registrarEmpleado"
+            >
+              <v-img
+              src="../../assets/Regis.png"
+            ></v-img>
             </v-btn>
+          </v-col>
+          <v-col cols="12" sm="6" md="4" lg="3" xl="2">
             <v-btn
               depressed
-              color="primary"
-              class="mx-2"
+              color="blue darken-4"
+              dark
+              class="mx-2 rounded-pill btn-wide"
               x-large
-              @click="registrarCliente">
+              block
+              height="130px"
+              @click="registrarCliente"
+            >
               Registrar Cliente
-              <v-icon class="mx-5">mdi-account-plus</v-icon>
+              <v-icon size="100" class="icon-center">mdi-account-plus</v-icon>
             </v-btn>
+          </v-col>
+          <v-col cols="12" sm="6" md="4" lg="3" xl="2">
             <v-btn
               depressed
-              color="primary"
-              class="mx-2"
+              color="blue darken-4"
+              dark
+              class="mx-2 rounded-pill btn-wide"
               x-large
-              @click="registrarContrato">
+              block
+              height="130px"
+              @click="registrarContrato"
+            >
               Registrar Contrato
-              <v-icon class="mx-2">mdi-file-sign</v-icon>
+              <v-icon size="100" class="icon-center">mdi-file-sign</v-icon>
             </v-btn>
-            <v-btn
-              depressed
-              color="primary"
-              class="mx-2"
-              x-large
-              @click="consultarCliente">
-              Consultar Cliente
-              <v-icon class="mx-4">mdi-account-search</v-icon>
-            </v-btn>
-            <v-btn
-              depressed
-              color="primary"
-              class="mx-2"
-              x-large
-              @click="evaluarContrato">
-              Evaluar Contrato
-              <v-icon class="mx-4">mdi-file-eye</v-icon>
-            </v-btn>
-            <v-btn
-              depressed
-              color="primary"
-              class="mx-2"
-              x-large
-              @click="generarOrdenI">
-              generar Orden In.
-              <v-icon class="mx-4">mdi-account-details</v-icon>
-            </v-btn>
-            <v-btn
-              depressed
-              color="primary"
-              class="mx-2"
-              x-large
-              @click="asignarTecnico">
-              Asignar Tecnico
-              <v-icon class="mx-6">mdi-account-details</v-icon>
-            </v-btn>
-            <v-btn
-              depressed
-              color="primary"
-              class="mx-2"
-              x-large
-              @click="registrarMateriales">
-              Registrar Materiales
-              <v-icon class="mx-1">mdi-account-details</v-icon>
-            </v-btn>
-          </v-flex>
+          </v-col>
         </v-row>
-        <v-row class="btns" justify-content="flex-end" wrap>
-          <v-flex xs12 sm6 md4 lg3 xl2 class="ml-auto">
+        <v-row class="btns" justify="flex-end" wrap>
+          <!-- Segunda fila de botones -->
+          <v-col cols="12" sm="6" md="4" lg="3" xl="2" class="ml-auto">
             <v-btn
               depressed
-              color="primary"
-              class="mx-2"
+              color="blue darken-4"
+              dark
+              class="mx-2 rounded-pill btn-wide"
               x-large
-              @click="generarOrdenH">
+              block
+              height="130px"
+              @click="consultarCliente"
+            >
+              Consultar Cliente
+              <v-icon size="100" class="icon-center">mdi-account-search</v-icon>
+            </v-btn>
+          </v-col>
+          <v-col cols="12" sm="6" md="4" lg="3" xl="2">
+            <v-btn
+              depressed
+              color="blue darken-4"
+              dark
+              class="mx-2 rounded-pill btn-wide"
+              x-large
+              block
+              height="150px"
+              @click="evaluarContrato"
+            >
+              Evaluar Contrato
+              <v-icon size="100" class="icon-center">mdi-file-eye</v-icon>
+            </v-btn>
+          </v-col>
+          <v-col cols="12" sm="6" md="4" lg="3" xl="2">
+            <v-btn
+              depressed
+              color="blue darken-4"
+              dark
+              class="mx-2 rounded-pill btn-wide"
+              x-large
+              block
+              height="150px"
+              @click="generarOrdenI"
+            >
+              Generar Orden In.
+              <v-icon size="100" class="icon-center">mdi-account-details</v-icon>
+            </v-btn>
+          </v-col>
+        </v-row>
+        <v-row class="btns" justify="flex-end" wrap>
+          <!-- Tercera fila de botones -->
+          <v-col cols="12" sm="6" md="4" lg="3" xl="2" class="ml-auto">
+            <v-btn
+              depressed
+              color="blue darken-4"
+              dark
+              class="mx-2 rounded-pill btn-wide"
+              x-large
+              block
+              height="130px"
+              @click="asignarTecnico"
+            >
+              Asignar Técnico
+              <v-icon size="100" class="icon-center">mdi-account-details</v-icon>
+            </v-btn>
+          </v-col>
+          <v-col cols="12" sm="6" md="4" lg="3" xl="2">
+            <v-btn
+              depressed
+              color="blue darken-4"
+              dark
+              class="mx-2 rounded-pill btn-wide"
+              x-large
+              block
+              height="130px"
+              @click="registrarMateriales"
+            >
+              Registrar Materiales
+              <v-icon size="100" class="icon-center">mdi-account-details</v-icon>
+            </v-btn>
+          </v-col>
+          <v-col cols="12" sm="6" md="4" lg="3" xl="2">
+            <v-btn
+              depressed
+              color="blue darken-4"
+              dark
+              class="mx-2 rounded-pill btn-wide"
+              x-large
+              block
+              height="130px"
+              @click="generarOrdenH"
+            >
               Generar Orden H
-              <v-icon class="mx-1">mdi-account-details</v-icon>
+              <v-icon size="100" class="icon-center">mdi-account-details</v-icon>
             </v-btn>
+          </v-col>
+        </v-row>
+        <!-- Resto de las filas de botones -->
+        <v-row class="btns" justify="flex-end" wrap>
+          <v-col cols="12" sm="6" md="4" lg="3" xl="2" class="ml-auto">
             <v-btn
               depressed
-              color="primary"
-              class="mx-2"
+              color="blue darken-4"
+              dark
+              class="mx-2 rounded-pill btn-wide"
               x-large
-              @click="asignarHabilitador">
+              block
+              height="130px"
+              @click="asignarHabilitador"
+            >
               Asignar Habilitador
-              <v-icon class="mx-1">mdi-account-details</v-icon>
             </v-btn>
+          </v-col>
+          <v-col cols="12" sm="6" md="4" lg="3" xl="2">
             <v-btn
               depressed
-              color="primary"
-              class="mx-2"
+              color="blue darken-4"
+              dark
+              class="mx-2 rounded-pill btn-wide"
               x-large
-              @click="reportes">
-              Reportes
-              <v-icon class="mx-1">mdi-account-details</v-icon>
+              block
+              height="130px"
+              @click="reportes"
+            >
+              <v-icon size="100" class="icon-center">mdi-account-details</v-icon>
+              <span class="btn-text">Reportes</span>
             </v-btn>
-          </v-flex>
+          </v-col>
         </v-row>
       </v-container>
     </div>
   </div>
 </template>
+
 <script>
 export default {
   methods: {
@@ -158,17 +228,22 @@ export default {
   },
 };
 </script>
+
 <style>
 .btn-container {
-  margin-top: 20px;
+  margin-top: 50px;
 }
 
 .btns {
-  display: flex;
-  flex-wrap: wrap;
+  margin-bottom: 20px;
 }
 
-.btns .mx-2 {
-  margin-bottom: 5px;
+.btn-wide {
+  max-width: 50px;
+}
+
+.icon-center {
+  margin: auto;
+  display: block;
 }
 </style>
