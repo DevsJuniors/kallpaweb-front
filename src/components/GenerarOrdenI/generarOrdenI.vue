@@ -5,9 +5,13 @@
             <v-spacer></v-spacer>
             <v-icon>mdi-account-circle</v-icon>
         </v-app-bar>
+        <v-content>
         <form name="generarOrden" @submit.prevent="createOrdenI">
+        <div class="spacer"></div>
         <h2 style="text-align: center;">Generar Orden de Instalación</h2> 
-         <div class=" orden">
+        <div class=" orden">
+        <div class="contenedor-cajas my-4">
+        
             <v-text-field
                 label="Número de orden"
                 placeholder=""
@@ -28,6 +32,7 @@
                 :disabled="!TextFieldAble"
                 v-model="frmOrdenI.IDEtapa"
                 ></v-text-field>
+              </div> 
            <h3> Datos Generales </h3>
             <div class="contenedor-cajas my-4">
                 <v-text-field
@@ -48,7 +53,6 @@
                 color="green"
                 @input="handleDateSelection"
                 ></v-date-picker>
-                
             </div>
             <h3> Datos del Técnico </h3>
             <div class="contenedor-cajas my-4">
@@ -112,9 +116,20 @@
         </v-dialog>
 
         </form>
+      </v-content>
+        <v-footer class="green lighten white--text">
+      <span  class="custom-text">&copy; 2023 Kallpa Contrasitas y Suministros S.A.C. Todos los derechos reservados.</span>
+    </v-footer>
     </div>
 </template>
 <style>
+.spacer {
+  margin-top: 20px; /* Ajusta la cantidad de espacio según tus necesidades */
+}
+
+.custom-text {
+  font-size: 12px; /* Modifica el tamaño de letra según tus necesidades */
+}
 .orden {
   margin: 2px;
   max-width: 30%;

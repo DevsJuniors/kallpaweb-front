@@ -6,8 +6,10 @@
             <v-icon>mdi-account-circle</v-icon>
         </v-app-bar>
         <form name="generarOrdenH" @submit.prevent="createOrdenH">
+        <div class="spacer"></div>
         <h2 style="text-align: center;">Generar Orden de Habilitación</h2> 
          <div class=" orden">
+          <div class="contenedor-cajas my-4">
             <v-text-field
                 label="Número de orden"
                 placeholder=""
@@ -28,6 +30,7 @@
                 :disabled="!TextFieldAble"
                 v-model="frmOrdenH.IDEtapa"
                 ></v-text-field>
+              </div>
            <h3> Datos Generales </h3>
             <div class="contenedor-cajas my-4">
                 <v-text-field
@@ -110,11 +113,16 @@
               </v-card-actions>
             </v-card>
         </v-dialog>
-
         </form>
+        <v-footer class="green lighten white--text">
+      <span  class="custom-text">&copy; 2023 Kallpa Contrasitas y Suministros S.A.C. Todos los derechos reservados.</span>
+    </v-footer>
     </div>
 </template>
 <style>
+.spacer {
+  margin-top: 20px; /* Ajusta la cantidad de espacio según tus necesidades */
+}
 .orden {
   margin: 2px;
   max-width: 30%;

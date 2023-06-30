@@ -12,8 +12,8 @@ export default {
           TextFieldAble: false,
           search: '',
           loading: false,
-        search: "",
-        tecnicos: [],
+          search: "",
+          tecnicos: [],
       };
     },
     computed: {
