@@ -133,7 +133,7 @@ export default {
             console.log(valorCampo1)
             localStorage.removeItem("valorCampo1"); // Opcional: eliminar el valor almacenado
           }
-     },
+          },
   }, 
 
 };
