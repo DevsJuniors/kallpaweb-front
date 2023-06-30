@@ -74,7 +74,7 @@ export default {
     },
 
     reporteContrato() {
-      this.$router.push("/reportes/contrato");
+      this.$router.push("/reportes/contratos");
     },
     reporteCliente() {
       this.$router.push("/reportes/clientes");
