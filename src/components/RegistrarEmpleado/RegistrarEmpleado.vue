@@ -9,21 +9,23 @@
     <form name="registrarEmpleado" @submit.prevent="createEmpleado">
       <div class="empleado">
       
-        <h2 class = "black--text">DATOS GENERALES DEL EMPLEADO</h2>
+        <h2 class = "blue--text">DATOS GENERALES DEL EMPLEADO</h2>
 
-        <v-card class="mx-auto px-6 py-8" max-width="400">
-        
+        <v-card class="mx-auto px-6 py-6" max-width="400" variant="outlined">
+
         
         <v-text-field
           label="DNI"
           placeholder="Ingresa el IDGenero"
           filled
           v-model="frmEmpleado.DNI_Em"></v-text-field>
+        
         <v-text-field
           label="Nombre"
           placeholder="Ingresa Nombre"
           filled
           v-model="frmEmpleado.Nombre_Em"></v-text-field>
+
         <v-text-field
           label="Apellido"
           placeholder="Ingresa Apellido"
@@ -34,18 +36,25 @@
           placeholder="Ingresa su numero de celular"
           filled
           v-model="frmEmpleado.Celular_Em"></v-text-field>
+        
           <v-select
           v-model="selectedCategoria"
           :items="categorias.map((categoria) => categoria.Cargo_CE)"
           label="Selecciona la categoria del Empleado"
           outlined
          ></v-select>
+         
          </v-card>
+         
         <div>
+
+        
+        <v-card-actions class="px-3 pb-3">
           <v-btn type="submit" class="button-1 mt-2" depressed color="primary">
             REGISTRAR
             <v-icon  class="mx-1">mdi-account-badge-outline</v-icon>
           </v-btn>
+        
           <v-btn
               depressed
               color="primary"
@@ -54,6 +63,8 @@
               Atras
               <v-icon class="mx-1">mdi-keyboard-backspace</v-icon>
             </v-btn>
+            
+            <v-flex text-ms-right>
             <v-btn
               depressed
               color="primary"
@@ -62,13 +73,23 @@
               Limpiar
               <v-icon class="mx-1">mdi-backup-restore</v-icon>
       </v-btn>
-
-
+      </v-flex>
+            <v-btn 
+            type="submit" 
+            class="button-1 mt-2" 
+            depressed color="primary">
+              AGREGAR CREDENCIALES
+            <v-icon class="mx-1">mdi-badge-account-horizontal</v-icon>
+            </v-btn>
+        </v-card-actions> 
+        
+        
           <form name="credencialesEmpleado" @submit.prevent="createCredenciales">
             <div class="credenciales">
             <v-card-text>
-              <p class="text-xl-left"><h2 class = "black--text">CREDENCIALES DEL EMPLEADO</h2></p>
+              <p class="text-xl-left"><h2 class = "blue--text">CREDENCIALES DEL EMPLEADO</h2></p>
             </v-card-text>
+
             <v-card class="mx-auto px-6 py-8" max-width="400">
               
               <v-text-field
@@ -92,10 +113,7 @@
             </div>
             
             
-            <v-btn type="submit" class="button-1 mt-2" depressed color="primary">
-              AGREGAR CREDENCIALES
-              <v-icon class="mx-1">mdi-badge-account-horizontal</v-icon>
-            </v-btn>
+            
             
             
           </form>
