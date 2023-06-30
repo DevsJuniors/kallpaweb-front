@@ -15,6 +15,7 @@
                 label="ID Contrato"
                 placeholder=""
                 filled
+                :disabled="!TextFieldAble"
                 style="color: white"
                 v-model="frmMateriales.IDContrato"></v-text-field>
               <v-text-field
@@ -29,6 +30,7 @@
                 label="ID Etapa"
                 placeholder=""
                 filled
+                :disabled="!TextFieldAble"
                 style="color: white"
                 v-model="frmMateriales.IDEtapa"></v-text-field>
                 </div>

@@ -4,7 +4,7 @@ export default{
         return {
             frmOrdenI: {
                 IDContrato:"",
-                IDEtapa:"",
+                IDEtapa:"1",
                 DNI_Em: "", 
                 Fecha_Et:"",
                 Nom_Tecnico: "",
@@ -17,13 +17,36 @@ export default{
             mensaje: "",
             TextFieldAble: false,
             selectedDate: null,
+            selectedEtapa: "Construcción",
+              etapas:[],
         }
     },
+
+    watch:{
+      selectedEtapa(P){
+        if(P){
+         const etapa = this.etapas.find((etapa) => etapa.Descripcion_Et===P);
+         this.frmOrdenH.IDEtapa =etapa.IDEtapa;
+        }
+     },
+    },
+
     created() {
         this.handleDateSelection();
         this.obtenerDato();
+        this.getEtapa();
+        this.llenarNumO();
     },
+
     methods:{
+        getEtapa() {
+          this.axios
+            .get("http://localhost:3000/etapa")
+            .then((res) => {
+              this.etapas = res.data;
+            })
+            .catch((error) => e);
+       },
        createOrdenI(){
         this.axios
         .post("http://localhost:3000/etapa-contrato",this.frmOrdenI)
@@ -83,5 +106,9 @@ export default{
         localStorage.setItem("valor2", valor2);
         localStorage.setItem("valor3", valor3);
       },
+      llenarNumO(){
+        var numeroAleatorio = Math.floor(Math.random() * (2000 - 1000 + 1)) + 1000;
+        this.frmOrdenI.numOrden= numeroAleatorio;
+      }
     }
 }

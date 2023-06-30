@@ -12,12 +12,20 @@
                 label="Número de orden"
                 placeholder=""
                 filled
+                :disabled="!TextFieldAble"
                 v-model="frmOrdenI.numOrden"
                 ></v-text-field>
+            <v-select
+                v-model="selectedEtapa"
+                :items="etapas.map((etapa) => etapa.Descripcion_Et)"
+                label="Selecciona la Etapa"
+                outlined
+            ></v-select>
             <v-text-field
                 label="ID Etapa"
                 placeholder=""
                 filled
+                :disabled="!TextFieldAble"
                 v-model="frmOrdenI.IDEtapa"
                 ></v-text-field>
            <h3> Datos Generales </h3>
