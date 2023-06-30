@@ -1,9 +1,19 @@
 <template>
   <div>
+  <v-app-bar color="green accent-4" dense dark>
+      <v-toolbar-title>KALLPA</v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-icon>mdi-account-circle</v-icon>
+    </v-app-bar>
+
     <form name="registrarEmpleado" @submit.prevent="createEmpleado">
       <div class="empleado">
-        <h2>DATOS GENERALES DEL EMPLEADO</h2>
-        <br />
+      
+        <h2 class = "black--text">DATOS GENERALES DEL EMPLEADO</h2>
+
+        <v-card class="mx-auto px-6 py-8" max-width="400">
+        
+        
         <v-text-field
           label="DNI"
           placeholder="Ingresa el IDGenero"
@@ -30,6 +40,7 @@
           label="Selecciona la categoria del Empleado"
           outlined
          ></v-select>
+         </v-card>
         <div>
           <v-btn type="submit" class="button-1 mt-2" depressed color="primary">
             REGISTRAR
@@ -51,16 +62,21 @@
               Limpiar
               <v-icon class="mx-1">mdi-backup-restore</v-icon>
       </v-btn>
-          <form
-            name="credencialesEmpleado"
-            @submit.prevent="createCredenciales">
+
+
+          <form name="credencialesEmpleado" @submit.prevent="createCredenciales">
             <div class="credenciales">
-              <h2>CREDENCIALES DEL EMPLEADO</h2>
+            <v-card-text>
+              <p class="text-xl-left"><h2 class = "black--text">CREDENCIALES DEL EMPLEADO</h2></p>
+            </v-card-text>
+            <v-card class="mx-auto px-6 py-8" max-width="400">
+              
               <v-text-field
                 label="DNI EMPLEADO"
                 placeholder="Ingresa el DNI del Empleado"
                 filled
                 v-model="frmCredenciales.DNI_Em"></v-text-field>
+              
               <v-text-field
                 label="Nombre de Usuario"
                 placeholder="Ingresa un nombre de usuario"
@@ -71,11 +87,17 @@
                 placeholder="Ingresa una contraseña"
                 filled
                 v-model="frmCredenciales.contraseña"></v-text-field>
+            
+            </v-card>
             </div>
+            
+            
             <v-btn type="submit" class="button-1 mt-2" depressed color="primary">
               AGREGAR CREDENCIALES
               <v-icon class="mx-1">mdi-badge-account-horizontal</v-icon>
             </v-btn>
+            
+            
           </form>
         </div>
       </div>
