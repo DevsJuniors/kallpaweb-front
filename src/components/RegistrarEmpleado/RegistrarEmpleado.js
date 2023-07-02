@@ -127,9 +127,9 @@ mounted() {
       if (categoria) {
         var cargo = categoria.Cargo_CE;
         return cargo;
-      } else {
+    } else {
         return null; // o algún valor predeterminado si la categoría no se encuentra
-      }
+    }
     },
     volverMenu() {
       this.$router.push("/menu");
