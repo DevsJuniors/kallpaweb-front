@@ -1,190 +1,302 @@
 <template>
   <div>
-    <v-app-bar color="green accent-4" dense dark>
-      <v-toolbar-title>KALLPA</v-toolbar-title>
+    <v-app-bar color="white" dense dark height="80">
+      <v-toolbar-title>
+        <v-img
+          src="../Img/Kallpa.png"
+          max-height="300"
+          max-width="200"
+          class="kallpa-image"
+        ></v-img>
+      </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-icon>mdi-account-circle</v-icon>
+      <v-img
+        src="../Img/usuario (3).png"
+        max-height="100"
+        max-width="50"
+      ></v-img>
     </v-app-bar>
+    <v-footer color="#33cc33" app height="60">
+      <v-row align="center" justify="center">
+        <v-col cols="12" class="text-center white--text">
+          &copy; 2023 KALLPA. Todos los derechos reservados.
+        </v-col>
+      </v-row>
+    </v-footer>
+    <v-container>
+      <h1 class="titulo-bienvenido texto-derecha">
+        <span class="border">¿Qué acción realizaremos?</span>
+      </h1>
+    </v-container>
     <div class="btn-container">
-      <v-container fluid>
-        <v-row class="btns" justify="flex-end" wrap>
-          <!-- Primera fila de botones -->
-          <v-col cols="12" sm="6" md="4" lg="3" xl="2" class="ml-auto">
-            <v-btn
-              depressed
-              color="blue darken-4"
-              dark
-              class="mx-2 rounded-pill btn-wide"
-              x-large
-              block
-              height="130px"
-              @click="registrarEmpleado"
-            >
-              <v-img
-              src="../../assets/Regis.png"
+      <v-row class="justify-end flex-wrap" wrap >
+        <!-- BOTON REGISTRAR EMPLEADO 1 -->
+        <v-col cols="6" md="3" class="offset-md-6 text-right">
+          <v-btn
+            color="blue darken-4"
+            dark
+            fab
+            class="rounded-pill"
+            x-large
+            block
+            depressed
+            height="90px"
+            elevation="13"
+            width="40px"
+            @click="registrarEmpleado"
+          >
+            <v-img
+              src="../Img/registro (2).png"
+              max-height="100"
+              max-width="60"
+              class="icon-center"
             ></v-img>
-            </v-btn>
-          </v-col>
-          <v-col cols="12" sm="6" md="4" lg="3" xl="2">
-            <v-btn
-              depressed
-              color="blue darken-4"
-              dark
-              class="mx-2 rounded-pill btn-wide"
-              x-large
-              block
-              height="130px"
-              @click="registrarCliente"
-            >
-              Registrar Cliente
-              <v-icon size="100" class="icon-center">mdi-account-plus</v-icon>
-            </v-btn>
-          </v-col>
-          <v-col cols="12" sm="6" md="4" lg="3" xl="2">
-            <v-btn
-              depressed
-              color="blue darken-4"
-              dark
-              class="mx-2 rounded-pill btn-wide"
-              x-large
-              block
-              height="130px"
-              @click="registrarContrato"
-            >
-              Registrar Contrato
-              <v-icon size="100" class="icon-center">mdi-file-sign</v-icon>
-            </v-btn>
-          </v-col>
-        </v-row>
-        <v-row class="btns" justify="flex-end" wrap>
-          <!-- Segunda fila de botones -->
-          <v-col cols="12" sm="6" md="4" lg="3" xl="2" class="ml-auto">
-            <v-btn
-              depressed
-              color="blue darken-4"
-              dark
-              class="mx-2 rounded-pill btn-wide"
-              x-large
-              block
-              height="130px"
-              @click="consultarCliente"
-            >
-              Consultar Cliente
-              <v-icon size="100" class="icon-center">mdi-account-search</v-icon>
-            </v-btn>
-          </v-col>
-          <v-col cols="12" sm="6" md="4" lg="3" xl="2">
-            <v-btn
-              depressed
-              color="blue darken-4"
-              dark
-              class="mx-2 rounded-pill btn-wide"
-              x-large
-              block
-              height="150px"
-              @click="evaluarContrato"
-            >
-              Evaluar Contrato
-              <v-icon size="100" class="icon-center">mdi-file-eye</v-icon>
-            </v-btn>
-          </v-col>
-          <v-col cols="12" sm="6" md="4" lg="3" xl="2">
-            <v-btn
-              depressed
-              color="blue darken-4"
-              dark
-              class="mx-2 rounded-pill btn-wide"
-              x-large
-              block
-              height="150px"
-              @click="generarOrdenI"
-            >
-              Generar Orden In.
-              <v-icon size="100" class="icon-center">mdi-account-details</v-icon>
-            </v-btn>
-          </v-col>
-        </v-row>
-        <v-row class="btns" justify="flex-end" wrap>
-          <!-- Tercera fila de botones -->
-          <v-col cols="12" sm="6" md="4" lg="3" xl="2" class="ml-auto">
-            <v-btn
-              depressed
-              color="blue darken-4"
-              dark
-              class="mx-2 rounded-pill btn-wide"
-              x-large
-              block
-              height="130px"
-              @click="asignarTecnico"
-            >
-              Asignar Técnico
-              <v-icon size="100" class="icon-center">mdi-account-details</v-icon>
-            </v-btn>
-          </v-col>
-          <v-col cols="12" sm="6" md="4" lg="3" xl="2">
-            <v-btn
-              depressed
-              color="blue darken-4"
-              dark
-              class="mx-2 rounded-pill btn-wide"
-              x-large
-              block
-              height="130px"
-              @click="registrarMateriales"
-            >
-              Registrar Materiales
-              <v-icon size="100" class="icon-center">mdi-account-details</v-icon>
-            </v-btn>
-          </v-col>
-          <v-col cols="12" sm="6" md="4" lg="3" xl="2">
-            <v-btn
-              depressed
-              color="blue darken-4"
-              dark
-              class="mx-2 rounded-pill btn-wide"
-              x-large
-              block
-              height="130px"
-              @click="generarOrdenH"
-            >
-              Generar Orden H
-              <v-icon size="100" class="icon-center">mdi-account-details</v-icon>
-            </v-btn>
-          </v-col>
-        </v-row>
-        <!-- Resto de las filas de botones -->
-        <v-row class="btns" justify="flex-end" wrap>
-          <v-col cols="12" sm="6" md="4" lg="3" xl="2" class="ml-auto">
-            <v-btn
-              depressed
-              color="blue darken-4"
-              dark
-              class="mx-2 rounded-pill btn-wide"
-              x-large
-              block
-              height="130px"
-              @click="asignarHabilitador"
-            >
-              Asignar Habilitador
-            </v-btn>
-          </v-col>
-          <v-col cols="12" sm="6" md="4" lg="3" xl="2">
-            <v-btn
-              depressed
-              color="blue darken-4"
-              dark
-              class="mx-2 rounded-pill btn-wide"
-              x-large
-              block
-              height="130px"
-              @click="reportes"
-            >
-              <v-icon size="100" class="icon-center">mdi-account-details</v-icon>
-              <span class="btn-text">Reportes</span>
-            </v-btn>
-          </v-col>
-        </v-row>
-      </v-container>
+            <span class="">Registrar Empleado</span>
+          </v-btn>
+        </v-col>
+        <!-- BOTON REGISTRAR CLIENTE 2-->
+        <v-col cols="6" md="3">
+          <v-btn
+            color="blue darken-4"
+            dark
+            fab
+            class="rounded-pill"
+            x-large
+            block
+            depressed
+            height="90px"
+            elevation="13"
+            width="40px"
+            @click="registrarCliente"
+          >
+            <v-img
+              src="../Img/registrarse.png"
+              max-height="100"
+              max-width="70"
+              class="icon-center"
+            ></v-img>
+            <span class="">Registrar Cliente</span>
+          </v-btn>
+        </v-col>
+        <!-- BOTON REGISTRAR CONTRATO 1-->
+        <v-col cols="6" md="3" class="offset-md-6 text-right">
+          <v-btn
+            color="blue darken-4"
+            dark
+            fab
+            class="rounded-pill"
+            x-large
+            block
+            depressed
+            height="90px"
+            elevation="13"
+            width="40px"
+            @click="registrarContrato"
+          >
+            <v-img
+              src="../Img/contrato (3).png"
+              max-height="100"
+              max-width="60"
+              class="icon-center"
+            ></v-img>
+            <span class="">Registrar Contrato</span>
+          </v-btn>
+        </v-col>
+        <!-- BOTON CONSULTAR CONTRATO 2 -->
+        <v-col cols="6" md="3">
+          <v-btn
+            color="blue darken-4"
+            dark
+            fab
+            class="rounded-pill"
+            x-large
+            block
+            depressed
+            height="90px"
+            elevation="13"
+            width="40px"
+            @click="consultarContrato"
+          >
+            <v-img
+              src="../Img/buscar (1).png"
+              max-height="100"
+              max-width="70"
+              class="icon-center"
+            ></v-img>
+            <span class="">Consultar Contrato</span>
+          </v-btn>
+        </v-col>
+        <!-- BOTON EVALUAR CONTRATO 1-->
+        <v-col cols="6" md="3" class="offset-md-6 text-right">
+          <v-btn
+            color="blue darken-4"
+            dark
+            fab
+            class="rounded-pill"
+            x-large
+            block
+            depressed
+            height="90px"
+            elevation="13"
+            width="40px"
+            @click="evaluarContrato"
+          >
+            <v-img
+              src="../Img/evaluacion.png"
+              max-height="100"
+              max-width="70"
+              class="icon-center"
+            ></v-img>
+            <span class="">Evaluar Contrato</span>
+          </v-btn>
+        </v-col>
+
+        <!-- BOTON GENERAR ORDEN DE INSTALACION 2 -->
+        <v-col cols="6" md="3">
+          <v-btn
+            color="blue darken-4"
+            dark
+            fab
+            class="rounded-pill"
+            x-large
+            block
+            depressed
+            height="90px"
+            elevation="13"
+            width="40px"
+            @click="generarOrdenInstalacion"
+          >
+            <v-img
+              src="../Img/contrato (2).png"
+              max-height="100"
+              max-width="70"
+              class="icon-center"
+            ></v-img>
+            <span class="">Generar Orden de I.</span>
+          </v-btn>
+        </v-col>
+        <!-- BOTON ASIGNAR TECNICO 1 -->
+        <v-col cols="6" md="3" class="offset-md-6 text-right">
+          <v-btn
+            color="blue darken-4"
+            dark
+            fab
+            class="rounded-pill"
+            x-large
+            block
+            depressed
+            height="90px"
+            elevation="13"
+            width="40px"
+            @click="asignarTecnico"
+          >
+            <v-img
+              src="../Img/seleccion.png"
+              max-height="100"
+              max-width="60"
+              class="icon-center"
+            ></v-img>
+            <span class="">Asignar Técnico</span>
+          </v-btn>
+        </v-col>
+
+        <!-- BOTON REGISTRAR MATERIALES 2 -->
+        <v-col cols="6" md="3">
+          <v-btn
+            color="blue darken-4"
+            dark
+            fab
+            class="rounded-pill"
+            x-large
+            block
+            depressed
+            height="90px"
+            elevation="13"
+            width="40px"
+            @click="registrarMateriales"
+          >
+            <v-img
+              src="../Img/materiales (1).png"
+              max-height="100"
+              max-width="60"
+              class="icon-center"
+            ></v-img>
+            <span class="">Registrar Materiales</span>
+          </v-btn>
+        </v-col>
+        <!-- BOTON GENERAR ORDEN H -->
+        <v-col cols="6" md="3" class="offset-md-6 text-right">
+          <v-btn
+            color="blue darken-4"
+            dark
+            fab
+            class="rounded-pill"
+            x-large
+            block
+            depressed
+            height="90px"
+            elevation="13"
+            width="40px"
+            @click="generarOrdenH"
+          >
+            <v-img
+              src="../Img/controlador.png"
+              max-height="100"
+              max-width="60"
+              class="icon-center"
+            ></v-img>
+            <span class="">Generar Orden H</span>
+          </v-btn>
+        </v-col>
+        <!-- BOTON ASIGNAR HABILITADOR -->
+        <v-col cols="6" md="3">
+          <v-btn
+            color="blue darken-4"
+            dark
+            fab
+            class="rounded-pill"
+            x-large
+            block
+            depressed
+            height="90px"
+            elevation="13"
+            width="40px"
+            @click="asignarHabilitador"
+          >
+            <v-img
+              src="../Img/lista-de-verificacion.png"
+              max-height="100"
+              max-width="60"
+              class="icon-center"
+            ></v-img>
+            <span class="">Asignar Habilitador</span>
+          </v-btn>
+        </v-col>
+        <!-- BOTON ASIGNAR REPORTES -->
+        <v-col cols="6" md="3" class="offset-md-6 text-right">
+          <v-btn
+            color="blue darken-4"
+            dark
+            fab
+            class="rounded-pill"
+            x-large
+            block
+            depressed
+            height="90px"
+            elevation="13"
+            width="40px"
+            @click="reportes"
+          >
+            <v-img
+              src="../Img/reporte (1).png"
+              max-height="100"
+              max-width="60"
+              class="icon-center"
+            ></v-img>
+            <span class="">Reportes</span>
+          </v-btn>
+        </v-col>
+      </v-row>
     </div>
   </div>
 </template>
@@ -230,20 +342,57 @@ export default {
 </script>
 
 <style>
-.btn-container {
-  margin-top: 50px;
+.texto-derecha{
+  text-align: right;
 }
 
-.btns {
-  margin-bottom: 20px;
+.kallpa-image {
+  margin-top: 35px;
 }
 
+.titulo-bienvenido {
+  font-size: 32px;
+  font-family: Sans-serif ;
+  color: rgb(252, 252, 252);
+}
+
+.texto-encima {
+    position: absolute;
+    top: 2;
+    left: 0;
+    right: 5;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente para legibilidad */
+    padding: 2px;
+    z-index: 1; /* Asegura que el texto esté por encima de los botones */
+  }
+
+  /* Estilos para los botones */
+  .btn-container {
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    /* Agrega margen superior para separar el texto de los botones si lo deseas */
+    margin-top: 40px;
+  }
 .btn-wide {
-  max-width: 50px;
+  width: 20px; 
+  margin-left: auto;
 }
 
-.icon-center {
-  margin: auto;
-  display: block;
-}
+.border {
+    background-color: #33cc33 ;
+    border: 3px solid #33cc33;
+    padding: 10px;
+    display: inline-block;
+    border-radius: 25px;
+  }
+  
 </style>
+
+
+
+
+
+
