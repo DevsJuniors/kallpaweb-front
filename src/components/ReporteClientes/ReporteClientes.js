@@ -55,22 +55,7 @@ export default {
         })
         .catch((error) => console.log("Error al obtener clientes" + error));
     },
-    filtrarClientesPorEstrato() {
-      this.clientesFiltrados = this.clientes.filter((cliente) => {
-        const domicilio = cliente.domicilio;
-        return domicilio && domicilio.IDEstrato === this.estratoSeleccionado;
-      });
 
-      this.cantidadClientesEncontrados = this.clientesFiltrados.length;
-    },
-    filtrarClientesPorDistrito() {
-      this.clientesFiltrados = this.clientes.filter((cliente) => {
-        const domicilio = cliente.domicilio;
-        return domicilio && domicilio.IDDistrito === this.distritoSeleccionado;
-      });
-
-      this.cantidadClientesEncontrados = this.clientesFiltrados.length;
-    },
     generarReporte() {
       Promise.all([this.obtenerDistritos()])
         .then(() => {

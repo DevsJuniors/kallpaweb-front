@@ -5,22 +5,10 @@
         <v-card outlined class="max-width-400">
           <v-card-title>Filtros</v-card-title>
           <v-card-text>
-            <p>Seleccione Distrito</p>
-            <v-combobox
-              v-model="distritoSeleccionado"
-              :items="distritos"
-              item-text="Nombre_Di"
-              item-value="IDDistrito"
-              label="Distrito"
-              clearable
-              solo></v-combobox>
             <p>Fecha</p>
             <v-row>
-              <v-col cols="12" sm="10">
+              <v-col cols="12" sm="12">
                 <v-date-picker v-model="start"></v-date-picker>
-              </v-col>
-              <v-col cols="12" sm="10">
-                <v-date-picker v-model="end"></v-date-picker>
               </v-col>
             </v-row>
             <p>Empleado</p>
@@ -28,13 +16,15 @@
               v-model="empleadoSeleccionado"
               :items="empleados"
               item-text="Nombre_Em"
-              item-value="DNI_Em"
+              item-value="IDCategoria"
               label="Seleccionar Empleado"
               clearable
               solo></v-combobox>
           </v-card-text>
           <v-card-actions>
-            <v-btn color="primary">Generar Reporte</v-btn>
+            <v-btn color="primary" @click="generarReporte"
+              >Generar Reporte</v-btn
+            >
             <v-btn color="primary">Atras</v-btn>
           </v-card-actions>
         </v-card>
@@ -45,7 +35,11 @@
         <v-card outlined class="reporte">
           <v-card-title>Reporte de Clientes</v-card-title>
           <v-card-text>
-            <textarea rows="20" cols="50" disabled></textarea>
+            <textarea
+              rows="20"
+              cols="50"
+              disabled
+              v-model="reporteOrdenes"></textarea>
           </v-card-text>
         </v-card>
       </v-container>

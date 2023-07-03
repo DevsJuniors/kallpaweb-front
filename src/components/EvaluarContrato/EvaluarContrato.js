@@ -96,7 +96,7 @@ export default {
           })
           .then((response) => {
             console.log(
-              "Estado del contrato actualizado exitosamente" + response
+              "Estado del contrato actualizado exitosamente" + this.estado
             );
             // Puedes realizar acciones adicionales después de la actualización exitosa
           })
