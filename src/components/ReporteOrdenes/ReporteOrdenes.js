@@ -26,7 +26,7 @@ export default {
         .get("http://localhost:3000/empleado")
         .then((response) => {
           this.empleados = response.data.filter(
-            (empleado) => empleado.IDCategoria === 1
+            (empleado) => empleado.IDCategoria != 1
           );
         })
         .catch((error) =>
@@ -43,25 +43,48 @@ export default {
     },
     generarReporte() {
       const detalleEtapa = this.detalleEtapaMaterial;
+      const empleadoSeleccionado = this.empleadoSeleccionado;
+      const fechaSeleccionada = this.start;
 
-      console.log(detalleEtapa); // Verificar los datos en detalleEtapa
+      let detalleFiltrado = detalleEtapa;
 
-      let contenidoReporte = `Reporte de las Ordenes: \n\n `;
-      detalleEtapa.forEach((detalle) => {
-        contenidoReporte += `\n----------------------------------------------------------------------------------------
-        \n- ID Contrato : ${detalle.IDContrato}
-        ID Etapa: ${detalle.IDEtapa}
-        \n`;
+      if (fechaSeleccionada) {
+        detalleFiltrado = detalleFiltrado.filter((detalle) => {
+          const fechaEt = detalle.etapaContrato.Fecha_Et;
+          const fechaEtFormatted = fechaEt.split("T")[0]; // Obtener la parte de la fecha sin la hora
+          return fechaEtFormatted === fechaSeleccionada;
+        });
+      }
 
+      if (empleadoSeleccionado) {
+        detalleFiltrado = detalleFiltrado.filter((detalle) => {
+          const empSeleccionado = detalle.etapaContrato.DNI_Em;
+          console.log("Soy el emp seleccionado" + empSeleccionado);
+          return this.empleadoSeleccionado === empSeleccionado;
+        });
+        console.log("detalle filtrado de empleado " + detalleFiltrado);
+      }
+
+      console.log(detalleFiltrado); // Verificar los datos en detalleFiltrado
+
+      let contenidoReporte = `Reporte de las Ordenes: \n\n`;
+
+      detalleFiltrado.forEach((detalle) => {
         const etapaContrato = detalle.etapaContrato;
-        contenidoReporte += `- DNI Empleado: ${etapaContrato.DNI_Em}
-        Fecha: ${etapaContrato.Fecha_Et}\n`;
-
         const materiales = detalle.materiales;
+
+        contenidoReporte += `\n----------------------------------------------------------------------------------------
+          \n- ID Contrato : ${detalle.IDContrato}
+          ID Etapa: ${detalle.IDEtapa}
+          \n`;
+
+        contenidoReporte += `- DNI Empleado: ${etapaContrato.DNI_Em}
+          Fecha: ${etapaContrato.Fecha_Et}\n`;
+
         contenidoReporte += `IDMateriales: ${detalle.IDMateriales}
-        - Nombre Material : ${materiales.Nombre_Ma}
-        - Unidad de Medida : ${materiales.UnidadMedida_Ma}
-        - Cantidad : ${detalle.Cantidad_De}`;
+          - Nombre Material : ${materiales.Nombre_Ma}
+          - Unidad de Medida : ${materiales.UnidadMedida_Ma}
+          - Cantidad : ${detalle.Cantidad_De}`;
       });
 
       this.reporteOrdenes = contenidoReporte;

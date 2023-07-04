@@ -16,7 +16,7 @@
               v-model="empleadoSeleccionado"
               :items="empleados"
               item-text="Nombre_Em"
-              item-value="IDCategoria"
+              item-value="DNI_Em"
               label="Seleccionar Empleado"
               clearable
               solo></v-combobox>
