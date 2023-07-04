@@ -61,7 +61,9 @@ export default {
       this.axios
         .get("http://localhost:3000/contrato")
         .then((response) => {
-          this.contratos = response.data;
+          this.contratos = response.data.filter(
+            (contrato) => contrato.estado != "Aprobado"
+          );
         })
         .catch((error) =>
           console.error("Error al obtener los datos de los contratos : ", error)

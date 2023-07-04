@@ -6,6 +6,8 @@ export default {
       end: null,
       start: null,
       conteoContratos: {},
+      fechas: [],
+      cantidad: [],
     };
   },
   watch: {
@@ -39,11 +41,35 @@ export default {
         const start = new Date(this.start);
         const end = new Date(this.end);
         const contratoFecha = new Date(contrato.Fecha_Con);
-        return contratoFecha >= start && contratoFecha <= end;
+        this.cantidad = contratoFecha;
+        return contratoFecha >= start && contratoFecha <= end && this.cantidad;
       });
     },
   },
   methods: {
+    contarContratos() {
+      // Obtener los contratos dentro del rango de fechas
+      const contratosFiltrados = this.contratos.filter((contrato) => {
+        const fechaContrato = new Date(contrato.Fecha_Con);
+        return fechaContrato >= this.start && fechaContrato <= this.end;
+      });
+
+      // Obtener la cantidad de contratos por fecha
+      const conteoContratos = {};
+      contratosFiltrados.forEach((contrato) => {
+        const fechaContrato = new Date(contrato.Fecha_Con).toDateString();
+        if (conteoContratos[fechaContrato]) {
+          conteoContratos[fechaContrato]++;
+        } else {
+          conteoContratos[fechaContrato] = 1;
+        }
+      });
+
+      // Convertir los datos en un formato adecuado para VSparkline
+      this.fechas = Object.keys(conteoContratos);
+      this.cantidad = this.fechas.map((fecha) => conteoContratos[fecha]);
+    },
+
     generarReporte() {
       this.conteoContratos = this.obtenerEstadosContratos();
     },
@@ -88,5 +114,6 @@ export default {
   },
   mounted() {
     this.obtenerContratos();
+    this.contarContratos();
   },
 };
