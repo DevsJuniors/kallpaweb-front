@@ -1,6 +1,28 @@
+import { Bar } from "vue-chartjs";
+import {
+  Chart as ChartJS,
+  Title,
+  Tooltip,
+  Legend,
+  BarElement,
+  CategoryScale,
+  LinearScale,
+} from "chart.js";
+
+ChartJS.register(
+  Title,
+  Tooltip,
+  Legend,
+  BarElement,
+  CategoryScale,
+  LinearScale
+);
 export default {
+  name: "BarChart",
+  components: { Bar },
   data() {
     return {
+      chartKey: "",
       searchDate: "",
       contratos: [],
       end: null,
@@ -8,7 +30,26 @@ export default {
       conteoContratos: {},
       fechas: [],
       cantidad: [],
+      chartOptions: {
+        responsive: true,
+        maintainAspectRatio: false,
+        aspectRatio: 1, // Ajusta el valor según tus necesidades
+      },
+      chartData: {
+        labels: [],
+        datasets: [
+          {
+            label: "Contratos",
+            backgroundColor: "#f87979",
+            data: [],
+          },
+        ],
+      },
     };
+  },
+  mounted() {
+    this.obtenerContratos();
+    this.contarContratos();
   },
   watch: {
     start(newValue) {
@@ -42,6 +83,7 @@ export default {
         const end = new Date(this.end);
         const contratoFecha = new Date(contrato.Fecha_Con);
         this.cantidad = contratoFecha;
+        this.fetchChartData();
         return contratoFecha >= start && contratoFecha <= end && this.cantidad;
       });
     },
@@ -111,9 +153,31 @@ export default {
     menu() {
       this.$router.push("/menu");
     },
-  },
-  mounted() {
-    this.obtenerContratos();
-    this.contarContratos();
+    fetchChartData() {
+      const startDate = new Date(this.start);
+      const endDate = new Date(this.end);
+      const labels = [];
+      const currentDate = new Date(startDate);
+      const datasetData = [];
+
+      while (currentDate <= endDate) {
+        labels.push(currentDate.toLocaleDateString());
+
+        // Filtrar los contratos que corresponden a la fecha actual
+        const contractsOnDate = this.contratos.filter((contrato) => {
+          const contratoFecha = new Date(contrato.Fecha_Con);
+          return contratoFecha.toDateString() === currentDate.toDateString();
+        });
+
+        datasetData.push(contractsOnDate.length);
+
+        currentDate.setDate(currentDate.getDate() + 1);
+      }
+
+      this.chartData.labels = labels;
+      this.chartData.datasets[0].data = datasetData;
+
+      this.chartKey = Math.random().toString();
+    },
   },
 };

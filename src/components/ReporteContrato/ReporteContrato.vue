@@ -13,13 +13,7 @@
                 :label="estado"
                 :value="estado"></v-radio>
             </v-radio-group>
-            <p>Selecciona Distrito</p>
-            <v-combobox
-              v-model="distritoSeleccionado"
-              :items="distritos.map((distrito) => distrito.Nombre_Di)"
-              label="Distrito"
-              clearable
-              solo></v-combobox>
+
             <p>Fecha</p>
             <v-row>
               <v-col cols="12" sm="10">

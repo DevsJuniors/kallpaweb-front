@@ -3,8 +3,6 @@ export default {
     return {
       estadoSeleccionado: null,
       contratos: [],
-      distritos: [],
-      distritoSeleccionado: null,
       end: null,
       start: null,
       empleadoSeleccionado: null,
@@ -45,16 +43,7 @@ export default {
           console.error("Error al obtener los datos de los contratos : ", error)
         );
     },
-    obtenerDistritos() {
-      this.axios
-        .get("http://localhost:3000/distrito")
-        .then((response) => {
-          this.distritos = response.data;
-        })
-        .catch((error) =>
-          console.error("Error al obtener los distrito" + error)
-        );
-    },
+
     generarReporte() {
       const contratosFiltrados = this.contratos.filter((contrato) => {
         const empleado = contrato.empleado;
@@ -76,14 +65,12 @@ export default {
       const estadoContrato = this.estadoSeleccionado || "Todos los Estados";
       const fechaInicio = this.start || "Sin fecha de inicio";
       const fechaFin = this.end || "Sin fecha de fin";
-      const distritoSeleccionado =
-        this.distritoSeleccionado || "Todos los Distritos";
 
       let contenidoReporte = `Nombre del Asesor: ${nombreAsesor}
       Estado del Contrato: ${estadoContrato}
       Fecha de Inicio: ${fechaInicio}
       Fecha de Fin: ${fechaFin}
-      Distrito Seleccionado: ${distritoSeleccionado}
+      
       
       Contratos Encontrados: ${contratosFiltrados.length}
       
