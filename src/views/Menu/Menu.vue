@@ -23,11 +23,13 @@
         </v-col>
       </v-row>
     </v-footer>
-    <v-container>
-      <h1 class="titulo-bienvenido texto-derecha">
-        <span class="border">¿Qué acción realizaremos?</span>
-      </h1>
-    </v-container>
+    <div style="margin-top: 30px;">
+  <v-container>
+    <h1 class="titulo-bienvenido texto-derecha">
+      <span class="border">¿Qué acción realizaremos?</span>
+    </h1>
+  </v-container>
+</div>
     <div class="btn-container">
       <v-row class="justify-end flex-wrap" wrap >
         <!-- BOTON REGISTRAR EMPLEADO 1 -->
@@ -298,6 +300,30 @@
         </v-col>
       </v-row>
     </div>
+    <div class="floating-rectangle">
+      <div class="floating-rectan">
+      <div style="margin-top: 1px;">
+  <v-container>
+    <h1 class="titulo-bienvenido texto-center">
+      <span class="border-bien">¡Bienvenido!</span>
+    </h1>
+    <v-btn
+            color="blue darken-4"
+            dark
+            fab
+            class="rounded-pill"
+            x-large
+            block
+            depressed
+            height="90px"
+            elevation="13"
+            width="40px"
+            @click="reportes"
+          ></v-btn>
+  </v-container>
+    </div>
+  </div>
+    </div>
   </div>
 </template>
 
@@ -345,6 +371,9 @@ export default {
 .texto-derecha{
   text-align: right;
 }
+.texto-center{
+  text-align: center;
+}
 
 .kallpa-image {
   margin-top: 35px;
@@ -387,6 +416,40 @@ export default {
     padding: 10px;
     display: inline-block;
     border-radius: 25px;
+  }
+  .border-bien {
+    background-color: #33cc33 ;
+    border: 3px solid #33cc33;
+    padding: 10px;
+    display: fixed;
+    border-radius: 25px;
+  }
+  
+  .floating-rectangle {
+    position: absolute;
+    left: 25%;
+    transform: translateX(-50%);
+    top: 14%;
+    width: 500px;
+    height: 550px;
+    background-color: #33cc33;
+    border: 4px solid #33cc33;
+    border-radius: 30px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  .floating-rectan {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 4%;
+    width: 450px;
+    height: 500px;
+    background-color: #ffffff;
+    border: 4px solid #ffffff;
+    border-radius: 30px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
 </style>
