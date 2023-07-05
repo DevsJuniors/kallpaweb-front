@@ -37,11 +37,13 @@
                 label="ID Contrato"
                 placeholder=""
                 filled
+                :disabled="!TextFieldAble"
                 v-model="frmOrdenH.IDContrato"></v-text-field>
                 <v-text-field
                 label="Número de Suministro"
                 placeholder=""
                 filled
+                :disabled="!TextFieldAble"
                 v-model="frmOrdenH.numSum"></v-text-field>
                 <v-date-picker
                 v-model="selectedDate"

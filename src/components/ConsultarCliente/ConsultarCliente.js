@@ -158,6 +158,7 @@ export default {
         })
         .catch((e) => e);
         this.desText();
+        return window.location.reload();
     },
     desText() {
       this.TextFieldAble = false;

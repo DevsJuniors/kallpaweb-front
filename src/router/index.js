@@ -82,6 +82,12 @@ const routes = [
       import("../components/asignarHabilitador/asignarHabilitador.vue"),
   },
   {
+    path: "/menu/consultarContratos",
+    name: "Consultar Contrato",
+    component: () =>
+      import("../components/ConsultarContratos/consultarContratos.vue"),
+  },
+  {
     path: "/reportes",
     name: "Reportes",
     component: () => import("../views/Reportes/Reportes.vue"),

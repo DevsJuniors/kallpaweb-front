@@ -33,6 +33,7 @@ export default {
   created() {
     this.handleDateSelection();
     this.obtenerDato();
+    this.capturarDato();
     this.getEtapa();
     this.llenarNumO();
   },
@@ -105,6 +106,16 @@ export default {
       localStorage.setItem("valor1", valor1);
       localStorage.setItem("valor2", valor2);
       localStorage.setItem("valor3", valor3);
+    },
+    capturarDato() {
+      var valorA = localStorage.getItem("valorA");
+      var valorB = localStorage.getItem("valorB");
+      console.log(valorA);
+      console.log(valorB);
+      if (valorA && valorB) {
+        this.frmOrdenI.IDContrato = valorA;
+        this.frmOrdenI.numSum = valorB;
+      }
     },
     llenarNumO() {
       var numeroAleatorio =
