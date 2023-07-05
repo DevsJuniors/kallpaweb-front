@@ -26,7 +26,7 @@ export default{
       selectedEtapa(P){
         if(P){
          const etapa = this.etapas.find((etapa) => etapa.Descripcion_Et===P);
-         this.frmOrdenH.IDEtapa =etapa.IDEtapa;
+         this.frmOrdenI.IDEtapa =etapa.IDEtapa;
         }
      },
     },
@@ -34,6 +34,7 @@ export default{
     created() {
         this.handleDateSelection();
         this.obtenerDato();
+        this.capturarDato();
         this.getEtapa();
         this.llenarNumO();
     },
@@ -106,6 +107,16 @@ export default{
         localStorage.setItem("valor2", valor2);
         localStorage.setItem("valor3", valor3);
       },
+      capturarDato() {
+        var valorA = localStorage.getItem("valorA");
+        var valorB = localStorage.getItem("valorB");
+        console.log(valorA)
+        console.log(valorB)
+        if (valorA && valorB) {
+         this.frmOrdenI.IDContrato= valorA;
+         this.frmOrdenI.numSum= valorB;
+        }
+    },
       llenarNumO(){
         var numeroAleatorio = Math.floor(Math.random() * (2000 - 1000 + 1)) + 1000;
         this.frmOrdenI.numOrden= numeroAleatorio;

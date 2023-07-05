@@ -5,7 +5,6 @@
             <v-spacer></v-spacer>
             <v-icon>mdi-account-circle</v-icon>
         </v-app-bar>
-        <v-content>
         <form name="generarOrden" @submit.prevent="createOrdenI">
         <div class="spacer"></div>
         <h2 style="text-align: center;">Generar Orden de Instalación</h2> 
@@ -39,11 +38,13 @@
                 label="ID Contrato"
                 placeholder=""
                 filled
+                :disabled="!Select"
                 v-model="frmOrdenI.IDContrato"></v-text-field>
                 <v-text-field
                 label="Número de Suministro"
                 placeholder=""
                 filled
+                :disabled="!Select"
                 v-model="frmOrdenI.numSum"></v-text-field>
                 <v-date-picker
                 v-model="selectedDate"
@@ -114,9 +115,7 @@
               </v-card-actions>
             </v-card>
         </v-dialog>
-
         </form>
-      </v-content>
         <v-footer class="green lighten white--text">
       <span  class="custom-text">&copy; 2023 Kallpa Contrasitas y Suministros S.A.C. Todos los derechos reservados.</span>
     </v-footer>

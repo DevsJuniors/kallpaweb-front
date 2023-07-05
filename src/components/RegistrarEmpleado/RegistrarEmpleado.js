@@ -94,6 +94,7 @@ mounted() {
       this.obtenerEmpleados();
       this.resetForm()
       this.TextFieldAble=true;
+      return window.location.reload();
     },
     createCredenciales() {
       this.axios

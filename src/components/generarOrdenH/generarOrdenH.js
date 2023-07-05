@@ -36,6 +36,7 @@ export default{
         this.obtenerDato();
         this.getEtapa();
         this.llenarNumO();
+        this.capturarDato();
     },
 
     methods:{
@@ -85,9 +86,16 @@ export default{
          localStorage.removeItem("valorCampoB"); // Opcional: eliminar el valor almacenado
        }
        },
-       desText() {
-        this.TextFieldAble =false;
-      },
+       capturarDato() {
+        var valorA = localStorage.getItem("valorA");
+        var valorB = localStorage.getItem("valorB");
+        console.log(valorA)
+        console.log(valorB)
+        if (valorA && valorB) {
+         this.frmOrdenH.IDContrato= valorA;
+         this.frmOrdenH.numSum= valorB;
+        }
+       },
       mostrarMensaje() {
         this.mensaje='La orden de Habilitación ha sido generada con éxito, por favor registre los materiales a emplear para  '+
                      'la ejecución de la habilitación de gas natural en la vivienda, tomando en consideración las especificaciones'+
