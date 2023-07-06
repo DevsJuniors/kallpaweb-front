@@ -67,6 +67,8 @@ export default{
           .catch((e)=> e);
           this.guardarValor();
           this.mostrarMensaje();
+          localStorage.removeItem("valorA");
+          localStorage.removeItem("valorB");
         }
        },
        asignarHabilitador(){

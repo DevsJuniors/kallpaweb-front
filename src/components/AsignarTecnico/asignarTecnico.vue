@@ -14,7 +14,7 @@
                         :items="tecnicos"
                         :search="search"
                         :loading="loading"
-                         class="elevation-1" >
+                         class="elevation-1 custom-table" >
                 <template v-slot:top>
                      <v-toolbar flat>
                      <v-toolbar-title> Técnicos</v-toolbar-title>
@@ -149,4 +149,8 @@
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
 
+.custom-table thead th {
+    background-color: #095ba8;
+    color: #ffffff !important; 
+}
 </style>
