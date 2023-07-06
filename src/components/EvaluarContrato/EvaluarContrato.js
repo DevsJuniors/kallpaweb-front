@@ -1,18 +1,29 @@
 export default {
   data() {
     return {
-      searchID: "",
+      IDContrato: "",
       numSum: "",
       estado: "",
       DNI_cli: "",
       searchE: "",
       search: "",
       searchF: "",
+      selectedEstado:null,
       contratos: [],
+      dialogVisible:false,
+      dialogError:false,
       estados: [],
+      mensaje: "",
       estadosA: ["En revisión", "Observado", "Desaprobado", "Aprobado"],
     };
   },
+
+  watch:{
+    selectedEstado(val){
+      this.estado=val;
+    },
+  },
+
   computed: {
     headers() {
       return [
@@ -26,6 +37,7 @@ export default {
         { text: "Tipo Instalación", value: "IDTipoInst" },
         { text: "DNI Cliente", value: "DNI_cli" },
         { text: "DNI Empleado", value: "DNI_Em" },
+        { text: "Seleccioanr", value: ""},
       ];
     },
 
@@ -59,61 +71,60 @@ export default {
   methods: {
     obtenerContratos() {
       this.axios
-        .get("http://localhost:3000/contrato")
-        .then((response) => {
-          this.contratos = response.data;
+      .get("http://localhost:3000/contrato")
+      .then((response)=>{
+          //Filtro de contratos no aprobados
+          this.contratos= response.data.filter((contrato)=>contrato.estado!=='Aprobado');
+      })
+      .catch((error) =>
+      console.error("Error al obtener los datos de los contratos ", error)
+    );
+    },
+    confirmar(){
+      if(this.IDContrato!==""){
+        this.dialogVisible= true;
+        this.mensaje= 'Esta seguro que desea actualizar el estado del contrato con código "'+ this.IDContrato + '" a "'+this.estado +'"';
+      }else{
+        this.dialogError=true;
+        this.mensaje= 'Selecccione un contrato para poder realizar el proceso de modifcación.'
+        this.limpiar();
+      }
+    },
+    cerrar(){
+      this.dialogVisible= false;
+      this.dialogError=false
+    },
+    updateContrato() {
+      const IDContrato = this.IDContrato;
+      const dataUpdate = {
+      IDContrato: this.IDContrato,
+      estado: this.estado,
+      };
+      this.axios
+        .patch(`http://localhost:3000/contrato/${IDContrato}`, dataUpdate)
+        .then((res) => {
+          console.log(res);
         })
-        .catch((error) =>
-          console.error("Error al obtener los datos de los contratos : ", error)
-        );
+        .catch((e) => e);
+      this.limpiar();
+      return window.location.reload();
     },
 
-    llenarCampos() {
-      const contratoEncontrado = this.contratos.find(
-        (contrato) => contrato.IDContrato.toString() === this.searchID.trim()
-      );
-
-      if (contratoEncontrado) {
-        this.numSum = contratoEncontrado.numSum;
-        this.DNI_cli = contratoEncontrado.DNI_cli;
-        console.log(this.numSum, this.DNI_cli);
-      } else {
-        this.numSum = "";
-        this.DNI_cli = "";
-      }
+    seleccionarContrato(contrato){
+      this.IDContrato= contrato.IDContrato;
+      this.numSum= contrato.numSum;
+      this.DNI_cli=contrato.DNI_cli;
+      this.selectedEstado=contrato.estado;
+      console.log(contrato.estado)
     },
-    actualizarEstado() {
-      const idcontrato = this.searchID.trim();
-      const contrato = this.contratos.find(
-        (c) => c.IDContrato.toString() === idcontrato
-      );
-
-      if (contrato) {
-        contrato.estado = this.estado;
-        this.axios
-          .patch(`http://localhost:3000/contrato/${idcontrato}`, {
-            estado: this.estado,
-          })
-          .then((response) => {
-            console.log(
-              "Estado del contrato actualizado exitosamente" + response
-            );
-            // Puedes realizar acciones adicionales después de la actualización exitosa
-          })
-          .catch((error) => {
-            console.error("Error al actualizar el estado del contrato:", error);
-            // Manejo de errores
-          })
-          .finally(() => {
-            // Limpia los campos de texto y el estado después de la actualización
-            this.searchID = "";
-            this.numSum = "";
-            this.DNI_cli = "";
-            this.estado = "";
-          });
-      } else {
-        console.log("Contrato no encontrado");
-      }
+    limpiar(){
+      this.IDContrato="";
+      this.numSum="";
+      this.DNI_cli="";
+      this.selectedEstado=null; 
+    },
+    volverMenu() {
+      this.$router.push("/menu");
     },
   },
 };

@@ -9,6 +9,8 @@ export default{
         Celular_Em:""
        },
         Select: false,
+        dialogVisible:false,
+        dialogError:false,
         TextFieldAble: false,
         search: '',
         loading: false,
@@ -68,6 +70,20 @@ export default{
         this.frmHabilitador.IDCategoria="";
         this.frmHabilitador.Celular_Em="";
     },
+    confirmar(){
+        if(this.frmHabilitador.DNI_Em!==""){
+          this.dialogVisible= true;
+          this.mensaje= 'Esta seguro de asignar al Habilitador con DNI "'+this.frmHabilitador.DNI_Em+'" a la presente orden';
+        }else{
+          this.dialogError=true;
+          this.mensaje= 'Selecccione un habilitador para poder realizar la asignación.'
+        }
+      },
+      cerrar(){
+        this.dialogVisible= false;
+        this.dialogError=false
+        this.limpiar();
+      },
     volver(){
         this.$router.push("/menu/generarOrdenH")
     },

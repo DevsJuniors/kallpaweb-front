@@ -17,6 +17,7 @@ export default{
             selectedEtapa: "Habilitación",
             etapas:[],
             dialogVisible: false,
+            dialogError: false,
             mensaje: "",
             TextFieldAble: false,
             selectedDate: null,
@@ -49,15 +50,24 @@ export default{
           .catch((error) => e);
        },
        createOrdenH(){
-        this.axios
-        .post("http://localhost:3000/etapa-contrato",this.frmOrdenH)
-        .then((res) => {
-            console.log(res);
-            console.log(this.frmOrdenH.DNI_Em)
-        })
-        .catch((e)=> e);
-        this.guardarValor();
-        this.mostrarMensaje();
+        if(this.frmOrdenH.DNI_Em===""){
+            this.mensaje='Es necesario ASIGNAR un habilitador para la orden';
+            this.dialogError=true;
+        }else if(this.frmOrdenH.Fecha_Et===undefined){
+            this.mensaje='Por favor seleccione una fecha para la orden de habilitación'
+            this.dialogError=true;
+        }else{
+          console.log(this.frmOrdenH.Fecha_Et)
+          this.axios
+          .post("http://localhost:3000/etapa-contrato",this.frmOrdenH)
+          .then((res) => {
+              console.log(res);
+              console.log(this.frmOrdenH.DNI_Em)
+          })
+          .catch((e)=> e);
+          this.guardarValor();
+          this.mostrarMensaje();
+        }
        },
        asignarHabilitador(){
         this.$router.push("/menu/asignarHabilitador");
@@ -96,6 +106,10 @@ export default{
          this.frmOrdenH.numSum= valorB;
         }
        },
+       cerrar(){
+        this.dialogVisible= false;
+        this.dialogError=false
+      },
       mostrarMensaje() {
         this.mensaje='La orden de Habilitación ha sido generada con éxito, por favor registre los materiales a emplear para  '+
                      'la ejecución de la habilitación de gas natural en la vivienda, tomando en consideración las especificaciones'+

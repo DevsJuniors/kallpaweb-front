@@ -83,7 +83,7 @@
                 depressed
                 style="background-color: #47d847; color: #ffffff;"
                 class="mt-2 mb-4 x-large"
-                @click="asignar">
+                @click="confirmar">
                 Asignar Habilitador
                 <v-icon class="mx-1">mdi-arrow-right-drop-circle</v-icon>
                 </v-btn>
@@ -105,6 +105,40 @@
                     Atras
                 <v-icon class="mx-1">mdi-keyboard-backspace</v-icon>
             </v-btn>
+            <v-dialog v-model="dialogVisible" :width="500">
+                    <v-card color="#47d847">
+                      <v-card-title>
+                        <span class="mx-auto" style="color: white"> Confirmación de Asignación</span>
+                      </v-card-title>
+                      <v-card-text>
+                        <v-alert v-if="mensaje !== ''" color="white" type="success" outlined>{{ mensaje }}</v-alert>
+                      </v-card-text>
+                      <v-card-actions style="display: flex; justify-content: center">
+                        <v-btn style="background-color: #033076; color: #ffffff;" @click="asignar">
+                          Aceptar
+                        </v-btn>
+                        <v-btn style="background-color: #033076; color: #ffffff;" @click="cerrar">
+                          Cancelar
+                        </v-btn>
+                      </v-card-actions>
+                    </v-card>
+                </v-dialog>
+            <v-dialog v-model="dialogError" :width="500">
+                    <v-card color="#ec4a4a">
+                      <v-card-title>
+                        <span class="mx-auto" style="color: white">  ¡Verifique!</span>
+                      </v-card-title>
+                      <v-card-text>
+                        <v-alert v-if="mensaje !== ''" color="white" type="success" outlined icon="mdi-close-circle">
+                         {{ mensaje }}</v-alert>
+                      </v-card-text>
+                      <v-card-actions style="display: flex; justify-content: center">
+                        <v-btn style="background-color: #033076; color: #ffffff;" @click="cerrar">
+                          Aceptar
+                        </v-btn>
+                      </v-card-actions>
+                    </v-card>
+                </v-dialog>
           </div>
         </div>
       </v-container>

@@ -114,12 +114,12 @@
                 <div class="text-center">
                 </div>
                 <v-dialog v-model="dialogVisible" :width="500">
-                    <v-card color="#47d847">
+                    <v-card color="#ec4a4a">
                       <v-card-title>
                         <span class="mx-auto" style="color: white">¡Verifique!</span>
                       </v-card-title>
                       <v-card-text>
-                        <v-alert v-if="mensaje !== ''" color="white" type="success" outlined>{{ mensaje }}</v-alert>
+                        <v-alert v-if="mensaje !== ''" color="white" type="success" outlined icon="mdi-close-circle">{{ mensaje }}</v-alert>
                       </v-card-text>
                       <v-card-actions style="display: flex; justify-content: center">
                         <v-btn style="background-color: #033076; color: #ffffff;" @click="aceptar">
