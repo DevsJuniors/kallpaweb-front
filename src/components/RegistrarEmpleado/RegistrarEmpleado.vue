@@ -1,79 +1,66 @@
 <template>
   <div>
-  <v-app-bar color="green accent-4" dense dark>
-      <v-toolbar-title>KALLPA</v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-icon>mdi-account-circle</v-icon>
-    </v-app-bar>
-
     <form name="registrarEmpleado" @submit.prevent="createEmpleado">
       <div class="empleado">
-      
-        <h2 class = "blue--text">DATOS GENERALES DEL EMPLEADO</h2>
-
-          <template>
-          <div class="text-field-container">
-            <div class="text-field-wrapper">
+        <h2>DATOS GENERALES DEL EMPLEADO</h2>
+        <br />
         <v-text-field
           label="DNI"
           placeholder="Ingresa el IDGenero"
           filled
           v-model="frmEmpleado.DNI_Em"></v-text-field>
-        </div>
-
-        <div class="text-field-wrapper">
         <v-text-field
           label="Nombre"
           placeholder="Ingresa Nombre"
           filled
           v-model="frmEmpleado.Nombre_Em"></v-text-field>
-        </div>
-
-        <div class="text-field-wrapper">
         <v-text-field
           label="Apellido"
           placeholder="Ingresa Apellido"
           filled
           v-model="frmEmpleado.Apellido_Em"></v-text-field>
-        </div>
-        
-        <div class="text-field-wrapper">
-          <v-text-field
+        <v-text-field
           label="Celular"
           placeholder="Ingresa su numero de celular"
           filled
           v-model="frmEmpleado.Celular_Em"></v-text-field>
-        </div>
-        
-        <div class="text-field-wrapper">
           <v-select
           v-model="selectedCategoria"
           :items="categorias.map((categoria) => categoria.Cargo_CE)"
           label="Selecciona la categoria del Empleado"
           outlined
          ></v-select>
-        </div>
-        
-          </div>
-        </template>
-
-        
-        <form name="credencialesEmpleado" @submit.prevent="createCredenciales">
+        <div>
+          <v-btn type="submit" class="button-1 mt-2" depressed color="primary">
+            REGISTRAR
+            <v-icon  class="mx-1">mdi-account-badge-outline</v-icon>
+          </v-btn>
+          <v-btn
+              depressed
+              color="primary"
+              class="button-1 mt-2"
+              @click="volverMenu">
+              Atras
+              <v-icon class="mx-1">mdi-keyboard-backspace</v-icon>
+            </v-btn>
+            <v-btn
+              depressed
+              color="primary"
+              class="button-1 mt-2"
+              @click="resetForm">
+              Limpiar
+              <v-icon class="mx-1">mdi-backup-restore</v-icon>
+      </v-btn>
+          <form
+            name="credencialesEmpleado"
+            @submit.prevent="createCredenciales">
             <div class="credenciales">
-              
-
-            <v-card-text>
-              <p class="text-xl-left"><h2 class = "blue--text">CREDENCIALES DEL EMPLEADO</h2></p>
-            </v-card-text>
-            
-            <div class="text-field-container_2">
-              
+              <h2>CREDENCIALES DEL EMPLEADO</h2>
               <v-text-field
                 label="DNI EMPLEADO"
                 placeholder="Ingresa el DNI del Empleado"
                 filled
                 v-model="frmCredenciales.DNI_Em"></v-text-field>
-              
               <v-text-field
                 label="Nombre de Usuario"
                 placeholder="Ingresa un nombre de usuario"
@@ -84,64 +71,49 @@
                 placeholder="Ingresa una contraseña"
                 filled
                 v-model="frmCredenciales.contraseña"></v-text-field>
-      
             </div>
-            </div>
-
-
-          <div class="button-container">
-       
-          <div class="button-row">
-          <v-btn type="submit" class="button-1 mt-2" depressed color="primary">
-            REGISTRAR
-            <v-icon  class="mx-1">mdi-account-badge-outline</v-icon>
-          </v-btn>
-        
-          <v-btn
-              depressed
-              color="primary"
-              class="button-1 mt-2"
-              @click="volverMenu">
-              Atras
-              <v-icon class="mx-1">mdi-keyboard-backspace</v-icon>
-            </v-btn>
-          </div>
-
-          <div class="button-row">
-            
-            <v-btn
-              depressed
-              color="primary"
-              class="button-1 mt-2"
-              @click="resetForm">
-              Limpiar
-              <v-icon class="mx-1">mdi-backup-restore</v-icon>
-            </v-btn>
-
-            <v-btn 
-            type="submit" 
-            class="button-1 mt-2" 
-            depressed color="primary">
+            <v-btn type="submit" class="button-1 mt-2" depressed color="primary">
               AGREGAR CREDENCIALES
-            <v-icon class="mx-1">mdi-badge-account-horizontal</v-icon>
+              <v-icon class="mx-1">mdi-badge-account-horizontal</v-icon>
             </v-btn>
-          </div>
-        </div>
-            
-            
-            
-            
           </form>
         </div>
+      </div>
     </form>
   </div>
 </template>
 <style>
+.custom-table thead th {
+    background-color: #095ba8;
+    color: #ffffff !important; 
+}
+.contenedor-cajas {
+  border: 2px solid #47d847;
+  padding: 10px;
+}
+.contenedor-cajas-E {
+  border: 2px solid #47d847 ;
+  padding: 10px;
+}
+.contenedor-cajas input {
+  margin-bottom: 5px;
+  width: 100%;
+  padding: 5px;
+}
+.fill-height {
+  height: 100%;
+}
+.tabla {
+  width: 100%;
+}
+.custom-text {
+  font-size: 12px; /* Modifica el tamaño de letra según tus necesidades */
+}
 .credenciales {
   position: absolute;
-  top: 30px;
+  top: 60px;
   right: 0;
-  margin-right: 30px;
+  margin-right: 50px;
 }
 .empleado {
   margin: 20px;
