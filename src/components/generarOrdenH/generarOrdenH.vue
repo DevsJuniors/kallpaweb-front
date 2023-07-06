@@ -115,6 +115,22 @@
               </v-card-actions>
             </v-card>
         </v-dialog>
+        <v-dialog v-model="dialogError" :width="500">
+                    <v-card color="#ec4a4a">
+                      <v-card-title>
+                        <span class="mx-auto" style="color: white">  ¡Verifique!</span>
+                      </v-card-title>
+                      <v-card-text>
+                        <v-alert v-if="mensaje !== ''" color="white" type="success" outlined icon="mdi-close-circle">
+                         {{ mensaje }}</v-alert>
+                      </v-card-text>
+                      <v-card-actions style="display: flex; justify-content: center">
+                        <v-btn style="background-color: #033076; color: #ffffff;" @click="cerrar">
+                          Aceptar
+                        </v-btn>
+                      </v-card-actions>
+                    </v-card>
+                </v-dialog>
         </form>
         <v-footer class="green lighten white--text">
       <span  class="custom-text">&copy; 2023 Kallpa Contrasitas y Suministros S.A.C. Todos los derechos reservados.</span>

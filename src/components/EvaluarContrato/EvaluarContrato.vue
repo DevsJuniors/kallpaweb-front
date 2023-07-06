@@ -38,6 +38,25 @@
           solo></v-text-field>
         </div>
       </template>
+      <template v-slot:item="{item}">
+              <tr>
+                <td>{{ item.IDContrato }}</td>
+                <td>{{ item.Fecha_Con}}</td>
+                <td>{{ item.NumeroRadicado_Con }}</td>
+                <td>{{ item.numSum }}</td>
+                <td>{{ item.PuntoInstalacion_Con }}</td>
+                <td>{{ item.estado }}</td>
+                <td>{{ item.IDGabineteCategoria }}</td>
+                <td>{{ item.IDTipoInst }}</td>
+                <td>{{ item.DNI_cli }}</td>
+                <td>{{ item.DNI_Em }}</td>
+                <td>{{ item.Seleccionar}}
+                        <v-btn small color="primary" @click="seleccionarContrato(item)">
+                        <v-icon class="mx-1">mdi-arrange-bring-forward</v-icon>
+                        </v-btn>
+                </td>
+                </tr>
+            </template>
     </v-data-table>
      </div>
     </v-container>
@@ -49,9 +68,10 @@
       <v-text-field
         label="ID Contrato"
         solo
-        v-model="searchID"
+        disabled
+        v-model="IDContrato"
         style="display: inline-block; width: 24%;margin-right: 10px;"
-        @input="llenarCampos"></v-text-field>
+        ></v-text-field>
       <v-text-field
         label="Numero Suministro"
         solo
@@ -66,16 +86,16 @@
         v-model="DNI_cli"></v-text-field>
       <v-combobox
         :items="estadosA"
-        label="Asignar estado"
+        label="Estado de contrato"
         solo
         style="display: inline-block; width: 24%;margin-right: 10px;"
-        v-model="estado"></v-combobox>
+        v-model="selectedEstado"></v-combobox>
        </div>
        </div>
        <div class="contenedor-cajas-A">
         <v-btn  depressed 
                 style="background-color: #47d847; color: #ffffff; display: inline-block; width: 23%"
-                class="mx-2  mt-2 mb-4 x-large" @click="actualizarEstado"
+                class="mx-2  mt-2 mb-4 x-large" @click="confirmar"
                 >Actualizar Estado
                 <v-icon class="mx-1">mdi-border-color</v-icon></v-btn>
         <v-btn  depressed 
@@ -88,6 +108,40 @@
                 class="mx-2  mt-2 mb-4 x-large" @click="volverMenu"
                 >Volver a Menú 
                 <v-icon class="mx-1">mdi-home-analytics</v-icon></v-btn>
+        <v-dialog v-model="dialogVisible" :width="500">
+                    <v-card color="#47d847">
+                      <v-card-title>
+                        <span class="mx-auto" style="color: white"> Confirmación de Modificación</span>
+                      </v-card-title>
+                      <v-card-text>
+                        <v-alert v-if="mensaje !== ''" color="white" type="success" outlined>{{ mensaje }}</v-alert>
+                      </v-card-text>
+                      <v-card-actions style="display: flex; justify-content: center">
+                        <v-btn style="background-color: #033076; color: #ffffff;" @click="updateContrato">
+                          Aceptar
+                        </v-btn>
+                        <v-btn style="background-color: #033076; color: #ffffff;" @click="cerrar">
+                          Cancelar
+                        </v-btn>
+                      </v-card-actions>
+                    </v-card>
+                </v-dialog>
+            <v-dialog v-model="dialogError" :width="500">
+                    <v-card color="#ec4a4a">
+                      <v-card-title>
+                        <span class="mx-auto" style="color: white">  ¡Verifique!</span>
+                      </v-card-title>
+                      <v-card-text>
+                        <v-alert v-if="mensaje !== ''" color="white" type="success" outlined icon="mdi-close-circle">
+                         {{ mensaje }}</v-alert>
+                      </v-card-text>
+                      <v-card-actions style="display: flex; justify-content: center">
+                        <v-btn style="background-color: #033076; color: #ffffff;" @click="cerrar">
+                          Aceptar
+                        </v-btn>
+                      </v-card-actions>
+                    </v-card>
+                </v-dialog>
        </div>
     </v-container>
   </div>
