@@ -1,10 +1,13 @@
 import { Bar } from "vue-chartjs";
+import { Pie } from "vue-chartjs";
+
 import {
   Chart as ChartJS,
   Title,
   Tooltip,
   Legend,
   BarElement,
+  ArcElement,
   CategoryScale,
   LinearScale,
 } from "chart.js";
@@ -13,16 +16,18 @@ ChartJS.register(
   Title,
   Tooltip,
   Legend,
+  ArcElement,
   BarElement,
   CategoryScale,
   LinearScale
 );
 export default {
   name: "BarChart",
-  components: { Bar },
+  components: { Bar, Pie },
   data() {
     return {
       chartKey: "",
+      chartKeyPie: "",
       searchDate: "",
       contratos: [],
       end: null,
@@ -45,11 +50,22 @@ export default {
           },
         ],
       },
+      pieChartData: {
+        labels: [],
+        datasets: [
+          {
+            label: "Contratos",
+            backgroundColor: [],
+            data: [],
+          },
+        ],
+      },
     };
   },
+  created() {},
   mounted() {
     this.obtenerContratos();
-    this.contarContratos();
+    this.generarReporte();
   },
   watch: {
     start(newValue) {
@@ -59,6 +75,7 @@ export default {
       this.$forceUpdate();
     },
   },
+
   computed: {
     headers() {
       return [
@@ -89,31 +106,9 @@ export default {
     },
   },
   methods: {
-    contarContratos() {
-      // Obtener los contratos dentro del rango de fechas
-      const contratosFiltrados = this.contratos.filter((contrato) => {
-        const fechaContrato = new Date(contrato.Fecha_Con);
-        return fechaContrato >= this.start && fechaContrato <= this.end;
-      });
-
-      // Obtener la cantidad de contratos por fecha
-      const conteoContratos = {};
-      contratosFiltrados.forEach((contrato) => {
-        const fechaContrato = new Date(contrato.Fecha_Con).toDateString();
-        if (conteoContratos[fechaContrato]) {
-          conteoContratos[fechaContrato]++;
-        } else {
-          conteoContratos[fechaContrato] = 1;
-        }
-      });
-
-      // Convertir los datos en un formato adecuado para VSparkline
-      this.fechas = Object.keys(conteoContratos);
-      this.cantidad = this.fechas.map((fecha) => conteoContratos[fecha]);
-    },
-
     generarReporte() {
       this.conteoContratos = this.obtenerEstadosContratos();
+      this.generatePieChartData();
     },
     obtenerEstadosContratos() {
       const conteoEstados = {};
@@ -135,6 +130,8 @@ export default {
         .get("http://localhost:3000/contrato")
         .then((response) => {
           this.contratos = response.data;
+          this.conteoContratos = this.obtenerEstadosContratos();
+          this.generatePieChartData();
         })
         .catch((error) =>
           console.error("Error al obtener los datos de los contratos : ", error)
@@ -178,6 +175,20 @@ export default {
       this.chartData.datasets[0].data = datasetData;
 
       this.chartKey = Math.random().toString();
+    },
+    generatePieChartData() {
+      const labels = Object.keys(this.conteoContratos);
+      const data = Object.values(this.conteoContratos);
+      const colors = ["#f87979", "#64b5f6", "#ffb74d", "#4db6ac", "#ba68c8"]; // Array de colores
+
+      this.pieChartData.labels = labels;
+      this.pieChartData.datasets[0].data = data;
+      this.pieChartData.datasets[0].backgroundColor = colors.slice(
+        0,
+        labels.length
+      );
+
+      this.chartKeyPie = Math.random().toString();
     },
   },
 };

@@ -21,6 +21,20 @@
                   :options="chartOptions"
                   :data="chartData"></Bar>
               </div>
+              <div class="ms-16">
+                <v-card>
+                  <v-card-title
+                    >Gráfico de Torta: Contratos por Estado</v-card-title
+                  >
+                  <v-card-text>
+                    <Pie
+                      v-if="pieChartData.labels.length"
+                      :data="pieChartData"
+                      :options="chartOptions"
+                      :key="chartKeyPie" />
+                  </v-card-text>
+                </v-card>
+              </div>
             </v-row>
           </v-container>
         </template>

@@ -11,15 +11,6 @@
                 <v-date-picker v-model="start"></v-date-picker>
               </v-col>
             </v-row>
-            <p>Empleado</p>
-            <v-combobox
-              v-model="empleadoSeleccionado"
-              :items="empleados"
-              item-text="Nombre_Em"
-              item-value="DNI_Em"
-              label="Seleccionar Empleado"
-              clearable
-              solo></v-combobox>
           </v-card-text>
           <v-card-actions>
             <v-btn color="primary" @click="generarReporte"

@@ -2,8 +2,6 @@ export default {
   data() {
     return {
       start: null,
-      empleados: [],
-      empleadoSeleccionado: null,
       reporteOrdenes: "",
       detalleEtapaMaterial: [],
     };
@@ -17,22 +15,9 @@ export default {
     },
   },
   mounted() {
-    this.obtenerEmpleados();
     this.obtenerDetalleEtapaMaterial();
   },
   methods: {
-    obtenerEmpleados() {
-      this.axios
-        .get("http://localhost:3000/empleado")
-        .then((response) => {
-          this.empleados = response.data.filter(
-            (empleado) => empleado.IDCategoria != 1
-          );
-        })
-        .catch((error) =>
-          console.log("No se pudieron obtener empleados" + error)
-        );
-    },
     obtenerDetalleEtapaMaterial() {
       this.axios
         .get("http://localhost:3000/detalle-etapa-material")
