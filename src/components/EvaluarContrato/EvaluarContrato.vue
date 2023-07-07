@@ -85,35 +85,49 @@
 
     <v-container fluid>
        <div class="cliente">
+        
            <h3>Campos del contrato seleccionado</h3>
             <div class="contenedor-cajas-E">
+
+              
+            <v-img
+            src="../../assets/contrato.png"
+              max-height="100"
+              max-width="70"
+              style="display: inline-block; margin-left:20px ; margin-bottom: 10px;position: absolute;">
+              
+            </v-img>
       <v-text-field
         label="ID Contrato"
         solo
         disabled
         v-model="IDContrato"
-        style="display: inline-block; width: 24%;margin-right: 10px;"
+        style="display: inline-block; width: 19%;margin-left: 100px;"
+      
         ></v-text-field>
-      <v-text-field
+        <!---prepend-icon="mdi-map-marker"-->
+
+        <v-text-field
         label="Numero Suministro"
         solo
         disabled
-        style="display: inline-block; width: 24%;margin-right: 10px;"
+        style="display: inline-block; width: 19%; margin-left: 50px"
         v-model="numSum"></v-text-field>
       <v-text-field
         label="DNI Cliente"
         solo
         disabled
-        style="display: inline-block; width: 24%;margin-right: 10px;"
+        style="display: inline-block; width: 19%;margin-left: 40px;"
         v-model="DNI_cli"></v-text-field>
       <v-combobox
         :items="estadosA"
         label="Estado de contrato"
         solo
-        style="display: inline-block; width: 24%;margin-right: 10px;"
+        style="display: inline-block; width: 19%;margin-left: 40px;"
         v-model="selectedEstado"></v-combobox>
        </div>
        </div>
+       
        <div class="contenedor-cajas-A">
         <v-btn  depressed 
                 style="background-color: #47d847; color: #ffffff; display: inline-block; width: 23%"
@@ -176,6 +190,7 @@
 .contenedor-cajas-E{
   border: 2px solid #47d847;
   padding: 10px;
+  padding-top: 15px;
 }
 .contenedor-cajas-A{
   border: 2px solid #ffffff;
@@ -190,6 +205,11 @@
     background-color: #095ba8;
     color: #ffffff !important; 
 }
+.a{
+  text-align: left;
+  padding-top: 1px;
+}
+
 </style>
 
 <script src="./EvaluarContrato.js"></script>

@@ -31,7 +31,14 @@
       <div class="d-flex flex-grow-1">
         <div class="empleado">
           <h3>Datos Generales</h3>
-          <div class="contenedor-cajas">
+          <div class="contenedor-cajas ">
+            <p align="center">
+            <v-img
+              src="../../assets/empleado.png"
+              max-height="100"
+              max-width="100"
+          ></v-img>
+            </p>
             <v-text-field
               label="DNI"
               placeholder="Ingresa el IDGenero"
