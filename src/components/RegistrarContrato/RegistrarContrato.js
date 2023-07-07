@@ -27,6 +27,9 @@ export default {
       SelectedGabinete: null,
       SelectedTipoInstalacion: null,
       SelectedEmpleado: null,
+      mensaje: "",
+      dialogError: false,
+      dialogVisible: false,
     };
   },
 
@@ -79,14 +82,75 @@ export default {
 
   methods: {
     createContrato() {
-      this.axios
-        .post("http://localhost:3000/contrato", this.frmContrato)
-        .then((res) => {
-          console.log(this.frmContrato.estado);
-          console.log(res);
-          this.ventanaEmergente();
-        })
-        .catch((e) => e);
+      if (
+        !this.frmContrato.IDContrato ||
+        !this.frmContrato.Fecha_Con ||
+        !this.frmContrato.NumeroRadicado_Con ||
+        !this.frmContrato.PuntoInstalacion_Con ||
+        !this.frmContrato.numSum ||
+        !this.frmContrato.estado ||
+        !this.frmContrato.IDDomicilio ||
+        !this.frmContrato.DNI_cli ||
+        !this.frmContrato.nomCli ||
+        !this.frmContrato.DNI_Em ||
+        !this.frmContrato.IDGabineteCategoria ||
+        !this.frmContrato.IDTipoInst
+      ) {
+        let camposFaltantes = "";
+        if (!this.frmContrato.IDContrato) {
+          camposFaltantes += "ID Contrato, ";
+        }
+        if (!this.frmContrato.Fecha_Con) {
+          camposFaltantes += "Fecha Contrato, ";
+        }
+        if (!this.frmContrato.NumeroRadicado_Con) {
+          camposFaltantes += "Numero Radicado Contrato, ";
+        }
+        if (!this.frmContrato.PuntoInstalacion_Con) {
+          camposFaltantes += "Punto de instalacion, ";
+        }
+        if (!this.frmContrato.numSum) {
+          camposFaltantes += "Numero Suministro, ";
+        }
+        if (!this.frmContrato.estado) {
+          camposFaltantes += "Estado, ";
+        }
+        if (!this.frmContrato.IDDomicilio) {
+          camposFaltantes += "ID Domicilio, ";
+        }
+        if (!this.frmContrato.DNI_cli) {
+          camposFaltantes += "DNI Cliente, ";
+        }
+        if (!this.frmContrato.nomCli) {
+          camposFaltantes += "Nombre Cliente, ";
+        }
+        if (!this.frmContrato.DNI_Em) {
+          camposFaltantes += "DNI Empleado, ";
+        }
+        if (!this.frmContrato.IDGabineteCategoria) {
+          camposFaltantes += "Categoria Gabinete, ";
+        }
+        if (!this.frmContrato.IDTipoInst) {
+          camposFaltantes += "Tipo de instalacion.  ";
+        }
+
+        camposFaltantes = camposFaltantes.slice(0, -2);
+        this.mensaje = `Faltan datos por completar, por favor revisar los campos : ${camposFaltantes}`;
+        this.typemsg = "error";
+        this.dialogError = true;
+      } else {
+        this.axios
+          .post("http://localhost:3000/contrato", this.frmContrato)
+          .then((res) => {
+            console.log(this.frmContrato.estado);
+            console.log(res);
+            this.ventanaEmergente();
+          })
+          .catch((e) => console.log(e));
+        this.mensaje = "Se registro correctamente el contrato";
+        this.typemsg = "success";
+        this.dialogVisible = true;
+      }
     },
     getCategoriaGabinete() {
       this.axios
@@ -120,6 +184,11 @@ export default {
         })
         .catch((error) => e);
     },
+    cerrar() {
+      this.dialogVisible = false;
+      this.dialogError = false;
+      this.resetForm();
+    },
     llenar() {
       if (this.frmContrato.DNI_cli !== "") {
         console.log(this.frmContrato.DNI_cli);
@@ -146,6 +215,11 @@ export default {
       const day = String(currentDate.getDate()).padStart(2, "0");
       const formattedDate = `${year}-${month}-${day}`;
       this.frmContrato.Fecha_Con = formattedDate;
+    },
+    aceptar() {
+      // Lógica para manejar la acción de aceptar en el diálogo
+      this.dialogVisible = false;
+      this.resetForm();
     },
     resetForm() {
       this.frmContrato.IDContrato = "";

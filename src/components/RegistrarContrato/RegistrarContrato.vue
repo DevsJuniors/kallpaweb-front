@@ -52,17 +52,21 @@
           :disabled="!TextFieldAble"
           filled
           v-model="frmContrato.nomCli"></v-text-field>
-        <v-btn  class="button-1 mt-2" depressed color="primary" @click="llenar">
+        <v-btn class="button-1 mt-2" depressed color="primary" @click="llenar">
           Buscar Cliente
           <v-icon class="mx-1">mdi-account-eye-outline</v-icon>
-       </v-btn>
-       <v-select
+        </v-btn>
+        <v-select
           v-model="SelectedEmpleado"
-          :items="empleados.filter(empleado => empleado.IDCategoria ===1)
-                  .map((empleado) =>  empleado.Nombre_Em + ' ' + empleado.Apellido_Em)"
+          :items="
+            empleados
+              .filter((empleado) => empleado.IDCategoria === 1)
+              .map(
+                (empleado) => empleado.Nombre_Em + ' ' + empleado.Apellido_Em
+              )
+          "
           label="Selecciona al Asesor Responsable"
-          outlined
-         ></v-select>
+          outlined></v-select>
         <v-text-field
           label="DNI del Empleado"
           placeholder="Ingresa el DNI del Empleado"
@@ -71,45 +75,94 @@
           v-model="frmContrato.DNI_Em"></v-text-field>
         <v-select
           v-model="SelectedGabinete"
-          :items="categoriasGabinetes.map((categiriagabinete) => categiriagabinete.Descripcion_Ga)"
+          :items="
+            categoriasGabinetes.map(
+              (categiriagabinete) => categiriagabinete.Descripcion_Ga
+            )
+          "
           label="Selecciona el Tipo de Gabinete"
-          outlined
-         ></v-select>
-         <v-select
-          v-model="SelectedTipoInstalacion"
-          :items="tiposinstalacion.map((tipoinstalacion) => tipoinstalacion.Descripcion_TI)"
-          label="Selecciona el Tipo de Instalación"
-          outlined
-         ></v-select>
+          outlined></v-select>
         <v-select
-         v-model="SelectedEstado"
-         onchange="SelectedEstado(this.value)"
-         :items="estados"
-         label="Selecciona el Estado"
-         outlined
-         ></v-select>
+          v-model="SelectedTipoInstalacion"
+          :items="
+            tiposinstalacion.map(
+              (tipoinstalacion) => tipoinstalacion.Descripcion_TI
+            )
+          "
+          label="Selecciona el Tipo de Instalación"
+          outlined></v-select>
+        <v-select
+          v-model="SelectedEstado"
+          onchange="SelectedEstado(this.value)"
+          :items="estados"
+          label="Selecciona el Estado"
+          outlined></v-select>
       </div>
-      <v-btn type="submit" class="button-1 mt-2" depressed color="primary"> 
+      <v-btn type="submit" class="button-1 mt-2" depressed color="primary">
         REGISTRAR CONTRATO
         <v-icon class="mx-1">mdi-apple-keyboard-caps</v-icon>
       </v-btn>
-      <v-btn
-              depressed
-              color="primary"
-              class="button-1 mt-2"
-              @click="resetForm">
-              Limpiar
-              <v-icon class="mx-1">mdi-backup-restore</v-icon>
+      <v-btn depressed color="primary" class="button-1 mt-2" @click="resetForm">
+        Limpiar
+        <v-icon class="mx-1">mdi-backup-restore</v-icon>
       </v-btn>
       <v-btn
-              depressed
-              color="primary"
-              class="button-1 mt-2"
-              @click="volverMenu">
-              ATRAS
-              <v-icon class="mx-1">mdi-keyboard-backspace</v-icon>
+        depressed
+        color="primary"
+        class="button-1 mt-2"
+        @click="volverMenu">
+        ATRAS
+        <v-icon class="mx-1">mdi-keyboard-backspace</v-icon>
       </v-btn>
     </form>
+    <v-dialog v-model="dialogVisible" :width="500">
+      <v-card color="#47d847">
+        <v-card-title>
+          <span class="mx-auto" style="color: white"
+            >¡Registrado con Exito!</span
+          >
+        </v-card-title>
+        <v-card-text>
+          <v-alert
+            v-if="mensaje !== ''"
+            color="white"
+            :type="typemsg"
+            outlined
+            >{{ mensaje }}</v-alert
+          >
+        </v-card-text>
+        <v-card-actions style="display: flex; justify-content: center">
+          <v-btn
+            style="background-color: #033076; color: #ffffff"
+            @click="aceptar">
+            Aceptar
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+    <v-dialog v-model="dialogError" :width="500">
+      <v-card color="#ec4a4a">
+        <v-card-title>
+          <span class="mx-auto" style="color: white"> ¡Verifique! </span>
+        </v-card-title>
+        <v-card-text>
+          <v-alert
+            v-if="mensaje !== ''"
+            color="white"
+            :type="typemsg"
+            outlined
+            >{{ mensaje }}</v-alert
+          >
+        </v-card-text>
+        <v-card-actions style="display: flex; justify-content: center">
+          <v-btn
+            style="background-color: #033076; color: #ffffff"
+            @click="cerrar">
+            cerrar
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </div>
 </template>
 <style>
