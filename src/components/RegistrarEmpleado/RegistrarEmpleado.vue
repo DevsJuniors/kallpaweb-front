@@ -1,17 +1,44 @@
 <template>
   <div>
-    <v-app-bar color="green accent-4" dense dark>
-      <v-toolbar-title>KALLPA</v-toolbar-title>
+    <v-app-bar color="white" dense dark height="100">
+      <v-toolbar-title>
+        <v-img
+          src="../../views/Img/Kallpa.png"
+          max-height="300"
+          max-width="200"
+          class="kallpa-image"></v-img>
+      </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-icon>mdi-account-circle</v-icon>
+      <v-img
+        src="../../views/Img/usuario (3).png"
+        max-height="100"
+        max-width="50"></v-img>
     </v-app-bar>
+    <v-footer color="#33cc33" app height="60">
+      <v-row align="center" justify="center">
+        <v-col cols="12" class="text-center white--text">
+          &copy; 2023 KALLPA. Todos los derechos reservados.
+        </v-col>
+      </v-row>
+    </v-footer>
     <div class="spacer"></div>
-    <h2 style="text-align: center">Registro de Empleados</h2>
+    
+    <div style="display: flex; justify-content: center; align-items: center;">
+      <h2 style="color: rgba(0, 0, 129, 0.829); margin-right: 10px;font-size: 30px;font-weight: bold">Registro de</h2>
+      <h2 style="color: rgb(62, 207, 62);font-size: 30px;font-weight: bold">Empleados</h2>
+    </div>
     <v-container fluid>
       <div class="d-flex flex-grow-1">
         <div class="empleado">
           <h3>Datos Generales</h3>
-          <div class="contenedor-cajas">
+          <div class="contenedor-cajas ">
+            <p align="center">
+            <v-img
+              src="../../assets/empleado.png"
+              max-height="100"
+              max-width="100"
+          ></v-img>
+            </p>
             <v-text-field
               label="DNI"
               placeholder="Ingresa el IDGenero"
@@ -258,6 +285,9 @@
   font-size: 24px;
   text-align: right;
   margin: 20px;
+}
+.kallpa-image {
+  margin-top: 35px;
 }
 </style>
 <script src="./RegistrarEmpleado.js"></script>
