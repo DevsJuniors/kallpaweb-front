@@ -10,8 +10,11 @@ export default {
         Celular_cli: "",
         FechaNacimiento_cli: "",
         IDGenero: "",
+        desgenero: "",
         IDNacionalidad: "",
+        desnacionalidad: "",
         IDEstadoCivil: "",
+        desestadocivil: "",
         IDDomicilio: "",
       },
       TextFieldAble: false,
@@ -25,6 +28,7 @@ export default {
       mensaje: "",
       dialogError: false,
       dialogVisible: false,
+      fecha: "",
     };
   },
 
@@ -44,6 +48,7 @@ export default {
         const genero = this.generos.find(
           (genero) => genero.Descripcion_G === val
         );
+        this.frmCliente.desgenero = genero.Descripcion_G;
         this.frmCliente.IDGenero = genero.IDGenero;
       } else {
         this.resetForm();
@@ -54,6 +59,7 @@ export default {
         const nacionalidad = this.nacionalidades.find(
           (nacionalidad) => nacionalidad.Descripcion_NA === P
         );
+        this.frmCliente.desnacionalidad = nacionalidad.Descripcion_NA;
         this.frmCliente.IDNacionalidad = nacionalidad.IDNacionalidad;
       }
     },
@@ -62,12 +68,38 @@ export default {
         const estadocivil = this.estadosciviles.find(
           (estadocivil) => estadocivil.Descripcion_Es === M
         );
+        this.frmCliente.desestadocivil = estadocivil.Descripcion_Es;
         this.frmCliente.IDEstadoCivil = estadocivil.IDEstadoCivil;
       }
     },
   },
-
+  mounted() {
+    this.obtenerFechaActual();
+  },
   methods: {
+    obtenerFechaActual() {
+      const fechaActual = new Date();
+      const dia = fechaActual.getDate();
+      const mes = fechaActual.getMonth();
+      const anio = fechaActual.getFullYear();
+
+      const nombreMeses = [
+        "enero",
+        "febrero",
+        "marzo",
+        "abril",
+        "mayo",
+        "junio",
+        "julio",
+        "agosto",
+        "septiembre",
+        "octubre",
+        "noviembre",
+        "diciembre",
+      ];
+
+      this.fecha = `${dia} de ${nombreMeses[mes]} de ${anio}`;
+    },
     createCliente() {
       if (
         !this.frmCliente.DNI_cli ||

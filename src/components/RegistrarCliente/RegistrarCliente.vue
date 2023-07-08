@@ -1,10 +1,26 @@
 <template>
   <div>
-    <v-app-bar color="green accent-4" dense dark>
-      <v-toolbar-title>KALLPA</v-toolbar-title>
+    <v-app-bar color="white" dense dark height="100">
+      <v-toolbar-title>
+        <v-img
+          src="../../views/Img/Kallpa.png"
+          max-height="300"
+          max-width="200"
+          class="kallpa-image"></v-img>
+      </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-icon>mdi-account-circle</v-icon>
+      <v-img
+        src="../../views/Img/usuario (3).png"
+        max-height="100"
+        max-width="50"></v-img>
     </v-app-bar>
+    <v-footer color="#33cc33" app height="60">
+      <v-row align="center" justify="center">
+        <v-col cols="12" class="text-center white--text">
+          &copy; 2023 KALLPA. Todos los derechos reservados.
+        </v-col>
+      </v-row>
+    </v-footer>
     <form name="registrarCliente" @submit.prevent="createCliente">
       <div class="cliente">
         <h2>Registrar Cliente</h2>
@@ -107,21 +123,48 @@
           </div>
         </v-container>
       </div>
+      <div class="resumen">
+        <v-container class="my-container-2">
+          <div class="info">
+            <div class="image-container">
+              <v-img
+                src="../../views/Img/Kallpa.png"
+                max-height="300"
+                max-width="200"></v-img>
+            </div>
+            <h3>Fecha: {{ this.fecha }}</h3>
+          </div>
+
+          <h3>Datos del usuario:</h3>
+          <v-divider></v-divider>
+
+          <h4>Nombres : {{ this.frmCliente.Nombre_cli }}</h4>
+          <h4>Apellidos : {{ this.frmCliente.Apellido_cli }}</h4>
+          <h4>DNI : {{ this.frmCliente.DNI_cli }}</h4>
+          <h4>Fecha Nacimiento : {{ this.frmCliente.FechaNacimiento_cli }}</h4>
+          <h4>Género : {{ this.frmCliente.desgenero }}</h4>
+          <h4>Nacionalidad : {{ this.frmCliente.desnacionalidad }}</h4>
+          <h4>Estado Civil : {{ this.frmCliente.desestadocivil }}</h4>
+          <h4>Celular : {{ this.frmCliente.Celular_cli }}</h4>
+          <h3>Datos del Domicilio:</h3>
+          <v-divider></v-divider>
+          <h4>ID Domicilio: {{ this.frmCliente.IDDomicilio }}</h4>
+        </v-container>
+      </div>
       <div class="btn-container">
         <div class="btn1">
           <v-btn type="submit" class="button-1 mt-2" depressed color="primary">
             Registrar Cliente
             <v-icon class="mx-1">mdi-account-badge-outline</v-icon>
           </v-btn>
-          <v-btn
-            depressed
-            color="primary"
-            class="button-1 mt-2"
-            @click="resetForm">
+          <v-btn color="green" class="button-1 mt-2" @click="resetForm">
             Limpiar
             <v-icon class="mx-1">mdi-backup-restore</v-icon>
           </v-btn>
         </div>
+      </div>
+
+      <div class="btn3">
         <v-btn
           depressed
           color="primary"
@@ -205,13 +248,13 @@
   width: 500px;
   height: 450px;
   padding: 10px 10px 10px 10px;
-
   border-color: #72bb53;
   border-width: 3px;
   border-style: solid;
   border-radius: 23px 23px 23px 23px;
   position: relative;
   z-index: 1;
+  margin-top: -0px;
 }
 .btn-container {
   display: flex;
@@ -219,11 +262,12 @@
 }
 
 .btn1 {
-  margin-right: 20px;
+  margin-right: 990px;
 }
 
-.btn-atras {
-  margin-right: 600px; /* Ajusta el valor del margen según tus preferencias */
+.btn3 {
+  margin-top: -65px;
+  margin-left: 600px; /* Ajusta el valor del margen según tus preferencias */
 }
 .custom-text-field {
   width: 470px;
@@ -233,7 +277,31 @@
   color: #c0c0c0;
 
   text-align: left;
-  margin-bottom: 50px;
+  margin-bottom: 60px;
+}
+.my-container-2 {
+  width: 850px;
+  height: 450px;
+  padding: 10px 10px 10px 10px;
+  border-color: #72bb53;
+  border-width: 3px;
+  border-style: solid;
+  border-radius: 23px 23px 23px 23px;
+  position: relative;
+  z-index: 1;
+  margin-left: 550px;
+  margin-top: -470px;
+}
+.v-application .info {
+  background-color: white !important;
+  border-color: white !important;
+}
+.info {
+  display: flex;
+  align-items: center;
+}
+.image-container {
+  margin-right: 300px;
 }
 </style>
 <script src="./RegistrarCliente.js"></script>
