@@ -258,7 +258,7 @@
     </div>
   </div>
   <div class="floating-rectan">
-    <div style="margin-top: 8px">
+    <div style="margin-top: 4px">
       <v-container>
         <h1 class="titulo-bien texto-center">
           <span >¡Bienvenido!</span>
