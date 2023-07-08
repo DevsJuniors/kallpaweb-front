@@ -36,8 +36,8 @@
             <v-img
               src="../../assets/empleado.png"
               max-height="100"
-              max-width="100"
-          ></v-img>
+              max-width="100">
+            </v-img>
             </p>
             <v-text-field
               label="DNI"
@@ -162,6 +162,7 @@
               :disabled="!TextFieldAble"
               style="display: inline-block; width: 25%; margin-right: 8px"
               v-model="frmCredenciales.contraseña"></v-text-field>
+             
             <v-btn
               depressed
               style="
@@ -199,7 +200,7 @@
               </v-card-actions>
             </v-card>
           </v-dialog>
-
+          <div class="right-aligned-button">
           <v-btn
             depressed
             color="primary"
@@ -234,7 +235,9 @@
           </v-btn>
         </div>
       </div>
+    </div>
     </v-container>
+    
   </div>
 </template>
 <style>
@@ -288,6 +291,10 @@
 }
 .kallpa-image {
   margin-top: 35px;
+}
+.right-aligned-button {
+  float: right;
+   margin-left: 10px;
 }
 </style>
 <script src="./RegistrarEmpleado.js"></script>
