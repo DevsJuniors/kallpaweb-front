@@ -70,6 +70,15 @@ export default {
           console.error("Error al obtener los datos de los empleados: ", error)
         );
     },
+    // //DNI_cli: "",
+    // Nombre_cli: "",
+    // Apellido_cli: "",
+    // Celular_cli: "",
+    // FechaNacimiento_cli: "",
+    // IDGenero: "",
+    // IDNacionalidad: "",
+    // IDEstadoCivil: "",
+    // IDDomicilio: "",
     createEmpleado() {
       if (
         !this.frmEmpleado.DNI_Em ||
