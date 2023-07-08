@@ -1,10 +1,26 @@
 <template>
   <div>
-    <v-app-bar color="green accent-4" dense dark>
-      <v-toolbar-title>KALLPA</v-toolbar-title>
+    <v-app-bar color="white" dense dark height="80">
+      <v-toolbar-title>
+        <v-img
+          src="../../views/Img/Kallpa.png"
+          max-height="300"
+          max-width="200"
+          class="kallpa-image"></v-img>
+      </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-icon>mdi-account-circle</v-icon>
+      <v-img
+        src="../../views/Img/usuario (3).png"
+        max-height="100"
+        max-width="50"></v-img>
     </v-app-bar>
+    <v-footer color="#33cc33" app height="60">
+      <v-row align="center" justify="center">
+        <v-col cols="12" class="text-center white--text">
+          &copy; 2023 KALLPA. Todos los derechos reservados.
+        </v-col>
+      </v-row>
+    </v-footer>
     <h2 style="text-align: center">Asignar Habilitador</h2>
     <v-container fluid>
       <div class="d-flex flex-grow-1">
@@ -204,5 +220,8 @@
 .elevation-1 {
   width: 98%;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+.kallpa-image {
+  margin-top: 35px;
 }
 </style>
