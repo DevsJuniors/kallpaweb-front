@@ -1,11 +1,11 @@
 <template>
-  <div >
+  <div>
   <div class="floating-rectan-boton">
+    <div class=" floating-rectan-titulo">
+      <h1 class="texto-center titulo-bienvenido" >¿Qué acción realizaremos?</h1>
+    </div>
     <div style="margin-top: 1px">
       <v-container>
-        <h1 class="titulo-bien texto-center">
-          <span class="border-bien">¿Qué acción realizaremos?</span>
-        </h1>
         <v-row>
           <!-- BOTON REGISTRAR EMPLEADO 1 -->
           <v-col cols="12" >
@@ -17,7 +17,7 @@
               height="100px"
               elevation="13"
               width="300px"
-              style="margin-right: 10px;"
+              style="margin-right: 50px; margin-top: 18%;"
               fab
               outlined
               x-large
@@ -41,7 +41,7 @@
               fab
               outlined
               x-large
-              style="margin-right: 20px;"
+              style="margin-right: 50px; margin-top: 18%;"
             >
               <v-img
                 src="../Img/registrarse.png"
@@ -63,7 +63,7 @@
               fab
               outlined
               x-large
-              style="margin-right: 20px;"
+              style="margin-right: 50px; margin-top: 18%;"
             >
               <v-img
                 src="../Img/contrato (3).png"
@@ -74,7 +74,7 @@
             </v-btn>
         </v-col>
           </v-row>
-          <v-row class="mx-auto" style="margin-top: 0%;">
+          <v-row class="mx-auto">
           <!-- BOTON CONSULTAR CONTRATO  4 -->
           <v-col cols="12">
             <v-btn
@@ -88,7 +88,7 @@
               fab
               outlined
               x-large
-              style="margin-right: 20px;"
+              style="margin-right: 50px;"
             >
               <v-img
               src="../Img/buscar (1).png"
@@ -109,7 +109,7 @@
               fab
               outlined
               x-large
-              style="margin-right: 20px;"
+              style="margin-right: 50px;"
             >
               <v-img
                 src="../Img/evaluacion.png"
@@ -128,7 +128,7 @@
               elevation="13"
               width="300px"
               fab
-              style="margin-right: 10px;"
+              style="margin-right: 50px;"
               outlined
               x-large
             >
@@ -136,19 +136,18 @@
                 src="../Img/contrato (2).png"
                 max-height="100"
                 max-width="80"
-                style="margin-right: 20px;"
                 class="icon-center"
               ></v-img> <span class="">GENERAR ORDEN DE I.</span>
             </v-btn>
           </v-col>
           </v-row>
-          <v-row class="mx-auto" style="margin-top: 0%;">
+          <v-row class="mx-auto" >
         <!-- BOTON ASIGNAR TECNICO 7 -->
           <v-col cols="12">
             <v-btn
               dark
               text
-              style="margin-right: 20px;"
+              style="margin-right: 50px;"
               class="border-btnA"
               @click="asignarTecnico"
               height="100px"
@@ -172,7 +171,7 @@
               class="border-btnA"
               @click="registrarMateriales"
               height="100px"
-              style="margin-right: 20px;"
+              style="margin-right: 50px;"
               elevation="13"
               width="300px"
               fab
@@ -198,7 +197,7 @@
               fab
               outlined
               x-large
-              style="margin-right: 20px;"
+              style="margin-right: 50px;"
             >
               <v-img
                 src="../Img/controlador.png"
@@ -209,7 +208,7 @@
             </v-btn>
           </v-col>
           </v-row>
-          <v-row class="mx-auto" style="margin-top: 0%;">
+          <v-row class="mx-auto" >
           <!-- BOTON ASIGNAR HABILITADOR 10 -->
           <v-col cols="12" >
             <v-btn
@@ -223,7 +222,7 @@
               fab
               outlined
               x-large
-              style="margin-right: 20px;"
+              style="margin-right: 50px;"
             >
               <v-img
               src="../Img/lista-de-verificacion.png"
@@ -244,7 +243,7 @@
               fab
               outlined
               x-large
-              style="margin-right: 20px;"
+              style="margin-right: 50px;"
             >
               <v-img
                 src="../Img/reporte (1).png"
@@ -259,19 +258,34 @@
     </div>
   </div>
   <div class="floating-rectan">
-    <div style="margin-top: 0px">
+    <div style="margin-top: 4px">
       <v-container>
         <h1 class="titulo-bien texto-center">
-          <span class="border-bien">¡Bienvenido!</span>
+          <span >¡Bienvenido!</span>
         </h1>
         <v-img
       src="../Img/Kallpa.png"
       max-height="330"
-      max-width="330"
+      max-width="250"
       class="mx-auto"
-      style="margin-top: 25px"
+      style="margin-top: 10px"
     ></v-img>
-        <v-row class="mx-auto" style="margin-top: 20%;">
+    <v-img
+      src="../Img/usuario (3).png"
+      max-height="150"
+      max-width="120"
+      class="mx-auto usuar"
+      style="margin-top: -10%"
+    ></v-img><h1 class="texto-center titulo-nom ">
+          ¡HOLA!
+        </h1><h2 class="texto-center titulo-nom ">
+          ...
+        </h2>
+        <h3 style="margin-top: 3%" class="texto-center titulo-acc border-bien">
+          Accesos Rápidos
+        </h3>
+        
+        <v-row class="mx-auto" style="margin-top: 0%;">
           <!-- BOTON SUNAT 1 -->
           <v-col cols="12" sm="4">
             <v-btn
@@ -281,9 +295,9 @@
               class="border-btn"
               href="https://acortar.link/yhk230"
               target="_blank"
-              height="110px"
+              height="90px"
               elevation="13"
-              width="110px"
+              width="90px"
               fab
               outlined
               x-large
@@ -295,6 +309,7 @@
                 class="icon-center"
               ></v-img>
             </v-btn>
+            <h1 class="titulo-btn btnsunat">Sunat</h1>
           </v-col>
           <!-- BOTON ASIGNAR GMAIL 2 -->
           <v-col cols="12" sm="4">
@@ -305,9 +320,9 @@
               class="border-btn"
               href="https://mail.google.com/mail/?authuser=0"
               target="_blank"
-              height="110px"
+              height="90px"
               elevation="13"
-              width="110px"
+              width="90px"
               fab
               outlined
               x-large
@@ -319,6 +334,7 @@
                 class="icon-center"
               ></v-img>
             </v-btn>
+            <h1 class="titulo-btn btngmail">Gmail</h1>
           </v-col>
           <!-- BOTON ASIGNAR DRIVE 3 -->
           <v-col cols="12" sm="4">
@@ -329,9 +345,9 @@
               class="border-btn"
               href="https://drive.google.com/?authuser=0"
               target="_blank"
-              height="110px"
+              height="90px"
               elevation="13"
-              width="110px"
+              width="90px"
               fab
               outlined
               x-large
@@ -343,6 +359,7 @@
                 class="icon-center"
               ></v-img>
             </v-btn>
+            <h1 class="titulo-btn btndrive">Drive</h1>
           </v-col>
         </v-row>
         <v-row>
@@ -352,13 +369,14 @@
               color="rgba(255, 255, 255, 0.8)"
               dark
               text
-              class="border-btn"
+              class="border-btn btngogle"
               href="https://www.google.com"
               target="_blank"
-              height="110px"
+              height="90px"
               elevation="13"
-              width="110px"
+              width="90px"
               fab
+              style="margin-right: 100%; "
               outlined
               x-large
             >
@@ -369,8 +387,9 @@
                 class="icon-center"
               ></v-img>
             </v-btn>
+            <h1 class="titulo-btn">Google</h1>
           </v-col>
-          <!-- BOTON ASIGNAR GMAIL -->
+          <!-- BOTON ASIGNAR MAPS -->
           <v-col cols="12" sm="4">
             <v-btn
               color="rgba(255, 255, 255, 0.8)"
@@ -379,9 +398,9 @@
               class="border-btn"
               href="https://maps.google.com/?authuser=0"
               target="_blank"
-              height="110px"
+              height="90px"
               elevation="13"
-              width="110px"
+              width="90px"
               fab
               outlined
               x-large
@@ -393,8 +412,9 @@
                 class="icon-center"
               ></v-img>
             </v-btn>
+            <h1 class="titulo-btn btnmaps"> Maps</h1>
           </v-col>
-          <!-- BOTON ASIGNAR CALENDARIO -->
+          <!-- BOTON CALIDAD -->
           <v-col cols="12" sm="4">
             <v-btn
               cols="12"
@@ -405,9 +425,9 @@
               class="border-btn"
               href="https://www.calidda.com.pe/"
               target="_blank"
-              height="110px"
+              height="90px"
               elevation="13"
-              width="110px"
+              width="90px"
               fab
               outlined
               x-large
@@ -418,7 +438,9 @@
                 max-width="70"
                 class="icon-center"
               ></v-img>
+              
             </v-btn>
+            <h1 class="titulo-btn btncaliddad">Cálidda</h1>
           </v-col>
         </v-row>
       </v-container>
@@ -481,34 +503,58 @@ export default {
 }
 
 .titulo-bienvenido {
-  margin-top: 10px;
-  font-size: 35px;
+  margin-top: 30px;
+  font-size: 45px;
+  margin-left: -10% !important;
   font-family: Tahoma !important;
-  color:#0d47a1;
+  color:#ffffff;
+}
+.titulo-btn {
+  text-align: center;
+  margin-top: 5px;
+  font-size: 20px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif!important;
+  color:#000000;
 }
 .titulo-bien { 
-  font-size: 60px;
+  font-size: 50px;
+  font-family: Tahoma!important;
+  color: #032f76;
+}
+.titulo-nom { 
+  font-size: 20px;
+  font-family: Tahoma!important;
+  color: #032f76;
+}
+.titulo-acc { 
+  font-size: 20px;
   font-family: Tahoma!important;
   color: #ffffff;
 }
 
 
-/* Estilos para los botones */
-.btn-container {
-  display: flex;
-  flex-direction: row-reverse;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  /* Agrega margen superior para separar el texto de los botones si lo deseas */
-  margin-top: 40px;
+.btnmaps{
+  margin-left: -20% !important
 }
-.btn-wide {
-  width: 20px;
-  margin-left: auto;
+.btngmail{
+  margin-left: -22% !important
 }
+.btndrive{
+  margin-left: -21% !important
+}
+.btnsunat{
+  margin-left: -20% !important
+}
+.btngogle {
+  margin-left: 12% !important
+}
+.btncaliddad {
+  margin-left: -24% !important
+}
+
 .border-btnA{
   border: 3px solid #33cc33;
-  background: #0d47a1 !important;
+  background: #033076 !important;
   padding: 4px;
   display: inline-flex;
   border-radius: 20px;
@@ -521,26 +567,13 @@ export default {
   border-radius: 20px;
 }
 
-.border {
-  background-color: #33cc33;
-  border: 3px solid #33cc33;
-  padding: 10px;
-  display: inline-block;
-  border-radius: 25px;
-}
-.borderjejo {
-  background-color: #ffffff;
-  border: 4px solid #3ab12c;
-  padding: 10px;
-  display: inline-block;
-  border-radius: 25px;
-}
+
 .border-bien {
-  background-color: #33cc33;
-  border: 3px solid #33cc33;
+  background-color: #032f76;
+  border: 3px solid #033076;
   padding: 10px;
   display: fixed;
-  border-radius: 25px;
+  border-radius: 20px;
 }
 
 .floating-rectan {
@@ -549,7 +582,7 @@ export default {
   transform: translateX(-50%);
   top: 0%;
   width: 450px;
-  height: 750px;
+  height: 755px;
   background-color: #ffffff;
   padding: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -560,8 +593,19 @@ export default {
   transform: translateX(-50%);
   top: 0%;
   width: 1500px;
-  height: 750px;
+  height: 755px;
   background-color: #33cc33;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.floating-rectan-titulo{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0%;
+  width: 1500px;
+  height: 150px;
+  background-color: #033076;
   padding: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
