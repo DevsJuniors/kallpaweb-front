@@ -79,7 +79,7 @@
          <div>
           <v-container style="margin-top: -280px;">
         <div  class="contenedor-cajas-E">
-        <v-card-title style="color: rgb(11, 13, 105);font-size: 18px;"> Conteo de Contratos por Estado </v-card-title>
+        <v-card-title style="color: rgb(11, 13, 105);font-size: 17px;"> Conteo de Contratos por Estado </v-card-title>
         <v-card-text>
           <v-list dense>
             <v-list-item
@@ -101,8 +101,8 @@
         
        
           
-    <div style="margin-top:140px;">
-      <v-container style="width: 9900px; margin-left: 10px;">
+    <div>
+      <div class="tabla fill-height">
       <v-data-table
         :headers="headers"
         :items="contratosFiltrados"
@@ -112,9 +112,9 @@
           >
         </template>
       </v-data-table>
-    </v-container>
-
     </div>
+    </div>
+
        <div>
         <v-container style="margin-left: -400px;">
   <v-btn class="btn-mover" style="font-family: 'Trebuchet MS'; width: 178px; background-color: rgb(11, 13, 105); color: #ffffff" @click="generarReporte">Generar Reporte</v-btn>
@@ -141,16 +141,16 @@
 }
 .custom-table thead th {
     background-color:  rgb(11, 13, 105);
-    color: #ffffff !important; 
+    color: #ffffff !important;
+     
 }
 .fill-height {
   height: 100%;
-  border: 2px  #011761;
 }
 .tabla {
-  width: 3500px;
-  margin-left: -1000px ;
-  
+  width: 97%;
+  margin-left: 27px ;
+  margin-top: 140px;
 }
 .contenedor-cajas {
   border: 2px solid #208120;

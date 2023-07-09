@@ -19,6 +19,16 @@ export default {
 		},
 	},
 	computed: {
+		headers() {
+			return [
+			  { text: "Id", value: "" },
+			  { text: "Dni Cliente", value: "" },
+			  { text: "Dni Empleado", value: "" },
+			  { text: "Estado", value: "" },
+			  { text: "Fecha", value: "" },
+			  { text: "Número de Suministro", value: "" },
+			];
+		  },
 		estadosContratos() {
 			const estados = new Set();
 			this.contratos.forEach((contrato) => {
