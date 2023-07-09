@@ -28,6 +28,7 @@ export default {
 			mensaje: "",
 			TextFieldAble: false,
 			selectedDate: null,
+			typemsg: "",
 		};
 	},
 

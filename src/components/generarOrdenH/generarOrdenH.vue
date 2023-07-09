@@ -272,6 +272,7 @@
 							label="DATOS DE LA ORDEN:"
 							rows="3"
 							auto-grow
+							disabled
 							outlined>
 						</v-textarea>
 						<v-card-actions

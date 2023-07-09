@@ -177,7 +177,8 @@ export default {
 						this.ventanaEmergente();
 					})
 					.catch((e) => console.log(e));
-				this.mensaje = "Se registro correctamente el contrato";
+				this.mensaje =
+					"Se registro correctamente el contrato. \nDesea subir el contrato al portal de Calidda";
 				this.typemsg = "success";
 				this.dialogVisible = true;
 			}
@@ -239,7 +240,7 @@ export default {
 		cerrar() {
 			this.dialogVisible = false;
 			this.dialogError = false;
-			this.resetForm();
+			this.window.location.reload();
 		},
 		llenar() {
 			if (this.frmContrato.DNI_cli !== "") {
@@ -271,7 +272,11 @@ export default {
 		aceptar() {
 			// Lógica para manejar la acción de aceptar en el diálogo
 			this.dialogVisible = false;
-			this.resetForm();
+			this.window.location.reload();
+		},
+		openNewTab() {
+			window.open("https://app.smartsheet.com/b/m", "_blank");
+			this.window.location.reload();
 		},
 		resetForm() {
 			this.frmContrato.IDContrato = "";

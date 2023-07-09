@@ -251,7 +251,12 @@
 					<v-btn
 						style="background-color: #033076; color: #ffffff"
 						@click="aceptar">
-						Aceptar
+						Guardar sin subir
+					</v-btn>
+					<v-btn
+						style="background-color: #033076; color: #ffffff"
+						@click="openNewTab">
+						Cargar al portal
 					</v-btn>
 				</v-card-actions>
 			</v-card>
