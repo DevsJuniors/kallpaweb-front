@@ -18,6 +18,9 @@ export default {
     this.obtenerDetalleEtapaMaterial();
   },
   methods: {
+    reporte() {
+			this.$router.push("/reportes");
+		},
     obtenerDetalleEtapaMaterial() {
       this.axios
         .get("http://localhost:3000/detalle-etapa-material")

@@ -1,49 +1,97 @@
 <template>
-  <div class="container">
-    <div class="filtros">
-      <v-container class="px-0" fluid>
-        <v-card outlined class="max-width-400">
-          <v-card-title>Filtros</v-card-title>
+<div>
+  <div>
+
+    <v-app-bar color="white" dense dark height="80">
+
+      <v-toolbar-title>
+        <v-img
+          src="../../views/Img/Kallpa.png"
+          max-height="300"
+          max-width="200"
+          class="kallpa-image">
+        </v-img>
+      </v-toolbar-title>
+
+      <v-spacer></v-spacer>
+
+      <v-img
+        src="../../views/Img/usuario (3).png"
+        max-height="100"
+        max-width="50">
+      </v-img>
+
+    </v-app-bar>
+
+    <v-footer color="#33cc33" app height="60">
+      <v-row align="center" justify="center">
+        <v-col cols="12" class="text-center white--text">
+          &copy; 2023 KALLPA. Todos los derechos reservados.
+        </v-col>
+      </v-row>
+    </v-footer>
+
+    <div style="margin-top: 28px">
+      <v-texto-center>
+        <h1 class="text-center" style="font-family:'Trebuchet MS'" >
+          <span style="color: #32CC32">REPORTE</span>
+          <span style="color: #203864"> - ORDENES</span>
+        </h1>
+      </v-texto-center>
+    </div>
+
+  </div>
+
+  <div>
+    <div class="container" style="margin-left: 14px">
+      <div class="filtros contenedor-cajas-E">
+        <v-card-title style="color: rgb(11, 13, 105); font-size: 30px ;">Filtros</v-card-title>
+
           <v-card-text>
             <p>Fecha</p>
-            <v-row>
-              <v-col cols="12" sm="12">
-                <v-date-picker v-model="start"></v-date-picker>
-              </v-col>
-            </v-row>
+              <v-row>
+                <v-col cols="12" sm="12">
+                  <v-date-picker v-model="start"></v-date-picker>
+                </v-col>
+              </v-row>
           </v-card-text>
+
           <v-card-actions>
-            <v-btn color="primary" @click="generarReporte"
-              >Generar Reporte</v-btn
-            >
-            <v-btn color="primary">Atras</v-btn>
+            <v-btn color="primary" @click="generarReporte">Generar Reporte</v-btn>
+            <v-btn color="primary" @click="reporte">Atras</v-btn>
           </v-card-actions>
-        </v-card>
-      </v-container>
+
+      </div>
     </div>
+  </div>
+
+  <div>
     <div class="reportec">
-      <v-container>
+      <v-container style="margin-right: -1px;" class="contenedor-cajas-B">
         <v-card outlined class="reporte">
-          <v-card-title>Reporte de Clientes</v-card-title>
+          <v-card-title style="color:rgb(40, 180, 40); font-size: 20px;">Reporte de Ordenes</v-card-title>
           <v-card-text>
             <textarea
               rows="20"
               cols="50"
               disabled
-              v-model="reporteOrdenes"></textarea>
+              v-model="reporteOrdenes">
+            </textarea>
           </v-card-text>
         </v-card>
       </v-container>
     </div>
   </div>
+</div>
 </template>
+
 <style>
 .max-width-400 {
   max-width: 400px;
 }
 .reporte {
-  width: 500px;
-  padding: 20px;
+  width: 550px;
+  padding: 4px;
 }
 .filtros {
   max-width: 400px;
@@ -53,7 +101,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 20;
 }
 .container {
   display: flex;
@@ -68,6 +116,115 @@ textarea {
   font-size: 14px;
   color: #333;
   background-color: #f5f5f5;
+}
+.texto-derecha {
+  text-align: right;
+}
+.texto-center {
+  text-align: center;
+}
+.kallpa-image {
+  margin-top: 35px;
+}
+.titulo-bienvenido {
+  font-size: 32px;
+  font-family: Sans-serif;
+  color: rgb(252, 252, 252);
+}
+.contenedor-cajas-E {
+  border: 4px solid #010361 ;
+  padding: 10px;
+  margin-top: 20px;
+  height: 100%;
+}
+.contenedor-cajas-F {
+  border: 4px solid #010361 ;
+  padding: 10px;
+  margin-top: -480px;
+  height: 100%;
+}
+.contenedor-cajas-B {
+  border: 4px solid #0fa14700 ;
+  padding: 10px;
+  margin-top: -614px;
+  height: 100%;
+  border-radius: 10%;
+}
+.titulo{
+  font-size: 32px;
+  font-family: Sans-serif;
+  color: rgb(252, 252, 252);
+}
+.kallpa-image {
+  margin-top: 35px;
+}
+.texto-encima {
+  position: absolute;
+  top: 2;
+  left: 0;
+  right: 5;
+  text-align: center;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ); /* Fondo semi-transparente para legibilidad */
+  padding: 2px;
+  z-index: 1; /* Asegura que el texto esté por encima de los botones */
+}
+/* Estilos para los botones */
+.btn-container {
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  /* Agrega margen superior para separar el texto de los botones si lo deseas */
+  margin-top: 40px;
+}
+.btn-wide {
+  width: 20px;
+  margin-left: auto;
+}
+.border {
+  background-color: #33cc33;
+  border: 3px solid #33cc33;
+  padding: 10px;
+  display: inline-block;
+  border-radius: 25px;
+}
+.border-bien {
+  background-color: #33cc33;
+  border: 3px solid #33cc33;
+  padding: 10px;
+  display: fixed;
+  border-radius: 25px;
+}
+.floating-rectangle {
+  position: absolute;
+  left: 25%;
+  transform: translateX(-50%);
+  top: 14%;
+  width: 500px;
+  height: 550px;
+  background-color: #33cc33;
+  border: 4px solid #33cc33;
+  border-radius: 30px;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.floating-rectan {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 4%;
+  width: 450px;
+  height: 500px;
+  background-color: #ffffff;
+  border: 4px solid #ffffff;
+  border-radius: 30px;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 </style>
 <script src="./ReporteOrdenes.js"></script>
