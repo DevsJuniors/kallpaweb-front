@@ -1,99 +1,102 @@
 export default {
-  data() {
-    return {
-      frmHabilitador: {
-        DNI_Em: "",
-        IDCategoria: "",
-        Nombre_Em: "",
-        Apellido_Em: "",
-        Celular_Em: "",
-      },
-      Select: false,
-      dialogVisible: false,
-      dialogError: false,
-      TextFieldAble: false,
-      search: "",
-      loading: false,
-      search: "",
-      habilitadores: [],
-    };
-  },
+	data() {
+		return {
+			frmHabilitador: {
+				DNI_Em: "",
+				IDCategoria: "",
+				Nombre_Em: "",
+				Apellido_Em: "",
+				Celular_Em: "",
+			},
+			Select: false,
+			typemsg: "",
+			dialogVisible: false,
+			dialogError: false,
+			TextFieldAble: false,
+			search: "",
+			loading: false,
+			search: "",
+			mensaje: "",
+			habilitadores: [],
+		};
+	},
 
-  computed: {
-    headers() {
-      return [
-        { text: "DNI", value: "DNI_Em" },
-        { text: "Categoria", value: "IDCategoria" },
-        { text: "Nombres", value: "Nombre_Em" },
-        { text: "Apellidos", value: "Apellido_Em" },
-        { text: "Celular", value: "Celular_Em" },
-        { text: "Seleccionar", value: "" },
-      ];
-    },
-  },
+	computed: {
+		headers() {
+			return [
+				{ text: "DNI", value: "DNI_Em" },
+				{ text: "Categoria", value: "IDCategoria" },
+				{ text: "Nombres", value: "Nombre_Em" },
+				{ text: "Apellidos", value: "Apellido_Em" },
+				{ text: "Celular", value: "Celular_Em" },
+				{ text: "Seleccionar", value: "" },
+			];
+		},
+	},
 
-  mounted() {
-    this.obtenerHabilitadores();
-  },
+	mounted() {
+		this.obtenerHabilitadores();
+	},
 
-  methods: {
-    obtenerHabilitadores() {
-      this.axios
-        .get("http://localhost:3000/empleado")
-        .then((response) => {
-          this.habilitadores = response.data.filter(
-            (empleado) => empleado.IDCategoria === 3
-          );
-        })
-        .catch((error) => console.error("Error al obtener los datos"));
-    },
-    seleccionarHabilitador(habilitador) {
-      this.frmHabilitador.DNI_Em = habilitador.DNI_Em;
-      this.frmHabilitador.IDCategoria = habilitador.IDCategoria;
-      this.frmHabilitador.Nombre_Em = habilitador.Nombre_Em;
-      this.frmHabilitador.Apellido_Em = habilitador.Apellido_Em;
-      this.frmHabilitador.Celular_Em = habilitador.Celular_Em;
-    },
-    asignar() {
-      var valorCampoA = this.frmHabilitador.DNI_Em;
-      var valorCampoB =
-        this.frmHabilitador.Nombre_Em + " " + this.frmHabilitador.Apellido_Em;
-      localStorage.setItem("valorCampoA", valorCampoA);
-      localStorage.setItem("valorCampoB", valorCampoB);
-      console.log(valorCampoA);
-      console.log(valorCampoB);
-      window.location.href = "http://localhost:3003/menu/generarOrdenH";
-    },
-    limpiar() {
-      this.frmHabilitador.DNI_Em = "";
-      this.frmHabilitador.Apellido_Em = "";
-      this.frmHabilitador.Nombre_Em = "";
-      this.frmHabilitador.IDCategoria = "";
-      this.frmHabilitador.Celular_Em = "";
-    },
-    confirmar() {
-      if (this.frmHabilitador.DNI_Em !== "") {
-        this.dialogVisible = true;
-        this.mensaje =
-          'Esta seguro de asignar al Habilitador con DNI "' +
-          this.frmHabilitador.DNI_Em +
-          '" a la presente orden';
-      } else {
-        this.dialogError = true;
-        this.mensaje =
-          "Selecccione un habilitador para poder realizar la asignación.";
-      }
-    },
-    cerrar() {
-      this.dialogVisible = false;
-      this.dialogError = false;
-      this.limpiar();
-    },
-    volver() {
-      this.$router.push("/menu/generarOrdenH");
-    },
-    desText() {
-      this.TextFieldAble = false;
-    },
-  },
+	methods: {
+		obtenerHabilitadores() {
+			this.axios
+				.get("http://localhost:3000/empleado")
+				.then((response) => {
+					this.habilitadores = response.data.filter(
+						(empleado) => empleado.IDCategoria === 3
+					);
+				})
+				.catch((error) => console.error("Error al obtener los datos"));
+		},
+		seleccionarHabilitador(habilitador) {
+			this.frmHabilitador.DNI_Em = habilitador.DNI_Em;
+			this.frmHabilitador.IDCategoria = habilitador.IDCategoria;
+			this.frmHabilitador.Nombre_Em = habilitador.Nombre_Em;
+			this.frmHabilitador.Apellido_Em = habilitador.Apellido_Em;
+			this.frmHabilitador.Celular_Em = habilitador.Celular_Em;
+		},
+		asignar() {
+			var valorCampoA = this.frmHabilitador.DNI_Em;
+			var valorCampoB =
+				this.frmHabilitador.Nombre_Em + " " + this.frmHabilitador.Apellido_Em;
+			localStorage.setItem("valorCampoA", valorCampoA);
+			localStorage.setItem("valorCampoB", valorCampoB);
+			console.log(valorCampoA);
+			console.log(valorCampoB);
+			window.location.href = "http://localhost:3003/menu/generarOrdenH";
+		},
+		limpiar() {
+			this.frmHabilitador.DNI_Em = "";
+			this.frmHabilitador.Apellido_Em = "";
+			this.frmHabilitador.Nombre_Em = "";
+			this.frmHabilitador.IDCategoria = "";
+			this.frmHabilitador.Celular_Em = "";
+		},
+		confirmar() {
+			if (this.frmHabilitador.DNI_Em !== "") {
+				this.dialogVisible = true;
+				this.mensaje =
+					'Esta seguro de asignar al Habilitador con DNI "' +
+					this.frmHabilitador.DNI_Em +
+					'" a la presente orden';
+			} else {
+				this.dialogError = true;
+				this.typemsg = "error";
+				this.mensaje =
+					"Selecccione un habilitador para poder realizar la asignación.";
+			}
+		},
+		cerrar() {
+			this.dialogVisible = false;
+			this.dialogError = false;
+			this.limpiar();
+		},
+		volver() {
+			this.$router.push("/menu/generarOrdenH");
+		},
+		desText() {
+			this.TextFieldAble = false;
+		},
+	},
 };
