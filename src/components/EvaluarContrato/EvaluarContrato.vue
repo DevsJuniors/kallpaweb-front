@@ -1,12 +1,34 @@
 <template>
   <div>
-    <v-app-bar color="green accent-4" dense dark>
-      <v-toolbar-title>KALLPA</v-toolbar-title>
+    <v-div> <!--Cabecera-->
+    <v-app-bar color="white" dense dark height="120">
+      <v-toolbar-title>
+        <v-img
+          src="../../views/Img/Kallpa.png"
+          max-height="300"
+          max-width="200"
+          class="kallpa-image"></v-img>
+      </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-icon>mdi-account-circle</v-icon>
+      <v-img
+        src="../../views/Img/usuario (3).png"
+        max-height="100"
+        max-width="50"></v-img>
     </v-app-bar>
+    
+    <v-footer color="#33cc33" app height="60">
+      <v-row align="center" justify="center">
+        <v-col cols="12" class="text-center white--text">
+          &copy; 2023 KALLPA. Todos los derechos reservados.
+        </v-col>
+      </v-row>
+    </v-footer>
+    </v-div>
       <div class="spacer"></div>
-      <h2 style=" text-align: center;"> Evaluación de contratos</h2> 
+      <div style="display: flex; justify-content: center; align-items: center;">
+      <h2 style="color: rgba(0, 0, 129, 0.829); margin-right: 10px;font-size: 30px;font-weight: bold">Evaluación de</h2>
+      <h2 style="color: rgb(62, 207, 62);font-size: 30px;font-weight: bold">contratos</h2>
+    </div>
     <v-container fluid>
       <div class="d-flex flex-grow-1">
       <v-data-table
@@ -63,35 +85,49 @@
 
     <v-container fluid>
        <div class="cliente">
+        
            <h3>Campos del contrato seleccionado</h3>
             <div class="contenedor-cajas-E">
+
+              
+            <v-img
+            src="../../assets/contrato.png"
+              max-height="100"
+              max-width="70"
+              style="display: inline-block; margin-left:20px ; margin-bottom: 10px;position: absolute;">
+              
+            </v-img>
       <v-text-field
         label="ID Contrato"
         solo
         disabled
         v-model="IDContrato"
-        style="display: inline-block; width: 24%;margin-right: 10px;"
+        style="display: inline-block; width: 19%;margin-left: 100px;"
+      
         ></v-text-field>
-      <v-text-field
+        <!---prepend-icon="mdi-map-marker"-->
+
+        <v-text-field
         label="Numero Suministro"
         solo
         disabled
-        style="display: inline-block; width: 24%;margin-right: 10px;"
+        style="display: inline-block; width: 19%; margin-left: 50px"
         v-model="numSum"></v-text-field>
       <v-text-field
         label="DNI Cliente"
         solo
         disabled
-        style="display: inline-block; width: 24%;margin-right: 10px;"
+        style="display: inline-block; width: 19%;margin-left: 40px;"
         v-model="DNI_cli"></v-text-field>
       <v-combobox
         :items="estadosA"
         label="Estado de contrato"
         solo
-        style="display: inline-block; width: 24%;margin-right: 10px;"
+        style="display: inline-block; width: 19%;margin-left: 40px;"
         v-model="selectedEstado"></v-combobox>
        </div>
        </div>
+       
        <div class="contenedor-cajas-A">
         <v-btn  depressed 
                 style="background-color: #47d847; color: #ffffff; display: inline-block; width: 23%"
@@ -154,6 +190,7 @@
 .contenedor-cajas-E{
   border: 2px solid #47d847;
   padding: 10px;
+  padding-top: 15px;
 }
 .contenedor-cajas-A{
   border: 2px solid #ffffff;
@@ -168,6 +205,11 @@
     background-color: #095ba8;
     color: #ffffff !important; 
 }
+.a{
+  text-align: left;
+  padding-top: 1px;
+}
+
 </style>
 
 <script src="./EvaluarContrato.js"></script>
