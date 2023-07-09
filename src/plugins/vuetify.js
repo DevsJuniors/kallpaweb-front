@@ -7,20 +7,20 @@ import es from "vuetify/lib/locale/es";
 Vue.use(Vuetify);
 
 export default new Vuetify({
-  lang: {
-    locales: { es },
-    current: "es",
-  },
-  theme: {
-    // themes: {
-    //   light: {
-    //     primary: "#0039a6",
-    //     orange: "#ff7900",
-    //   },
-    //   dark: {
-    //     primary: "#0039a6",
-    //     orange: "#ff7900",
-    //   },
-    // },
-  },
+	lang: {
+		locales: { es },
+		current: "es",
+	},
+	theme: {
+		themes: {
+			light: {
+				//primary: "#0039a6",
+				orange: "#ff7900",
+			},
+			dark: {
+				primary: "#0039a6",
+				orange: "#ff7900",
+			},
+		},
+	},
 });

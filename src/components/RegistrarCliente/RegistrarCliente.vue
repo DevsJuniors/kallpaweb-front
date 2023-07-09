@@ -44,7 +44,7 @@
 							placeholder="Ingrese el código de domicilio"
 							filled
 							v-model="frmCliente.IDDomicilio"
-							style="width: 300px"></v-text-field>
+							style="width: 180px"></v-text-field>
 					</div>
 					<div
 						style="
@@ -62,7 +62,7 @@
 						<v-icon
 							style="align-items: center; display: flex; margin-bottom: 30px"
 							class="my-3n"
-							size="90"
+							size="70"
 							color="green">
 							mdi-home-analytics
 						</v-icon>
@@ -92,7 +92,7 @@
 									v-model="frmCliente.DNI_cli"></v-text-field>
 								<v-text-field
 									label="Fecha de Nacimiento"
-									placeholder="Ingrese la fecha de nacimiento del Cliente"
+									placeholder="Ejemplo: 2023-07-08"
 									filled
 									:disabled="!TextFieldAble"
 									v-model="frmCliente.FechaNacimiento_cli"></v-text-field>
@@ -136,6 +136,7 @@
 					</div>
 				</v-container>
 			</div>
+
 			<div class="resumen">
 				<v-container class="my-container-2">
 					<div class="info">
@@ -173,7 +174,7 @@
 						Registrar Cliente
 						<v-icon class="mx-1">mdi-account-badge-outline</v-icon>
 					</v-btn>
-					<v-btn color="green" class="button-1 mt-2" @click="resetForm" dark>
+					<v-btn color="#47d847" class="button-1 mt-2" @click="resetForm" dark>
 						Limpiar
 						<v-icon class="mx-1">mdi-backup-restore</v-icon>
 					</v-btn>
@@ -283,7 +284,7 @@
 
 	.btn3 {
 		margin-top: -65px;
-		margin-left: 600px; /* Ajusta el valor del margen según tus preferencias */
+		margin-left: 540px; /* Ajusta el valor del margen según tus preferencias */
 	}
 	.custom-text-field {
 		width: 470px;
@@ -296,8 +297,8 @@
 		margin-bottom: 60px;
 	}
 	.my-container-2 {
-		width: 850px;
-		height: 450px;
+		width: 890px;
+		height: 530px;
 		padding: 10px 10px 10px 10px;
 		border-color: #72bb53;
 		border-width: 3px;
@@ -306,7 +307,7 @@
 		position: relative;
 		z-index: 1;
 		margin-left: 550px;
-		margin-top: -470px;
+		margin-top: -550px;
 	}
 	.v-application .info {
 		background-color: white !important;
@@ -320,7 +321,7 @@
 		margin-right: 300px;
 	}
 	.text h4 {
-		margin-bottom: 5px;
+		margin-bottom: 12px;
 	}
 </style>
 <script src="./RegistrarCliente.js"></script>
