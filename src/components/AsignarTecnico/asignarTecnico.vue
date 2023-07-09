@@ -1,11 +1,30 @@
 <template>
     <div>
-        <v-app-bar color="green accent-4" dense dark>
-            <v-toolbar-title>KALLPA</v-toolbar-title>
-            <v-spacer></v-spacer>
-            <v-icon>mdi-account-circle</v-icon>
-        </v-app-bar>
-        <h2 style="text-align: center;">Asignar Técnico</h2> 
+      <v-app-bar color="white" dense dark height="80">
+      <v-toolbar-title>
+        <v-img
+          src="../../views/Img/Kallpa.png"
+          max-height="300"
+          max-width="200"
+          class="kallpa-image"></v-img>
+      </v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-img
+        src="../../views/Img/usuario (3).png"
+        max-height="100"
+        max-width="50"></v-img>
+    </v-app-bar>
+    <v-footer color="#33cc33" app height="60">
+      <v-row align="center" justify="center">
+        <v-col cols="12" class="text-center white--text">
+          &copy; 2023 KALLPA. Todos los derechos reservados.
+        </v-col>
+      </v-row>
+    </v-footer>
+    <div style="display: flex; justify-content: center; align-items: center;">
+      <h2 style="color: rgba(0, 0, 129, 0.829); margin-right: 10px;font-size: 30px;font-weight: bold">Asignar</h2>
+      <h2 style="color: rgb(62, 207, 62);font-size: 30px;font-weight: bold">Técnico</h2>
+    </div>
         <v-container fluid>
          <div class="d-flex flex-grow-1">
           <div class="tabla">
@@ -43,10 +62,39 @@
                 </tr>
             </template>
             </v-data-table>
+            <v-btn
+                    depressed
+                    color="primary"
+                    style="display: inline-block; width: 25%"
+                    class="button-1 mt-2 mb-4 mr-3 x-large "
+                    @click="limpiar">
+                    Limpiar
+                <v-icon class="mx-1">mdi-backup-restore</v-icon>
+               </v-btn>
+               <v-btn
+                    depressed
+                    color="primary"
+                    style="display: inline-block; width: 25%"
+                    class="button-1 mt-2 mb-4 mr-3 x-large "
+                    @click="volver">
+                    Atras
+                <v-icon class="mx-1">mdi-keyboard-backspace</v-icon>
+            </v-btn>
+            <v-btn
+                depressed
+                style="background-color: #47d847; color: #ffffff;width: 40%"
+                class="mt-2 mb-4 mr-3 x-large "
+                @click="confirmar">
+                Asignar Técnico
+                <v-icon class="mx-1">mdi-arrow-right-drop-circle</v-icon>
+                </v-btn>
             </div>
             <div class="orden  mt-4">
           <h3> Datos del Técnico </h3>
             <div class="contenedor-cajas ">
+              <v-container class="text-center">
+              <v-icon class="mx-1 border-bien " style="color: rgb(62, 207, 62); font-size: 100px;">mdi-account-hard-hat</v-icon>
+              </v-container>
                 <v-text-field
                 label="DNI "
                 placeholder=""
@@ -78,35 +126,63 @@
                 filled
                 :disabled="!Select"
                 v-model="frmTecnico.Celular_Em"></v-text-field>
-                <div class="text-center">
-                <v-btn
-                depressed
-                style="background-color: #47d847; color: #ffffff;"
-                class="mt-2 mb-4 x-large"
-                @click="asignar">
-                Asignar Técnico
-                <v-icon class="mx-1">mdi-arrow-right-drop-circle</v-icon>
-                </v-btn>
-                </div>
             </div>
-                <v-btn
-                    depressed
-                    color="primary"
-                    class="button-1 mt-2"
-                    @click="limpiar">
-                    Limpiar
-                <v-icon class="mx-1">mdi-backup-restore</v-icon>
-               </v-btn>
-               <v-btn
-                    depressed
-                    color="primary"
-                    class="button-1 mt-2"
-                    @click="volver">
-                    Atras
-                <v-icon class="mx-1">mdi-keyboard-backspace</v-icon>
-            </v-btn>
           </div>
         </div>
+        <v-dialog v-model="dialogVisible" :width="500">
+            <v-card color="#47d847">
+              <v-card-title>
+                <span class="mx-auto" style="color: white">
+                  Confirmación de Asignación</span
+                >
+              </v-card-title>
+              <v-card-text>
+                <v-alert
+                  v-if="mensaje !== ''"
+                  color="white"
+                  type="success"
+                  outlined
+                  >{{ mensaje }}</v-alert
+                >
+              </v-card-text>
+              <v-card-actions style="display: flex; justify-content: center">
+                <v-btn
+                  style="background-color: #033076; color: #ffffff"
+                  @click="asignar">
+                  Aceptar
+                </v-btn>
+                <v-btn
+                  style="background-color: #033076; color: #ffffff"
+                  @click="cerrar">
+                  Cancelar
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-dialog>
+          <v-dialog v-model="dialogError" :width="500">
+            <v-card color="#ec4a4a">
+              <v-card-title>
+                <span class="mx-auto" style="color: white"> ¡Verifique!</span>
+              </v-card-title>
+              <v-card-text>
+                <v-alert
+                  v-if="mensaje !== ''"
+                  color="white"
+                  :type="typemsg"
+                  outlined
+                  >
+                  {{ mensaje }}</v-alert
+                >
+              </v-card-text>
+              <v-card-actions style="display: flex; justify-content: center">
+                <v-btn
+                  style="background-color: #033076; color: #ffffff"
+                  @click="cerrar">
+                  Aceptar
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-dialog>
       </v-container>
     </div>
 </template>
@@ -152,5 +228,14 @@
 .custom-table thead th {
     background-color: #095ba8;
     color: #ffffff !important; 
+}
+.border-bien {
+  border: 3px solid #33cc33;
+  padding: 10px;
+  display: fixed;
+  border-radius: 100px;
+}
+.kallpa-image {
+  margin-top: 35px;
 }
 </style>

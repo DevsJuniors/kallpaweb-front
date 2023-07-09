@@ -13,12 +13,33 @@ export default {
       },
       Select: false,
       dialogVisible: false,
+      dialogVisualizar: false,
+      menCabecera:"",
+      dialogError: false,
       mensaje: "",
+      search: '',
+      loading: false,
+      search: "",
       TextFieldAble: false,
       selectedDate: null,
       selectedEtapa: "Construcción",
       etapas: [],
+      ordenes: [],
+      contratos:[],
+      tecnicos:[],
     };
+  },
+
+  computed: {
+    headers() {
+      return [
+        { text: "IDEtapa ", value: "IDEtapa" },
+        { text: "IDContrato", value: "IDContrato" },
+        { text: "Fecha", value: "Fecha_Et" },
+        { text: "DNI", value: "DNI_Em" },
+        { text: "Seleccionar", value: "" },
+      ];
+    },
   },
 
   watch: {
@@ -35,6 +56,9 @@ export default {
     this.obtenerDato();
     this.capturarDato();
     this.getEtapa();
+    this.getEtapaContrato();
+    this.getContrato();
+    this.getEmpleado();
     this.llenarNumO();
   },
 
@@ -48,15 +72,38 @@ export default {
         .catch((error) => e);
     },
     createOrdenI() {
-      this.axios
+      if(this.frmOrdenI.DNI_Em===""){
+        this.mensaje='Es necesario ASIGNAR un técnico para la orden';
+        this.dialogError=true;
+        this.typemsg="error";
+      }else if(this.frmOrdenI.Fecha_Et===undefined){
+        this.mensaje='Por favor seleccione una fecha para la orden de instalación'
+        this.dialogError=true;
+        this.typemsg="error";
+      }else{
+        this.axios
         .post("http://localhost:3000/etapa-contrato", this.frmOrdenI)
         .then((res) => {
           console.log(res);
           console.log(this.frmOrdenI.DNI_Em);
         })
         .catch((e) => e);
-      this.guardarValor();
-      this.mostrarMensaje();
+        this.guardarValor();
+        this.mostrarMensaje();
+        localStorage.removeItem("valorA");
+        localStorage.removeItem("valorB");
+      }
+    },
+    getEtapaContrato(){
+      this.axios
+      .get("http://localhost:3000/etapa-contrato")
+      .then((response) => {
+        // Filtrar por etapas 1 (INSTALACIÓN)
+        this.ordenes = response.data.filter((orden) => orden.IDEtapa === 1);
+      })
+      .catch((error) =>
+        console.error("Error al obtener los datos de los técnicos: ", error)
+      );
     },
     asignarTecnico() {
       this.$router.push("/menu/AsignarTecnico");
@@ -71,7 +118,7 @@ export default {
       this.selectedDate = null;
     },
     volverMenu() {
-      this.$router.push("/menu");
+      this.$router.push("/menu/consultarContratos");
     },
     obtenerDato() {
       var valorCampoA = localStorage.getItem("valorCampoA");
@@ -99,6 +146,11 @@ export default {
       this.dialogVisible = false;
       this.$router.push("/menu/registrarMateriales");
     },
+    cerrar(){
+      this.dialogVisible= false;
+      this.dialogError=false
+      this.dialogVisualizar=false;
+    },
     guardarValor() {
       var valor1 = this.frmOrdenI.IDContrato;
       var valor2 = this.frmOrdenI.IDEtapa;
@@ -118,9 +170,61 @@ export default {
       }
     },
     llenarNumO() {
-      var numeroAleatorio =
-        Math.floor(Math.random() * (2000 - 1000 + 1)) + 1000;
-      this.frmOrdenI.numOrden = numeroAleatorio;
+      this.frmOrdenI.numOrden = 'OI-'+this.frmOrdenI.IDContrato;
     },
+    seleccionarOrden(orden){
+      this.menCabecera= '       Código de Orden : OI-'+ orden.IDContrato;
+      const temporal =this.obtenerDatos(orden.IDContrato,orden.DNI_Em);
+      this.mensaje= 'DATOS GENERALES'+
+                    '\n ----------------------------------------------------------------------------------------------------------------------------------------------------------------'+
+                    '\nCódigo de Contrato       :      '+ orden.IDContrato +
+                    '\nNumero de Sumnistro   :     '+temporal[2]+
+                    '\nPuntos de Instalación   :     '+temporal[3]+
+                    '\n\nDATOS DE ESPECIFICOS'+
+                    '\n ----------------------------------------------------------------------------------------------------------------------------------------------------------------'+
+                    '\nDNI Técnico       :        '+orden.DNI_Em+
+                    '\nNombre Encargado    :        '+temporal[0]+' '+temporal[1]+
+                    '\nFecha de Ejecución  :       '+orden.Fecha_Et;
+      this.dialogVisualizar=true; 
+    },
+    obtenerDatos(number,dni){
+      var contrato= this.contratos.find((contrato) => contrato.IDContrato=== number);
+      console.log(contrato.IDContrato)
+      if (contrato) {
+        console.log(contrato.IDContrato)
+          var tecnico= this.tecnicos.find((tecnico)=> tecnico.DNI_Em===dni)
+          console.log(tecnico.DNI_Em)
+          if(tecnico){
+            const datos=[tecnico.Nombre_Em,tecnico.Apellido_Em,contrato.numSum,contrato.PuntoInstalacion_Con]
+            return datos
+          }
+         return null;
+     } else {
+         return null; // o algún valor predeterminado si no se encuentra
+     }
+   },
+    getContrato(){
+      this.axios
+      .get("http://localhost:3000/contrato")
+      .then((response)=>{
+          //Filtro de Aprobados
+          this.contratos= response.data.filter((contrato)=>contrato.estado==='Aprobado');
+      })
+      .catch((error) =>
+      console.error("Error al obtener los datos de los contratos ", error)
+    );
+    },
+    getEmpleado(){
+      this.axios
+      .get("http://localhost:3000/empleado")
+      .then((response)=>{
+          //Filtro 
+          this.tecnicos= response.data.filter((tecnico)=>tecnico.IDCategoria===2);
+      })
+      .catch((error) =>
+      console.error("Error al obtener los datos", error)
+    );
+    },
+
   },
 };

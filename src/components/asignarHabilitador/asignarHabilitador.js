@@ -9,12 +9,14 @@ export default{
         Celular_Em:""
        },
         Select: false,
+        typemsg:"",
         dialogVisible:false,
         dialogError:false,
         TextFieldAble: false,
         search: '',
         loading: false,
         search:"",
+        mensaje:"",
         habilitadores:[],
       };
     },
@@ -76,6 +78,7 @@ export default{
           this.mensaje= 'Esta seguro de asignar al Habilitador con DNI "'+this.frmHabilitador.DNI_Em+'" a la presente orden';
         }else{
           this.dialogError=true;
+          this.typemsg="error";
           this.mensaje= 'Selecccione un habilitador para poder realizar la asignación.'
         }
       },

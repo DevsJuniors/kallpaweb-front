@@ -12,16 +12,36 @@ export default{
                 numOrden:"",
 
             },
+            menCabecera:"",
             TextFieldAble: false,
             Select:false,
             selectedEtapa: "Habilitación",
             etapas:[],
+            ordenes: [],
+            contratos:[],
+            habilitadores:[],
+            search: '',
+            loading: false,
+            search: "",
             dialogVisible: false,
             dialogError: false,
+            dialogVisualizar:false,
             mensaje: "",
             TextFieldAble: false,
             selectedDate: null,
         }
+    },
+
+    computed: {
+      headers() {
+        return [
+          { text: "IDEtapa ", value: "IDEtapa" },
+          { text: "IDContrato", value: "IDContrato" },
+          { text: "Fecha", value: "Fecha_Et" },
+          { text: "DNI", value: "DNI_Em" },
+          { text: "Seleccionar", value: "" },
+        ];
+      },
     },
 
     watch:{
@@ -35,9 +55,12 @@ export default{
     created() {
         this.handleDateSelection();
         this.obtenerDato();
+        this.capturarDato();
         this.getEtapa();
         this.llenarNumO();
-        this.capturarDato();
+        this.getContrato();
+        this.getEtapaContrato();
+        this.getEmpleado();
     },
 
     methods:{
@@ -53,9 +76,11 @@ export default{
         if(this.frmOrdenH.DNI_Em===""){
             this.mensaje='Es necesario ASIGNAR un habilitador para la orden';
             this.dialogError=true;
+            this.typemsg="error";
         }else if(this.frmOrdenH.Fecha_Et===undefined){
             this.mensaje='Por favor seleccione una fecha para la orden de habilitación'
             this.dialogError=true;
+            this.typemsg="error";
         }else{
           console.log(this.frmOrdenH.Fecha_Et)
           this.axios
@@ -71,6 +96,17 @@ export default{
           localStorage.removeItem("valorB");
         }
        },
+       getEtapaContrato(){
+      this.axios
+      .get("http://localhost:3000/etapa-contrato")
+      .then((response) => {
+        // Filtrar por etapas 2 (HABILITACIÓN)
+        this.ordenes = response.data.filter((orden) => orden.IDEtapa === 2);
+      })
+      .catch((error) =>
+        console.error("Error al obtener los datos de los técnicos: ", error)
+       );
+      },
        asignarHabilitador(){
         this.$router.push("/menu/asignarHabilitador");
        },
@@ -84,7 +120,7 @@ export default{
         this.selectedDate =null;
       },
        volverMenu() {
-        this.$router.push("/menu");
+        this.$router.push("/menu/consultarContratos");
        },
        obtenerDato() {
         var valorCampoA = localStorage.getItem("valorCampoA");
@@ -101,16 +137,16 @@ export default{
        capturarDato() {
         var valorA = localStorage.getItem("valorA");
         var valorB = localStorage.getItem("valorB");
-        console.log(valorA)
-        console.log(valorB)
         if (valorA && valorB) {
          this.frmOrdenH.IDContrato= valorA;
          this.frmOrdenH.numSum= valorB;
+         console.log('AAA'+this.frmOrdenH.IDContrato)
         }
        },
        cerrar(){
         this.dialogVisible= false;
         this.dialogError=false
+        this.dialogVisualizar=false;
       },
       mostrarMensaje() {
         this.mensaje='La orden de Habilitación ha sido generada con éxito, por favor registre los materiales a emplear para  '+
@@ -131,8 +167,63 @@ export default{
         localStorage.setItem("valor3", valor3);
       },
       llenarNumO(){
-        var numeroAleatorio = Math.floor(Math.random() * (3000 - 2000 + 1)) + 2000;
-        this.frmOrdenH.numOrden= numeroAleatorio;
-      }
+        this.frmOrdenH.numOrden='OH-'+this.frmOrdenH.IDContrato ;
+        console.log('ID:'+this.frmOrdenH.IDContrato)
+      },
+    seleccionarOrden(orden){
+      this.menCabecera= '       Código de Orden : OH-'+ orden.IDContrato;
+      const temporal =this.obtenerDatos(orden.IDContrato,orden.DNI_Em);
+      this.mensaje= 'DATOS GENERALES'+
+                    '\n ----------------------------------------------------------------------------------------------------------------------------------------------------------------'+
+                    '\nCódigo de Contrato       :      '+ orden.IDContrato +
+                    '\nNumero de Sumnistro   :     '+temporal[2]+
+                    '\nPuntos de Instalación   :     '+temporal[3]+
+                    '\n\nDATOS DE ESPECIFICOS'+
+                    '\n ----------------------------------------------------------------------------------------------------------------------------------------------------------------'+
+                    '\nDNI Habilitador       :        '+orden.DNI_Em+
+                    '\nNombre Encargado    :        '+temporal[0]+' '+temporal[1]+
+                    '\nFecha de Ejecución  :       '+orden.Fecha_Et;
+      this.dialogVisualizar=true; 
+    },
+    obtenerDatos(number,dni){
+      var contrato= this.contratos.find((contrato) => contrato.IDContrato=== number);
+      console.log(contrato.IDContrato)
+      if (contrato) {
+        console.log(contrato.IDContrato)
+          var habilitador= this.habilitadores.find((habilitador)=> habilitador.DNI_Em===dni)
+          console.log(habilitador.DNI_Em)
+          if(habilitador){
+            const datos=[habilitador.Nombre_Em,habilitador.Apellido_Em,contrato.numSum,contrato.PuntoInstalacion_Con]
+            return datos
+          }
+         return null;
+     } else {
+         return null; // o algún valor predeterminado si no se encuentra
+     }
+   },
+    getContrato(){
+      this.axios
+      .get("http://localhost:3000/contrato")
+      .then((response)=>{
+          //Filtro de Aprobados
+          this.contratos= response.data.filter((contrato)=>contrato.estado==='Aprobado');
+      })
+      .catch((error) =>
+      console.error("Error al obtener los datos de los contratos ", error)
+    );
+    },
+    getEmpleado(){
+      this.axios
+      .get("http://localhost:3000/empleado")
+      .then((response)=>{
+          //Filtro 
+          this.habilitadores= response.data.filter((habilitador)=>habilitador.IDCategoria===3);
+      })
+      .catch((error) =>
+      console.error("Error al obtener los datos ", error)
+    );
+    },
+
+
     }
 }

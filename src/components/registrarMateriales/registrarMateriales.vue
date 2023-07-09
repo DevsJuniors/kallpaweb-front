@@ -1,12 +1,32 @@
 <template>
   <div>
-    <v-app-bar color="green accent-4" dense dark>
-      <v-toolbar-title>KALLPA</v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-icon>mdi-account-circle</v-icon>
-    </v-app-bar>
+    <v-app-bar color="white" dense dark height="80">
+          <v-toolbar-title>
+            <v-img
+              src="../../views/Img/Kallpa.png"
+              max-height="300"
+              max-width="200"
+              class="kallpa-image"></v-img>
+          </v-toolbar-title>
+          <v-spacer></v-spacer>
+          <v-img
+            src="../../views/Img/usuario (3).png"
+            max-height="100"
+            max-width="50"></v-img>
+        </v-app-bar>
+        <v-footer color="#33cc33" app height="60">
+          <v-row align="center" justify="center">
+            <v-col cols="12" class="text-center white--text">
+              &copy; 2023 KALLPA. Todos los derechos reservados.
+            </v-col>
+          </v-row>
+        </v-footer>
     <form>
-    <h2 style="text-align: center;">Asignar Materiales</h2>
+      <div class="spacer"></div>
+        <div style="display: flex; justify-content: center; align-items: center;">
+            <h2 style="color: rgba(0, 0, 129, 0.829); margin-right: 10px;font-size: 30px;font-weight: bold">Asignar</h2>
+            <h2 style="color: rgb(62, 207, 62);font-size: 30px;font-weight: bold">Materiales</h2>
+        </div>
             <div class="contenedor-cajas ">
             <h3 style="color: #47d847;"> Especificaciones de Contrato </h3>
               <div class="d-flex">
@@ -56,7 +76,7 @@
           ></v-text-field>
           <v-btn
                 depressed
-                style="background-color: #47d847; color: #ffffff;"
+                style="background-color: #47d847; color: #ffffff;width: 100%;"
                 class="mt-2 mb-4 x-large mr-2"
                 @click="agregar">
                 Añadir
@@ -64,7 +84,7 @@
                 </v-btn>
             <v-btn
                 depressed
-                style="background-color: #47d847; color: #ffffff;"
+                style="background-color: #47d847; color: #ffffff;width: 100%;"
                 class="mt-2 mb-4 x-large mr-2"
                 @click="actualizar">
                 Actualizar
@@ -72,7 +92,7 @@
             </v-btn>
             <v-btn
                 depressed
-                style="background-color: #47d847; color: #ffffff;"
+                style="background-color: #47d847; color: #ffffff;width: 100%;"
                 class="mt-2 mb-4 x-large"
                 @click="eliminar">
                 Eliminar
@@ -84,6 +104,7 @@
           <v-data-table 
           :headers="headers" 
           :items="materialesTE" 
+          class="elevation-1 custom-table"
           >
           <template v-slot:item="{item}">
                 <tr>
@@ -98,19 +119,42 @@
                 </tr>
             </template>
             </v-data-table>
-            <v-btn class="button-1" depressed color="primary" @click="createMateriales">
-           Asignar Materiales
-           <v-icon class="mx-1">mdi-arrow-right-drop-circle</v-icon>
-          </v-btn>
-          <v-btn class="button-1" depressed color="primary" @click="limpiar">
-          Limpiar
-          <v-icon class="mx-1">mdi-backup-restore</v-icon>
-          </v-btn>
+            <div style="display: flex; justify-content: flex-end;">
+                <v-btn class="button-1" depressed color="primary" @click="abrir">
+                  Asignar Materiales
+                  <v-icon class="mx-1">mdi-arrow-right-drop-circle</v-icon>
+                </v-btn>
+                <v-btn class="button-1" depressed color="primary" @click="eliminar">
+                  Limpiar
+                  <v-icon class="mx-1">mdi-backup-restore</v-icon>
+                </v-btn>
+              </div>
+
           </div>
       </div>
       
     </v-container>
-    <v-dialog v-model="dialogVisible">
+    <v-dialog v-model="dialogConfirmacion" :width="600">
+            <v-card color="#47d847">
+                <v-card-title>
+                <span class="mx-auto" style="color: white">¡Confirmación!</span>
+                </v-card-title>
+                <v-card-text>
+                <v-alert :value="true" color="white" type="success" outlined>{{ mensaje }}</v-alert>
+                </v-card-text>
+                <v-card-actions style="display: flex; justify-content: center">
+                <v-btn style="background-color: #033076; color: #ffffff;" @click="createMateriales">
+                  Aceptar
+                  <v-icon class="mx-1">mdi-check-circle</v-icon>
+                </v-btn>
+                <v-btn style="background-color: #033076; color: #ffffff;" @click="cerrar">
+                  Cancelar
+                  <v-icon class="mx-1">mdi-close-circle</v-icon>
+                </v-btn>
+                </v-card-actions>
+            </v-card>
+    </v-dialog>
+    <v-dialog v-model="dialogVisible" :width="600">
             <v-card color="#47d847">
                 <v-card-title>
                 <span class="mx-auto" style="color: white">¡Registro de Materiales Éxitoso!</span>
@@ -125,7 +169,23 @@
                 </v-btn>
                 </v-card-actions>
             </v-card>
-            </v-dialog>
+    </v-dialog>
+            <v-dialog v-model="dialogError" :width="500">
+                    <v-card color="#ec4a4a">
+                      <v-card-title>
+                        <span class="mx-auto" style="color: white">  ¡Verifique!</span>
+                      </v-card-title>
+                      <v-card-text>
+                        <v-alert v-if="mensaje !== ''" color="white" :type="typemsg" outlined>
+                         {{ mensaje }}</v-alert>
+                      </v-card-text>
+                      <v-card-actions style="display: flex; justify-content: center">
+                        <v-btn style="background-color: #033076; color: #ffffff;" @click="cerrar">
+                          Aceptar
+                        </v-btn>
+                      </v-card-actions>
+                    </v-card>
+        </v-dialog>
     </form>
    </div>
 </template>
@@ -150,7 +210,7 @@
 .contenedor-cajas {
   border: 2px solid #96ff96;
   padding: 10px;
-  background-color: #f5f5f5 ;
+  background-color: #ffffff ;
   margin-left: 15px;
   margin-right: 15px;
 
@@ -173,6 +233,10 @@
 
 .tabla {
   width: 100%;
+}
+.custom-table thead th {
+    background-color: #095ba8;
+    color: #ffffff !important; 
 }
 </style>
 <script src="./registrarMateriales.js"></script>

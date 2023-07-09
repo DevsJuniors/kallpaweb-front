@@ -13,12 +13,14 @@ export default{
             },
               TextFieldAble: false,
               dialogVisible: false,
-              mensaje: 'Se registro de forma existosa los materiales para el contrato seleccionado '+
-                       'en la etapa de INSTALACIÓN',
+              dialogConfirmacion: false,
+              mensaje: "",
               Select: true,
               minValue: 1,
-              maxValue: 20,
+              maxValue: 50,
               message: "",
+              typemsg:"",
+              dialogError:false,
               selectedMateriales: null,
               materiales:[],
               materialesTE:[],
@@ -29,8 +31,6 @@ export default{
     computed: {
         headers() {
           return [
-          //  { text: 'C', value: 'IDContrato'},
-          //  { text: 'E', value: 'IDEtapa'},
             { text: 'Id', value: 'IDMateriales' },
             { text: 'Material', value: 'Nombre_Ma' },
             { text: 'Cantidad', value: 'Cantidad_De' },
@@ -60,16 +60,19 @@ export default{
 
     methods: {
         createMateriales(){
-            for (let i = 0; i < this.materialesTE.length; i++) {
-                console.log(this.materialesTE[i].IDMateriales)
-            this.axios
-            .post("http://localhost:3000/detalle-etapa-material",this.materialesTE[i])
-            .then((res) => {
-              console.log(res);
-            })
-            .catch((e) => e);
-            }
-            this.mostrarMensaje()
+
+                for (let i = 0; i < this.materialesTE.length; i++) {
+                    console.log(this.materialesTE[i].IDMateriales)
+                this.axios
+                .post("http://localhost:3000/detalle-etapa-material",this.materialesTE[i])
+                .then((res) => {
+                  console.log(res);
+                })
+                .catch((e) => e);
+                }
+                this.mensaje='Se registro de forma existosa los materiales para el contrato seleccionado '+
+                'en la etapa respectiva',
+                this.mostrarMensaje()
         },
         getMateriales() {
             this.axios
@@ -79,25 +82,58 @@ export default{
               })
               .catch((error) => e);
           },
-        agregar(){
-            const material = {
-                IDContrato: this.frmMateriales.IDContrato,
-                IDEtapa: this.frmMateriales.IDEtapa,
-                IDMateriales: this.frmMateriales.IDMateriales,
-                Nombre_Ma: this.frmMateriales.Nombre_Ma,
-                Cantidad_De: this.frmMateriales.Cantidad_De,
-            };
-            this.materialesTE.push(material);
-            console.log(this.materialesTE)
-            this.resetForm();
+        cerrar(){
+           this.dialogError=false;
+           this.dialogConfirmacion=false;
         },
+        abrir(){
+            if(this.materialesTE.length===0){
+                this.mensaje = 'Por favor asigne materiales a la orden correspondiente, para continuar con el proceso';
+                this.typemsg = 'error';
+                this.dialogError = true;
+            }else {
+                this.mensaje= '¿Esta seguro que desea registrar los materiales?'
+                this.dialogConfirmacion=true;
+            }
+        },
+        agregar() {
+            if (this.selectedMateriales === null) {
+                this.mensaje = 'Por favor seleccione un material para la orden';
+                this.typemsg = 'error';
+                this.dialogError = true;
+            } else if (this.frmMateriales.Cantidad_De ==="0" || this.frmMateriales.Cantidad_De ==="") {
+                this.mensaje = 'No se puede ingresar un material cuya cantidad sea 0, por favor modifique la cantidad.';
+                this.typemsg = 'error';
+                this.dialogError = true;
+            } else {
+                console.log(this.frmMateriales.Cantidad_De)
+                const material = {
+                    IDContrato: this.frmMateriales.IDContrato,
+                    IDEtapa: this.frmMateriales.IDEtapa,
+                    IDMateriales: this.frmMateriales.IDMateriales,
+                    Nombre_Ma: this.frmMateriales.Nombre_Ma,
+                    Cantidad_De: this.frmMateriales.Cantidad_De,
+                };
+                this.materialesTE.push(material);
+                console.log(this.materialesTE);
+                this.resetForm();
+            }
+        },
+        
         actualizar(){
+            if (this.frmMateriales.Cantidad_De ==="0" || this.frmMateriales.Cantidad_De ==="") {
+                this.mensaje = 'No se puede actualizar un material con la cantidad 0, por favor modifique la cantidad.';
+                this.typemsg = 'error';
+                this.dialogError = true;
+            } else {
             for (let i = 0; i < this.materialesTE.length; i++) {
                 if (this.materialesTE[i].IDMateriales===this.frmMateriales.IDMateriales) {
                     this.materialesTE[i].Cantidad_De =this.frmMateriales.Cantidad_De;
                 }
             }
             this.resetForm();
+            this.Select=true;
+           }
         },
         eliminar(){
             for (let i = 0; i < this.materialesTE.length; i++) {
@@ -107,6 +143,7 @@ export default{
                 }
             }
             this.resetForm();
+            this.Select=true;
         },
         seleccionarItem(item){
             this.selectedMateriales= item.Nombre_Ma;
@@ -115,7 +152,7 @@ export default{
         },
         resetForm(){
             this.selectedMateriales=null;
-            this.frmMateriales.Cantidad_De=0;
+            this.frmMateriales.Cantidad_De="";
         },
         limpiar(){
             this.materialesTE.splice(0);
