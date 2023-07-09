@@ -51,14 +51,14 @@
             <p>Fecha</p>
               <v-row>
                 <v-col cols="12" sm="12">
-                  <v-date-picker v-model="start"></v-date-picker>
+                  <v-date-picker v-model="start" color="#32CC32" style="margin-left: 24px"></v-date-picker>
                 </v-col>
               </v-row>
           </v-card-text>
 
           <v-card-actions>
-            <v-btn color="primary" @click="generarReporte">Generar Reporte</v-btn>
-            <v-btn color="primary" @click="reporte">Atras</v-btn>
+            <v-btn @click="generarReporte" style="font-family:'Trebuchet MS';width: 178px;background-color: rgb(11, 13, 105); color: #ffffff">Generar Reporte</v-btn>
+            <v-btn @click="reporte" style="font-family:'Trebuchet MS';width: 178px;background-color: rgb(11, 13, 105); color: #ffffff">Atras</v-btn>
           </v-card-actions>
 
       </div>
@@ -67,21 +67,49 @@
 
   <div>
     <div class="reportec">
-      <v-container style="margin-right: -1px;" class="contenedor-cajas-B">
+      <v-container style="margin-right: 7px;" class="contenedor-cajas-B">
         <v-card outlined class="reporte">
-          <v-card-title style="color:rgb(40, 180, 40); font-size: 20px;">Reporte de Ordenes</v-card-title>
+          <v-card-title style="color:rgb(40, 180, 40); font-size: 30px;">Reporte de Ordenes</v-card-title>
           <v-card-text>
-            <textarea
-              rows="20"
-              cols="50"
-              disabled
-              v-model="reporteOrdenes">
-            </textarea>
+            <textarea v-model="reporteOrdenes" style="height: 487px; width: 506px; font-size: 16px;font-family: 'Segoe UI';padding: 13px;" disabled></textarea>
           </v-card-text>
         </v-card>
       </v-container>
     </div>
   </div>
+
+  <div>
+    <div class="tabla fill-height">
+      <v-data-table
+						:headers="headers"
+						:items="clientes"
+						:search="search"
+						:loading="loading"
+						:items-per-page="5"
+						class="custom-table">
+            <template v-slot:top>
+							<v-toolbar flat>
+                <v-card-title style="color: #32CC32; font-size: 30px ;margin-left: -33px;">Lista de Reportes de Clientes</v-card-title>
+								<v-spacer></v-spacer>
+
+							  <v-text-field
+								  v-model="search"
+								  append-icon="mdi-magnify"
+								  label="Buscar"
+								  single-line
+								  hide-details>
+                </v-text-field>
+							</v-toolbar>
+						</template>
+            <template v-slot:item="{item}">
+							<tr>
+                
+              </tr>
+            </template>
+      </v-data-table>
+    </div>
+  </div>
+
 </div>
 </template>
 
@@ -146,8 +174,8 @@ textarea {
 .contenedor-cajas-B {
   border: 4px solid #0fa14700 ;
   padding: 10px;
-  margin-top: -614px;
-  height: 100%;
+  margin-top: -601px;
+  height: 603px;
   border-radius: 10%;
 }
 .titulo{
@@ -225,6 +253,18 @@ textarea {
   border-radius: 30px;
   padding: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.fill-height {
+	height: 100%;
+}
+.tabla {
+	width: 46%;
+  margin-left: 441px;
+  margin-top: -604px;
+}
+.custom-table thead th {
+	background-color: rgb(11, 13, 105);
+	color: #ffffff !important;
 }
 </style>
 <script src="./ReporteOrdenes.js"></script>

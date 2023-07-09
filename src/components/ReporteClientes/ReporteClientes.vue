@@ -78,8 +78,8 @@
           </v-card-text>
 
           <v-card-actions>
-            <v-btn @click="generarReporte" style="font-family:'Trebuchet MS';background-color: rgb(11, 13, 105); color: #ffffff">Generar Reporte</v-btn>
-            <v-btn @click="resetFilters" style="font-family:'Trebuchet MS';width: 118px;background-color: rgb(11, 13, 105); color: #ffffff">Atras</v-btn>
+            <v-btn @click="generarReporte" style="font-family:'Trebuchet MS';width: 218px;background-color: rgb(11, 13, 105); color: #ffffff">Generar Reporte</v-btn>
+            <v-btn @click="resetFilters" style="font-family:'Trebuchet MS';width: 218px;background-color: rgb(11, 13, 105); color: #ffffff">Atras</v-btn>
           </v-card-actions>
 
       </div>
@@ -87,7 +87,7 @@
   </div>
 
   <div>
-    <div style="margin-left: 370px;margin-right: 900px;" class="contenedor-cajas-F">
+    <div style="margin-left: 531px;margin-right: 753px;" class="contenedor-cajas-F">
       <v-card-title style="color: rgb(11, 13, 105); font-size: 30px ;">Fecha</v-card-title>
         <v-row>
           <v-col cols="12" sm="6">
@@ -106,7 +106,7 @@
         <v-card outlined class="reporte">
           <v-card-title style="color:#32CC32; font-size: 30px;">Reporte de Clientes</v-card-title>
             <v-card-text>
-              <textarea v-model="reporteContratos" style="height: 385px; width: 805px;" disabled>{{reporteClientes}}</textarea>
+              <textarea v-model="reporteContratos" style="height: 385px; width: 666px; font-size: 16px;font-family: 'Segoe UI';padding: 13px;" disabled>{{reporteClientes}}</textarea>
             </v-card-text>
         </v-card>
       </v-container>
@@ -153,11 +153,11 @@
   max-width: 400px;
 }
 .reporte {
-  width: 847px;
+  width: 708px;
   padding: 4px;
 }
 .filtros {
-  max-width: 400px;
+  width: 492px;
   margin-right: auto;
 }
 .reportec {
@@ -203,7 +203,7 @@ textarea {
 .contenedor-cajas-F {
   border: 4px solid #010361 ;
   padding: 10px;
-  margin-top: -480px;
+  margin-top: -481px;
   height: 100%;
 }
 .contenedor-cajas-B {

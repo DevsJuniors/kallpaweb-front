@@ -17,6 +17,20 @@ export default {
   mounted() {
     this.obtenerDetalleEtapaMaterial();
   },
+  computed: {
+    headers() {
+      return [
+        { text: "Número de Suministro", value: "" },
+        { text: "Nombres", value: "" },
+        { text: "Apellidos", value: "" },
+        { text: "Domicilio", value: "" },
+        { text: "Piso", value: "" },
+        { text: "Interior", value: "" },
+        { text: "Etapa", value: "" },
+        { text: "Materiales", value: "" },
+      ];
+    },
+  },
   methods: {
     reporte() {
 			this.$router.push("/reportes");

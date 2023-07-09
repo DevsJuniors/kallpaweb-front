@@ -31,14 +31,14 @@ export default {
   computed: {
     headers() {
       return [
-        { text: "Dni", value: "IDContrato" },
-        { text: "Nombres", value: "Fecha_Con" },
-        { text: "Apellidos", value: "NumeroRadicado_Con" },
-        { text: "Fecha de Nacimiento", value: "numSum" },
-        { text: "Género", value: "PuntoInstalacion_Con" },
-        { text: "Nacionalidad", value: "estado" },
-        { text: "Estado Civil", value: "IDGabineteCategoria" },
-        { text: "Celular", value: "IDTipoInst" },
+        { text: "Dni", value: "" },
+        { text: "Nombres", value: "" },
+        { text: "Apellidos", value: "" },
+        { text: "Fecha de Nacimiento", value: "" },
+        { text: "Género", value: "" },
+        { text: "Nacionalidad", value: "" },
+        { text: "Estado Civil", value: "" },
+        { text: "Celular", value: "" },
       ];
     },
   },
