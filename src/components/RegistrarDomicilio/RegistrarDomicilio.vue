@@ -42,6 +42,7 @@
 						label="ID Domicilio"
 						placeholder="Ingresa la ID del Domicilio"
 						filled
+						disabled
 						v-model="frmDomicilio.IDDomicilio"></v-text-field>
 					<div class="custom-text-field">
 						<v-text-field
