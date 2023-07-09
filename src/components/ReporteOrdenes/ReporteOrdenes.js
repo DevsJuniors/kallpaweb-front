@@ -1,38 +1,52 @@
 export default {
-	data() {
-		return {
-			start: null,
-			reporteOrdenes: "",
-			detalleEtapaMaterial: [],
-		};
-	},
-	watch: {
-		start(newValue) {
-			this.$forceUpdate();
-		},
-		end(newValue) {
-			this.$forceUpdate();
-		},
-	},
-	mounted() {
-		this.obtenerDetalleEtapaMaterial();
-	},
-	methods: {
-		reporte() {
+  data() {
+    return {
+      start: null,
+      reporteOrdenes: "",
+      detalleEtapaMaterial: [],
+    };
+  },
+  watch: {
+    start(newValue) {
+      this.$forceUpdate();
+    },
+    end(newValue) {
+      this.$forceUpdate();
+    },
+  },
+  mounted() {
+    this.obtenerDetalleEtapaMaterial();
+  },
+  computed: {
+    headers() {
+      return [
+        { text: "Número de Suministro", value: "" },
+        { text: "Nombres", value: "" },
+        { text: "Apellidos", value: "" },
+        { text: "Domicilio", value: "" },
+        { text: "Piso", value: "" },
+        { text: "Interior", value: "" },
+        { text: "Etapa", value: "" },
+        { text: "Materiales", value: "" },
+      ];
+    },
+  },
+  methods: {
+    reporte() {
 			this.$router.push("/reportes");
 		},
-		obtenerDetalleEtapaMaterial() {
-			this.axios
-				.get("http://localhost:3000/detalle-etapa-material")
-				.then((response) => {
-					this.detalleEtapaMaterial = response.data;
-				})
-				.catch((error) => console.log(error));
-		},
-		generarReporte() {
-			const detalleEtapa = this.detalleEtapaMaterial;
-			const empleadoSeleccionado = this.empleadoSeleccionado;
-			const fechaSeleccionada = this.start;
+    obtenerDetalleEtapaMaterial() {
+      this.axios
+        .get("http://localhost:3000/detalle-etapa-material")
+        .then((response) => {
+          this.detalleEtapaMaterial = response.data;
+        })
+        .catch((error) => console.log(error));
+    },
+    generarReporte() {
+      const detalleEtapa = this.detalleEtapaMaterial;
+      const empleadoSeleccionado = this.empleadoSeleccionado;
+      const fechaSeleccionada = this.start;
 
 			let detalleFiltrado = detalleEtapa;
 
