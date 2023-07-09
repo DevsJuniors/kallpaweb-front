@@ -28,6 +28,20 @@ export default {
     this.obtenerEstratos();
     this.obtenerDistritos();
   },
+  computed: {
+    headers() {
+      return [
+        { text: "Dni", value: "IDContrato" },
+        { text: "Nombres", value: "Fecha_Con" },
+        { text: "Apellidos", value: "NumeroRadicado_Con" },
+        { text: "Fecha de Nacimiento", value: "numSum" },
+        { text: "Género", value: "PuntoInstalacion_Con" },
+        { text: "Nacionalidad", value: "estado" },
+        { text: "Estado Civil", value: "IDGabineteCategoria" },
+        { text: "Celular", value: "IDTipoInst" },
+      ];
+    },
+  },
   methods: {
     obtenerEstratos() {
       this.axios
