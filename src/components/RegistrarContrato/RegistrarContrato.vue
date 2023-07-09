@@ -154,7 +154,8 @@
 									label="ID Contrato"
 									placeholder="Ingresa la ID del Contrato"
 									filled
-									v-model="frmContrato.IDContrato"></v-text-field>
+									v-model="frmContrato.IDContrato"
+									disabled></v-text-field>
 								<v-text-field
 									label="Fecha del Contrato"
 									placeholder="Ingresa la fecha del Contrato"

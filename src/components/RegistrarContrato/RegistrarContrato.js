@@ -42,6 +42,7 @@ export default {
 		this.getEmpleado();
 		this.asignarFecha();
 		this.obtenerFechaActual();
+		this.obtenerIDContrato();
 	},
 
 	watch: {
@@ -180,6 +181,28 @@ export default {
 				this.typemsg = "success";
 				this.dialogVisible = true;
 			}
+		},
+
+		obtenerIDContrato() {
+			this.axios
+				.get("http://localhost:3000/contrato")
+				.then((response) => {
+					const contratos = response.data;
+					let ultimoIDContrato = 0;
+
+					// Recorrer todos los contratos para encontrar el último IDContrato
+					contratos.forEach((contrato) => {
+						if (contrato.IDContrato > ultimoIDContrato) {
+							ultimoIDContrato = contrato.IDContrato;
+						}
+					});
+
+					// Aumentar el valor del último IDContrato en 1
+					this.frmContrato.IDContrato = ultimoIDContrato + 1;
+				})
+				.catch((error) => {
+					console.log("Error al obtener los contratos", error);
+				});
 		},
 		getCategoriaGabinete() {
 			this.axios
