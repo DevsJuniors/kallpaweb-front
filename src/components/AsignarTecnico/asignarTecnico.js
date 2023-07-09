@@ -9,6 +9,10 @@ export default {
             Celular_Em:""
         },
           Select: false,
+          dialogVisible:false,
+          dialogError:false,
+          mensaje:"",
+          typemsg:"",
           TextFieldAble: false,
           search: '',
           loading: false,
@@ -59,6 +63,21 @@ export default {
             console.log(valorCampoB);
             window.location.href = "http://localhost:3003/menu/generarOrdenI";
         },
+        confirmar(){
+          if(this.frmTecnico.DNI_Em!==""){
+            this.dialogVisible= true;
+            this.mensaje= 'Esta seguro de asignar el Técnico con DNI "'+this.frmTecnico.DNI_Em+'" a la presente orden';
+          }else{
+            this.dialogError=true;
+            this.typemsg="error";
+            this.mensaje= 'Selecccione un técnico para poder realizar la asignación.'
+          }
+        },
+      cerrar(){
+        this.dialogVisible= false;
+        this.dialogError=false
+        this.limpiar();
+      },
         limpiar(){
             this.frmTecnico.DNI_Em= "";
             this.frmTecnico.Apellido_Em= "";
