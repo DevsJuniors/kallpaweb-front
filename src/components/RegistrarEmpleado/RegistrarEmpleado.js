@@ -31,9 +31,13 @@ export default {
 			dialogVisible: false,
 			dialogError: false,
 			loading: true,
+			interval: {},
+			value: 0,
 		};
 	},
-
+	beforeDestroy() {
+		clearInterval(this.interval);
+	},
 	created() {
 		this.getCategoria();
 		this.loadVuetifyStyles();
@@ -66,6 +70,12 @@ export default {
 	},
 	mounted() {
 		this.obtenerEmpleados();
+		this.interval = setInterval(() => {
+			if (this.value === 100) {
+				return (this.value = 0);
+			}
+			this.value += 10;
+		}, 1000);
 	},
 	methods: {
 		loadVuetifyStyles() {
