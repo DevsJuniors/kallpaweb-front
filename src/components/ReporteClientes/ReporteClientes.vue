@@ -105,16 +105,16 @@
 
 		<div>
 			<div
-				style="margin-left: 452px; margin-right: 452px"
+				style="margin-left: 445px; margin-right: 400px"
 				class="contenedor-cajas-F">
 				<v-card-title style="color: rgb(11, 13, 105); font-size: 30px"
 					>Fecha</v-card-title
 				>
-				<v-row>
-					<v-col cols="12" sm="6">
+				<v-row class="d-flex">
+					<v-col cols="12" md="6">
 						<v-date-picker v-model="start" color="#32CC32"></v-date-picker>
 					</v-col>
-					<v-col cols="12" sm="6">
+					<v-col cols="12" md="6">
 						<v-date-picker v-model="end" color="#32CC32"></v-date-picker>
 					</v-col>
 				</v-row>
@@ -123,7 +123,7 @@
 
 		<div>
 			<div class="reportec">
-				<v-container style="margin-right: 12px" class="contenedor-cajas-B">
+				<v-container style="margin-right: 1px" class="contenedor-cajas-B">
 					<v-card outlined class="reporte">
 						<v-card-title style="color: #32cc32; font-size: 30px"
 							>Reporte de Clientes</v-card-title
@@ -133,7 +133,7 @@
 								v-model="reporteContratos"
 								style="
 									height: 385px;
-									width: 371px;
+									width: 340px;
 									font-size: 16px;
 									font-family: 'Segoe UI';
 									padding: 13px;
@@ -148,7 +148,7 @@
 		</div>
 
 		<div>
-			<div class="tabla fill-height"  style="margin-top: -15px;">
+			<div class="tabla fill-height" style="margin-top: -15px">
 				<v-data-table
 					:headers="headers"
 					:items="clientes"
@@ -159,7 +159,7 @@
 					<template v-slot:top>
 						<v-toolbar flat>
 							<v-card-title
-								style="color: #32cc32; font-size: 30px; margin-left: -33px;"
+								style="color: #32cc32; font-size: 30px; margin-left: -33px"
 								>Lista de Reportes de Clientes</v-card-title
 							>
 							<v-spacer></v-spacer>
@@ -187,7 +187,7 @@
 		max-width: 400px;
 	}
 	.report-cli .reporte {
-		width: 413px;
+		width: 380px;
 		padding: 4px;
 	}
 	.report-cli .filtros {
@@ -236,8 +236,8 @@
 	.report-cli .contenedor-cajas-F {
 		border: 4px solid #010361;
 		padding: 10px;
-		margin-top: -477px;
-		height: 100%;
+		margin-top: -478px;
+		height: 90%;
 	}
 	.report-cli .contenedor-cajas-B {
 		border: 4px solid #0fa14700;
