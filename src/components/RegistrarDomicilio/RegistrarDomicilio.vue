@@ -42,6 +42,7 @@
 						label="ID Domicilio"
 						placeholder="Ingresa la ID del Domicilio"
 						filled
+						disabled
 						v-model="frmDomicilio.IDDomicilio"></v-text-field>
 					<div class="custom-text-field">
 						<v-text-field
@@ -145,14 +146,6 @@
 			</div>
 			<div class="btn-container">
 				<div class="btn3">
-					<v-btn
-						class="button-1 mt-2 btn-atras"
-						depressed
-						color="primary"
-						@click="guardarValor">
-						CARGAR
-						<v-icon class="mx-1">mdi-archive-arrow-up</v-icon>
-					</v-btn>
 					<v-btn
 						depressed
 						color="primary"

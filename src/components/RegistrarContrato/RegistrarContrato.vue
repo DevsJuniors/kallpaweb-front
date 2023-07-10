@@ -154,7 +154,8 @@
 									label="ID Contrato"
 									placeholder="Ingresa la ID del Contrato"
 									filled
-									v-model="frmContrato.IDContrato"></v-text-field>
+									v-model="frmContrato.IDContrato"
+									disabled></v-text-field>
 								<v-text-field
 									label="Fecha del Contrato"
 									placeholder="Ingresa la fecha del Contrato"
@@ -250,7 +251,12 @@
 					<v-btn
 						style="background-color: #033076; color: #ffffff"
 						@click="aceptar">
-						Aceptar
+						Guardar sin subir
+					</v-btn>
+					<v-btn
+						style="background-color: #033076; color: #ffffff"
+						@click="openNewTab">
+						Cargar al portal
 					</v-btn>
 				</v-card-actions>
 			</v-card>

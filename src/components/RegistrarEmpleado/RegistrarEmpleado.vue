@@ -237,9 +237,22 @@
 				</div>
 			</div>
 		</v-container>
+		<v-overlay :value="loading">
+			<v-progress-circular
+				:rotate="360"
+				:size="100"
+				:width="15"
+				:value="value"
+				color="teal">
+				{{ value }}
+			</v-progress-circular>
+		</v-overlay>
 	</div>
 </template>
 <style>
+	.v-progress-circular {
+		margin: 1rem;
+	}
 	.custom-table thead th {
 		background-color: #095ba8;
 		color: #ffffff !important;

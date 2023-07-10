@@ -1,6 +1,6 @@
 import { Bar } from "vue-chartjs";
 import { Pie } from "vue-chartjs";
-
+import { VOverlay, VProgressCircular } from "vuetify/lib";
 import {
 	Chart as ChartJS,
 	Title,
@@ -23,13 +23,16 @@ ChartJS.register(
 );
 export default {
 	name: "BarChart",
-	components: { Bar, Pie },
+	components: { Bar, Pie, VOverlay, VProgressCircular },
 	data() {
 		return {
 			chartKey: "",
 			chartKeyPie: "",
 			searchDate: "",
 			contratos: [],
+			loading: true,
+			interval: {},
+			value: 0,
 			end: null,
 			start: null,
 			conteoContratos: {},
@@ -62,9 +65,18 @@ export default {
 			},
 		};
 	},
+	beforeDestroy() {
+		clearInterval(this.interval);
+	},
 	mounted() {
 		this.obtenerContratos();
 		this.generarReporte();
+		this.interval = setInterval(() => {
+			if (this.value === 100) {
+				return (this.value = 0);
+			}
+			this.value += 10;
+		}, 1000);
 	},
 	watch: {
 		start(newValue) {

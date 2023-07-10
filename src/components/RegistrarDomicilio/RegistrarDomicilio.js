@@ -38,6 +38,7 @@ export default {
 		this.getCondicion();
 		this.getTipoPredio();
 		this.obtenerFechaActual();
+		this.obtenerIDDomicilio();
 	},
 	// Recuperando ID correspondiente de cada variable
 	watch: {
@@ -82,6 +83,24 @@ export default {
 	},
 
 	methods: {
+		obtenerIDDomicilio() {
+			this.axios
+				.get("http://localhost:3000/domicilio")
+				.then((response) => {
+					const domicilios = response.data;
+					let ultimoIDDomicilio = 0;
+
+					domicilios.forEach((domicilio) => {
+						if (domicilio.IDDomicilio > ultimoIDDomicilio) {
+							ultimoIDDomicilio = domicilio.IDDomicilio;
+						}
+					});
+					this.frmDomicilio.IDDomicilio = ultimoIDDomicilio + 1;
+				})
+				.catch((error) => {
+					console.log(error);
+				});
+		},
 		obtenerFechaActual() {
 			const fechaActual = new Date();
 			const dia = fechaActual.getDate();
@@ -157,10 +176,11 @@ export default {
 						console.log(res);
 					})
 					.catch((e) => console.log(e));
-				this.resetForm();
+
 				this.mensaje =
 					"Se registro correctamente el domicilio porfavor haga click en el boton Cargar para registrar al cliente";
 				this.typemsg = "success";
+
 				this.dialogVisible = true;
 			}
 		},
@@ -172,6 +192,7 @@ export default {
 		aceptar() {
 			// Lógica para manejar la acción de aceptar en el diálogo
 			this.dialogVisible = false;
+			this.guardarValor();
 			this.resetForm();
 		},
 		getEstrato() {

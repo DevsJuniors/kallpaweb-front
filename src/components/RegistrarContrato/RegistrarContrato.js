@@ -42,6 +42,7 @@ export default {
 		this.getEmpleado();
 		this.asignarFecha();
 		this.obtenerFechaActual();
+		this.obtenerIDContrato();
 	},
 
 	watch: {
@@ -176,10 +177,33 @@ export default {
 						this.ventanaEmergente();
 					})
 					.catch((e) => console.log(e));
-				this.mensaje = "Se registro correctamente el contrato";
+				this.mensaje =
+					"Se registro correctamente el contrato. \nDesea subir el contrato al portal de Calidda";
 				this.typemsg = "success";
 				this.dialogVisible = true;
 			}
+		},
+
+		obtenerIDContrato() {
+			this.axios
+				.get("http://localhost:3000/contrato")
+				.then((response) => {
+					const contratos = response.data;
+					let ultimoIDContrato = 0;
+
+					// Recorrer todos los contratos para encontrar el último IDContrato
+					contratos.forEach((contrato) => {
+						if (contrato.IDContrato > ultimoIDContrato) {
+							ultimoIDContrato = contrato.IDContrato;
+						}
+					});
+
+					// Aumentar el valor del último IDContrato en 1
+					this.frmContrato.IDContrato = ultimoIDContrato + 1;
+				})
+				.catch((error) => {
+					console.log("Error al obtener los contratos", error);
+				});
 		},
 		getCategoriaGabinete() {
 			this.axios
@@ -216,7 +240,7 @@ export default {
 		cerrar() {
 			this.dialogVisible = false;
 			this.dialogError = false;
-			this.resetForm();
+			this.window.location.reload();
 		},
 		llenar() {
 			if (this.frmContrato.DNI_cli !== "") {
@@ -248,7 +272,11 @@ export default {
 		aceptar() {
 			// Lógica para manejar la acción de aceptar en el diálogo
 			this.dialogVisible = false;
-			this.resetForm();
+			this.window.location.reload();
+		},
+		openNewTab() {
+			window.open("https://app.smartsheet.com/b/m", "_blank");
+			this.window.location.reload();
 		},
 		resetForm() {
 			this.frmContrato.IDContrato = "";
