@@ -28,7 +28,7 @@
 				</v-row>
 			</v-footer>
 
-			<div style="margin-top: 28px">
+			<div style="margin-top: 10px">
 				<h1 class="text-center" style="font-family: 'Trebuchet MS'">
 					<span style="color: #32cc32">REPORTE</span>
 					<span style="color: #203864"> - CLIENTES</span>
@@ -37,7 +37,7 @@
 		</div>
 
 		<div>
-			<div class="container" style="margin-left: 14px">
+			<div class="container" style="margin-left: 10px">
 				<div class="filtros contenedor-cajas-E">
 					<v-card-title style="color: rgb(11, 13, 105); font-size: 30px"
 						>Filtros</v-card-title
@@ -82,7 +82,7 @@
 							@click="generarReporte"
 							style="
 								font-family: 'Trebuchet MS';
-								width: 218px;
+								width: 177px;
 								background-color: rgb(11, 13, 105);
 								color: #ffffff;
 							"
@@ -92,7 +92,7 @@
 							@click="resetFilters"
 							style="
 								font-family: 'Trebuchet MS';
-								width: 218px;
+								width: 177px;
 								background-color: rgb(11, 13, 105);
 								color: #ffffff;
 							"
@@ -105,7 +105,7 @@
 
 		<div>
 			<div
-				style="margin-left: 531px; margin-right: 753px"
+				style="margin-left: 452px; margin-right: 452px"
 				class="contenedor-cajas-F">
 				<v-card-title style="color: rgb(11, 13, 105); font-size: 30px"
 					>Fecha</v-card-title
@@ -123,7 +123,7 @@
 
 		<div>
 			<div class="reportec">
-				<v-container style="margin-right: 16px" class="contenedor-cajas-B">
+				<v-container style="margin-right: 12px" class="contenedor-cajas-B">
 					<v-card outlined class="reporte">
 						<v-card-title style="color: #32cc32; font-size: 30px"
 							>Reporte de Clientes</v-card-title
@@ -133,7 +133,7 @@
 								v-model="reporteContratos"
 								style="
 									height: 385px;
-									width: 666px;
+									width: 371px;
 									font-size: 16px;
 									font-family: 'Segoe UI';
 									padding: 13px;
@@ -148,7 +148,7 @@
 		</div>
 
 		<div>
-			<div class="tabla fill-height">
+			<div class="tabla fill-height"  style="margin-top: -15px;">
 				<v-data-table
 					:headers="headers"
 					:items="clientes"
@@ -159,7 +159,7 @@
 					<template v-slot:top>
 						<v-toolbar flat>
 							<v-card-title
-								style="color: #32cc32; font-size: 30px; margin-left: -33px"
+								style="color: #32cc32; font-size: 30px; margin-left: -33px;"
 								>Lista de Reportes de Clientes</v-card-title
 							>
 							<v-spacer></v-spacer>
@@ -187,18 +187,18 @@
 		max-width: 400px;
 	}
 	.report-cli .reporte {
-		width: 708px;
+		width: 413px;
 		padding: 4px;
 	}
 	.report-cli .filtros {
-		width: 492px;
+		width: 420px;
 		margin-right: auto;
 	}
 	.report-cli .reportec {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		height: 20;
+		height: 20px;
 	}
 	.report-cli .container {
 		display: flex;
@@ -231,19 +231,18 @@
 	.report-cli .contenedor-cajas-E {
 		border: 4px solid #010361;
 		padding: 10px;
-		margin-top: 20px;
 		height: 100%;
 	}
 	.report-cli .contenedor-cajas-F {
 		border: 4px solid #010361;
 		padding: 10px;
-		margin-top: -481px;
+		margin-top: -477px;
 		height: 100%;
 	}
 	.report-cli .contenedor-cajas-B {
 		border: 4px solid #0fa14700;
 		padding: 10px;
-		margin-top: -484px;
+		margin-top: -487px;
 		height: 498px;
 		border-radius: 10%;
 	}
