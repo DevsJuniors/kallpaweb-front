@@ -28,7 +28,7 @@
 				</v-row>
 			</v-footer>
 
-			<div style="margin-top: 28px">
+			<div style="margin-top: 10px">
 				<h1 class="text-center" style="font-family: 'Trebuchet MS'">
 					<span style="color: #32cc32">REPORTE</span>
 					<span style="color: #203864"> - ORDENES</span>
@@ -44,8 +44,8 @@
 					>
 
 					<v-card-text>
-						<p>Fecha</p>
-						<v-row>
+						<p style="margin-top: -25px;">Fecha</p>
+						<v-row style="margin-top: -25px;">
 							<v-col cols="12" sm="12">
 								<v-date-picker
 									v-model="start"
@@ -55,7 +55,7 @@
 						</v-row>
 					</v-card-text>
 
-					<v-card-actions>
+					<v-card-actions style="margin-top: -20px;">
 						<v-btn
 							@click="generarReporte"
 							style="
@@ -92,8 +92,8 @@
 							<textarea
 								v-model="reporteOrdenes"
 								style="
-									height: 487px;
-									width: 506px;
+									height: 410px;
+									width: 320px;
 									font-size: 16px;
 									font-family: 'Segoe UI';
 									padding: 13px;
@@ -145,7 +145,7 @@
 		max-width: 400px;
 	}
 	.report-order .reporte {
-		width: 550px;
+		width: 357px;
 		padding: 4px;
 	}
 	.report-order .filtros {
@@ -156,7 +156,7 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		height: 20;
+		height: 20px;
 	}
 	.report-order .container {
 		display: flex;
@@ -189,8 +189,8 @@
 	.report-order .contenedor-cajas-E {
 		border: 4px solid #010361;
 		padding: 10px;
-		margin-top: 20px;
-		height: 100%;
+		margin-top: 1px;
+		height: 502px;
 	}
 	.report-order .contenedor-cajas-F {
 		border: 4px solid #010361;
@@ -201,8 +201,8 @@
 	.report-order .contenedor-cajas-B {
 		border: 4px solid #0fa14700;
 		padding: 10px;
-		margin-top: -601px;
-		height: 603px;
+		margin-top: -545px;
+		height: 523px;
 		border-radius: 10%;
 	}
 	.report-order .titulo {
@@ -286,8 +286,8 @@
 	}
 	.report-order .tabla-RO {
 		width: 46%;
-		margin-left: 441px;
-		margin-top: -604px;
+		margin-left: 439px;
+		margin-top: -550px;
 	}
 	.report-order .custom-table thead th {
 		background-color: rgb(11, 13, 105);
