@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="login">
     <div>
       <v-img
         src="../Img/Imagen1.png"
@@ -101,7 +101,7 @@
 <style scoped>
 
 
-.bienvenido-1 {
+.login .bienvenido-1 {
   width: 400px;
   height: 60px;
   color: #033076;
@@ -111,7 +111,7 @@
   margin-top: 0%;
   text-align: center;
 }
-.identificarse-1 {
+.login .identificarse-1 {
   width: 400px;
   height: 60px;
   margin-top: 0%;
@@ -121,11 +121,11 @@
   font-size: 30px;
   text-align: center;
 }
-.custom-image {
+.login .custom-image {
   margin-top: 0%;
   margin-right: 0%;
 }
-.button-1 {   
+.login .button-1 {   
   background: #033076;
   margin-left: 0%!important;
   margin-top: 5% !important;
@@ -141,7 +141,7 @@
   height:50px !important;
 }
 
-.floating-rectangle {
+.login .floating-rectangle {
   position: absolute;
   left: 85%;
   transform: translateX(-50%);
@@ -152,7 +152,7 @@
   border: 4px solid #33cc33;
   padding: 10px;
 }
-.floating-rectan {
+.login .floating-rectan {
   position: absolute;
   left: 120%;
   transform: translateX(-50%);
@@ -164,10 +164,10 @@
   padding: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-.alinear{
+.login .alinear{
   margin-left: -20%;
 }
-.alinearbien{
+.login .alinearbien{
   margin-left: 0%;
 }
 </style>
