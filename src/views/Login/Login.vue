@@ -1,107 +1,154 @@
 <template>
-  <v-container class="login-container">
-    <v-row>
-      <v-col cols="4" sm="3" md="2" lg="2">
-        <!-- Aquí puedes colocar tu imagen -->
-      </v-col>
-      <v-col
-        cols="12"
-        sm="9"
-        md="10"
-        lg="10"
-        class="d-flex align-center justify-end"
-      >
-      </v-col>
-    </v-row>
+  <div>
     <div>
-      <v-row align="center">
-        <v-col cols="12" sm="5" md="10">
-          <h2 class="identificarse-1">
-            Identificarse
-            <h5 class="bienvenido-1">Bienvenido</h5>
-          </h2>
-        </v-col>
-      </v-row>
-      <form @submit.prevent="iniciarSesion">
-        <v-row align="center">
-          <v-col cols="12" sm="5" md="10">
-            <p>DNI</p>
-            <v-text-field label="" solo v-model="DNI_Em"></v-text-field>
-          </v-col>
-        </v-row>
-        <v-row align="center">
-          <v-col cols="12" sm="5" md="10">
-            <p>Nombre de usuario</p>
-            <v-text-field label="" solo v-model="nombreusuario"></v-text-field>
-          </v-col>
-        </v-row>
-        <v-row align="center">
-          <v-col cols="12" sm="5" md="10">
-            <p>Contraseña</p>
-            <v-text-field label="" solo v-model="contraseña"></v-text-field>
-            <v-btn
-              type="submit"
-              class="button-1"
-              depressed
-              color="primary"
-              block
-            >
-              Iniciar Sesión
-            </v-btn>
-          </v-col>
-        </v-row>
-        <v-row v-if="mensajeError" align="center">
-          <v-col cols="12" sm="5" md="10">
-            <v-alert type="error" class="mt-4">
-              {{ mensajeError }}
-            </v-alert>
-          </v-col>
-        </v-row>
-      </form>
+      <v-img
+        src="../Img/Imagen1.png"
+        max-width="1148"
+        class=""
+        style="display: block;"
+      ></v-img>
     </div>
-  </v-container>
+    <div class="floating-rectangle">
+      <div class="floating-rectan">
+        <div style="margin-top: 1px">
+          <v-container>
+            <v-img
+              src="../Img/Kallpa.png"
+              max-height="330"
+              max-width="250"
+              style="margin-left: 40%;"
+            ></v-img>
+            <v-container class="login-container">
+              <v-row>
+                <v-col cols="4" sm="3" md="2" lg="2"></v-col>
+                <v-col cols="12" sm="9" md="10" lg="10" class="d-flex align-center justify-end"></v-col>
+              </v-row>
+              <div>
+                <v-row align="center"  style="margin-top: -20%;" >
+                  <v-col cols="12" sm="5" md="10">
+                    <h2 class="identificarse-1" style="margin-bottom: 0.5rem;">
+                      Identificarse
+                      <h5 class="bienvenido-1" style="margin-top: 0.3rem; margin-bottom: 0.1rem;">Bienvenido</h5>
+                    </h2>
+                  </v-col>
+                </v-row>
+                <form @submit.prevent="iniciarSesion">
+                  <v-row align="center" style="margin-top: 10%;" >
+                    <v-img
+                    src="../Img/usuario (4).png"
+                    max-height="330"
+                    max-width="150"
+                    style="margin-left: 25%;"
+            ></v-img>
+                    <v-col cols="12" sm="5" md="10">
+                      <p style="margin-bottom: 0.3rem;">DNI</p>
+                      <v-text-field label="" solo v-model="DNI_Em" ></v-text-field>
+                    </v-col>
+                  </v-row>
+                  <v-row align="center" style="margin-top: -15%;" >
+                    <v-col cols="12" sm="5" md="10">
+                      <p style="margin-bottom: 0.3rem;">Nombre de usuario</p>
+                      <v-text-field label="" solo v-model="nombreusuario" ></v-text-field>
+                    </v-col>
+                  </v-row>
+                  <v-row align="center" style="margin-top: -10%;">
+                    <v-col cols="12" sm="5" md="10">
+                      <p style="margin-bottom: 0.3rem;">Contraseña</p>
+                      <v-text-field label="" solo v-model="contraseña" type="password" ></v-text-field>
+                      <v-btn
+                        type="submit"
+                        class="button-1"
+                        depressed
+                        color="#033076"
+                        block
+                        elevation="13"
+                      >
+                        <span class="">Iniciar Sesión</span>
+                      </v-btn>
+                    </v-col>
+                  </v-row>
+                  <v-row v-if="mensajeError" align="center">
+                    <v-col cols="12" sm="5" md="10">
+                      <v-alert type="error" class="mt-4">
+                        {{ mensajeError }}
+                      </v-alert>
+                    </v-col>
+                  </v-row>
+                </form>
+              </div>
+            </v-container>
+          </v-container>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
-<style scoped>
-.login-container {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-}
 
-.login-image {
-  width: 1290px;
-  height: 1025px;
-  padding: 8px 8px 8px 8px;
-  opacity: 100%;
-}
+<style scoped>
+
+
 .bienvenido-1 {
   width: 400px;
   height: 60px;
-  color: #000000;
-  font-family: "ABeeZee";
+  color: #033076;
+  font-family: Tahoma!important;
   font-weight: 400;
   font-size: 20px;
+  margin-top: 0%;
   text-align: center;
 }
 .identificarse-1 {
   width: 400px;
   height: 60px;
+  margin-top: 0%;
   color: #000000;
-  font-family: "ABeeZee";
+  font-family: Tahoma!important;
   font-weight: bold;
   font-size: 30px;
   text-align: center;
 }
-.button-1 {
+.custom-image {
+  margin-top: 0%;
+  margin-right: 0%;
+}
+.button-1 {   
   background: #033076;
+  margin-left: -5%!important;
+  margin-top: 5% !important;
+  width:350px;
   color: #ffffff;
   border-color: #232323;
   border-width: 1px;
-  border-style: solid;
-  border-radius: 3px 3px 3px 3px;
   font-weight: 400;
   font-size: 24px;
+  border-radius: 10px;
+  padding: 10px;
   text-align: center;
+  height:50px !important;
+}
+
+.floating-rectangle {
+  position: absolute;
+  left: 85%;
+  transform: translateX(-50%);
+  top: -0.5% !important;
+  width: 45px;
+  height: 700px;
+  background-color: #33cc33;
+  border: 4px solid #33cc33;
+  padding: 10px;
+}
+.floating-rectan {
+  position: absolute;
+  left: 120%;
+  transform: translateX(-50%);
+  top: 0%;
+  width: 400px;
+  height: 750px;
+  background-color: #ffffff;
+  border: 4px solid #3ab12c;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 </style>
 <script>

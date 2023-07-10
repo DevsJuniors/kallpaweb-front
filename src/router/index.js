@@ -40,7 +40,7 @@ const routes = [
     path: "/menu/registrarContrato",
     name: "Registrar Contrato",
     component: () =>
-      import("../components/Registrar Contrato/RegistrarContrato.vue"),
+      import("../components/RegistrarContrato/RegistrarContrato.vue"),
   },
   {
     path: "/menu/consultarCliente",
@@ -82,9 +82,32 @@ const routes = [
       import("../components/asignarHabilitador/asignarHabilitador.vue"),
   },
   {
+    path: "/menu/consultarContratos",
+    name: "Consultar Contrato",
+    component: () =>
+      import("../components/ConsultarContratos/consultarContratos.vue"),
+  },
+  {
     path: "/reportes",
     name: "Reportes",
     component: () => import("../views/Reportes/Reportes.vue"),
+  },
+  {
+    path: "/reportes/contratos",
+    name: "Reporte Contrato",
+    component: () =>
+      import("../components/ReporteContrato/ReporteContrato.vue"),
+  },
+  {
+    path: "/reportes/clientes",
+    name: "Reporte Clientes",
+    component: () =>
+      import("../components/ReporteClientes/ReporteClientes.vue"),
+  },
+  {
+    path: "/reportes/ordenes",
+    name: "Reporte Ordenes",
+    component: () => import("../components/ReporteOrdenes/ReporteOrdenes.vue"),
   },
 ];
 
