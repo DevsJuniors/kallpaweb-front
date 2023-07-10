@@ -25,8 +25,8 @@
         </v-footer>
     <div>
       <div style="display: flex; justify-content: center; align-items: center;">
-      <h2 style="color: rgba(0, 0, 129, 0.829); margin-right: 10px;font-size: 40px;font-weight: bold">Reporte -</h2>
-      <h2 style="color: rgb(62, 207, 62);font-size: 40px;font-weight: bold">General</h2>
+      <h2 style="color: rgba(0, 0, 129, 0.829); margin-right: 10px;font-size: 35px;font-weight: bold">Reporte -</h2>
+      <h2 style="color: rgb(62, 207, 62);font-size: 35px;font-weight: bold">General</h2>
     </div>
     </div>
   </div>
@@ -34,23 +34,25 @@
         <!-- CONTENEDOR  -->
          <!-- CONTEDOR DE LOS CALENDARIOS  -->
   <div>
-         <div class="contenedor-cajas-F" style="margin-top: 24px; margin-left: 20px; width: 1850px;">
-          <v-container style="margin-left: -1130px">
-            <v-date-picker  v-model="start"  color="#32CC32" class="custom-date-picker"></v-date-picker>
-         <v-date-picker v-model="end" color="#32CC32" class="custom-date-2"></v-date-picker>
+         <div class="contenedor-cajas-F" style="margin-top: 24px; margin-left: 25px; width: 1470px;">
+          <v-container style="margin-left: -580px">
+            
+            <v-date-picker v-model="end" color="#32CC32" class="custom-date-picker" style="margin-right: 10px;"></v-date-picker>
+            <v-date-picker v-model="end" color="#32CC32" class="custom-date-picker"></v-date-picker>
+        
         </v-container>
         </div>
         </div>
       <!-- FIN CONTEDOR DE LOS CALENDARIOS  -->
       <!-- CONENEDOR PASTEL  -->
       <div>
-          <v-container style="margin-top: -420px; margin-left: -680px;">
+          <v-container style="margin-top: -370px; margin-left: -280px;">
           <div>
-                <v-card>
-                  <v-card-title
+                <v-card >
+                  <v-card-title style="font-size: 12px;"
                     >Gráfico de Torta: Contratos por Estado</v-card-title
                   >
-                  <v-card-text>
+                  <v-card-text style="height: 200px; width: 200px;">
                     <Pie
                       v-if="pieChartData.labels.length"
                       :data="pieChartData"
@@ -64,7 +66,7 @@
             <!-- FIN CONTEDOR PASTEL -->
             <!-- CONTENEDOR DE BARRAS -->
             <div>
-            <v-container style="margin-top: -360px; margin-left: -180px;">
+            <v-container style="margin-top: -310px; margin-left: 200px;">
              <!--habia v-row-->             
               <div style="margin-right: 160px;" class="ms-2">
                 <Bar
@@ -77,9 +79,9 @@
          </div>
          <!-- es otro-->
          <div>
-          <v-container style="margin-top: -280px;">
+          <v-container style="margin-top: -258px; margin-right: 30px;">
         <div  class="contenedor-cajas-E">
-        <v-card-title style="color: rgb(11, 13, 105);font-size: 17px;"> Conteo de Contratos por Estado </v-card-title>
+        <v-card-title style="color: rgb(11, 13, 105);font-size: 14px;"> Conteo de Contratos por Estado </v-card-title>
         <v-card-text>
           <v-list dense>
             <v-list-item
@@ -102,7 +104,7 @@
        
           
     <div>
-      <div class="tabla fill-height">
+      <div style="margin-top: 170px;" class="tabla fill-height">
       <v-data-table
         :headers="headers"
         :items="contratosFiltrados"
@@ -116,7 +118,7 @@
     </div>
 
        <div>
-        <v-container style="margin-left: -400px;">
+        <v-container style="margin-left: 50px;">
   <v-btn class="btn-mover" style="font-family: 'Trebuchet MS'; width: 178px; background-color: rgb(11, 13, 105); color: #ffffff" @click="generarReporte">Generar Reporte</v-btn>
   <v-btn class="btn-mover" style="font-family: 'Trebuchet MS'; width: 178px; background-color: rgb(11, 13, 105); color: #ffffff" @click="reporteContrato">Reporte Contratos</v-btn>
   <v-btn class="btn-mover" style="font-family: 'Trebuchet MS'; width: 178px; background-color: rgb(11, 13, 105); color: #ffffff" @click="reporteCliente">Reporte Clientes</v-btn>
@@ -161,13 +163,16 @@
 }
 .contenedor-cajas-E {
   border: 2px solid #011761;
-  padding: 20px;
+  padding: 2px;
   display: inline-block;
-  width: 330px;
+  width: 245px;
 }
 
+
 .custom-date-picker {
-  width: 50%;
+ 
+  width: 40%; /* Define el ancho deseado */
+ 
 }
 
 .custom-date-2{
