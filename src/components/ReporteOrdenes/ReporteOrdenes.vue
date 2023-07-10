@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="report-order">
 		<div>
 			<v-app-bar color="white" dense dark height="80">
 				<v-toolbar-title>
@@ -106,7 +106,7 @@
 		</div>
 
 		<div>
-			<div class="tabla fill-height">
+			<div class="tabla-RO fill-height">
 				<v-data-table
 					:headers="headers"
 					:items="clientes"
@@ -141,28 +141,28 @@
 </template>
 
 <style>
-	.max-width-400 {
+	.report-order .max-width-400 {
 		max-width: 400px;
 	}
-	.reporte {
+	.report-order .reporte {
 		width: 550px;
 		padding: 4px;
 	}
-	.filtros {
+	.report-order .filtros {
 		max-width: 400px;
 		margin-right: auto;
 	}
-	.reportec {
+	.report-order .reportec {
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		height: 20;
 	}
-	.container {
+	.report-order .container {
 		display: flex;
 		justify-content: flex-end;
 	}
-	textarea {
+	.report-order textarea {
 		width: 100%;
 		height: 100%;
 		resize: none;
@@ -172,48 +172,48 @@
 		color: #333;
 		background-color: #f5f5f5;
 	}
-	.texto-derecha {
+	.report-order .texto-derecha {
 		text-align: right;
 	}
-	.texto-center {
+	.report-order .texto-center {
 		text-align: center;
 	}
-	.kallpa-image {
+	.report-order .kallpa-image {
 		margin-top: 35px;
 	}
-	.titulo-bienvenido {
+	.report-order .titulo-bienvenido {
 		font-size: 32px;
 		font-family: Sans-serif;
 		color: rgb(252, 252, 252);
 	}
-	.contenedor-cajas-E {
+	.report-order .contenedor-cajas-E {
 		border: 4px solid #010361;
 		padding: 10px;
 		margin-top: 20px;
 		height: 100%;
 	}
-	.contenedor-cajas-F {
+	.report-order .contenedor-cajas-F {
 		border: 4px solid #010361;
 		padding: 10px;
 		margin-top: -480px;
 		height: 100%;
 	}
-	.contenedor-cajas-B {
+	.report-order .contenedor-cajas-B {
 		border: 4px solid #0fa14700;
 		padding: 10px;
 		margin-top: -601px;
 		height: 603px;
 		border-radius: 10%;
 	}
-	.titulo {
+	.report-order .titulo {
 		font-size: 32px;
 		font-family: Sans-serif;
 		color: rgb(252, 252, 252);
 	}
-	.kallpa-image {
+	.report-order .kallpa-image {
 		margin-top: 35px;
 	}
-	.texto-encima {
+	.report-order .texto-encima {
 		position: absolute;
 		top: 2;
 		left: 0;
@@ -229,7 +229,7 @@
 		z-index: 1; /* Asegura que el texto esté por encima de los botones */
 	}
 	/* Estilos para los botones */
-	.btn-container {
+	.report-order .btn-container {
 		display: flex;
 		flex-direction: row-reverse;
 		flex-wrap: wrap;
@@ -237,25 +237,25 @@
 		/* Agrega margen superior para separar el texto de los botones si lo deseas */
 		margin-top: 40px;
 	}
-	.btn-wide {
+	.report-order .btn-wide {
 		width: 20px;
 		margin-left: auto;
 	}
-	.border {
+	.report-order .border {
 		background-color: #33cc33;
 		border: 3px solid #33cc33;
 		padding: 10px;
 		display: inline-block;
 		border-radius: 25px;
 	}
-	.border-bien {
+	.report-order .border-bien {
 		background-color: #33cc33;
 		border: 3px solid #33cc33;
 		padding: 10px;
 		display: fixed;
 		border-radius: 25px;
 	}
-	.floating-rectangle {
+	.report-order .floating-rectangle {
 		position: absolute;
 		left: 25%;
 		transform: translateX(-50%);
@@ -268,7 +268,7 @@
 		padding: 10px;
 		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 	}
-	.floating-rectan {
+	.report-order .floating-rectan {
 		position: absolute;
 		left: 50%;
 		transform: translateX(-50%);
@@ -281,15 +281,15 @@
 		padding: 10px;
 		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 	}
-	.fill-height {
+	.report-order .fill-height {
 		height: 100%;
 	}
-	.tabla {
+	.report-order .tabla-RO {
 		width: 46%;
 		margin-left: 441px;
 		margin-top: -604px;
 	}
-	.custom-table thead th {
+	.report-order .custom-table thead th {
 		background-color: rgb(11, 13, 105);
 		color: #ffffff !important;
 	}

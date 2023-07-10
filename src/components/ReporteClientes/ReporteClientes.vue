@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="report-cli">
 		<div>
 			<v-app-bar color="white" dense dark height="80">
 				<v-toolbar-title>
@@ -183,28 +183,28 @@
 </template>
 
 <style>
-	.max-width-400 {
+	.report-cli .max-width-400 {
 		max-width: 400px;
 	}
-	.reporte {
+	.report-cli .reporte {
 		width: 708px;
 		padding: 4px;
 	}
-	.filtros {
+	.report-cli .filtros {
 		width: 492px;
 		margin-right: auto;
 	}
-	.reportec {
+	.report-cli .reportec {
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		height: 20;
 	}
-	.container {
+	.report-cli .container {
 		display: flex;
 		justify-content: flex-end;
 	}
-	textarea {
+	.report-cli textarea {
 		width: 100%;
 		height: 100%;
 		resize: none;
@@ -214,53 +214,53 @@
 		color: #333;
 		background-color: #f5f5f5;
 	}
-	.texto-derecha {
+	.report-cli .texto-derecha {
 		text-align: right;
 	}
-	.texto-center {
+	.report-cli .texto-center {
 		text-align: center;
 	}
-	.kallpa-image {
+	.report-cli .kallpa-image {
 		margin-top: 35px;
 	}
-	.titulo-bienvenido {
+	.report-cli .titulo-bienvenido {
 		font-size: 32px;
 		font-family: Sans-serif;
 		color: rgb(252, 252, 252);
 	}
-	.contenedor-cajas-E {
+	.report-cli .contenedor-cajas-E {
 		border: 4px solid #010361;
 		padding: 10px;
 		margin-top: 20px;
 		height: 100%;
 	}
-	.contenedor-cajas-F {
+	.report-cli .contenedor-cajas-F {
 		border: 4px solid #010361;
 		padding: 10px;
 		margin-top: -481px;
 		height: 100%;
 	}
-	.contenedor-cajas-B {
+	.report-cli .contenedor-cajas-B {
 		border: 4px solid #0fa14700;
 		padding: 10px;
 		margin-top: -484px;
 		height: 498px;
 		border-radius: 10%;
 	}
-	.contenedor-cajas-A {
+	.report-cli .contenedor-cajas-A {
 		border: 3px solid #32cc32;
 		margin-top: 10px;
 		padding: 10px;
 	}
-	.titulo {
+	.report-cli .titulo {
 		font-size: 32px;
 		font-family: Sans-serif;
 		color: rgb(252, 252, 252);
 	}
-	.kallpa-image {
+	.report-cli .kallpa-image {
 		margin-top: 35px;
 	}
-	.texto-encima {
+	.report-cli .texto-encima {
 		position: absolute;
 		top: 2;
 		left: 0;
@@ -276,7 +276,7 @@
 		z-index: 1; /* Asegura que el texto esté por encima de los botones */
 	}
 	/* Estilos para los botones */
-	.btn-container {
+	.report-cli .btn-container {
 		display: flex;
 		flex-direction: row-reverse;
 		flex-wrap: wrap;
@@ -284,25 +284,25 @@
 		/* Agrega margen superior para separar el texto de los botones si lo deseas */
 		margin-top: 40px;
 	}
-	.btn-wide {
+	.report-cli .btn-wide {
 		width: 20px;
 		margin-left: auto;
 	}
-	.border {
+	.report-cli .border {
 		background-color: #33cc33;
 		border: 3px solid #33cc33;
 		padding: 10px;
 		display: inline-block;
 		border-radius: 25px;
 	}
-	.border-bien {
+	.report-cli .border-bien {
 		background-color: #33cc33;
 		border: 3px solid #33cc33;
 		padding: 10px;
 		display: fixed;
 		border-radius: 25px;
 	}
-	.floating-rectangle {
+	.report-cli .floating-rectangle {
 		position: absolute;
 		left: 25%;
 		transform: translateX(-50%);
@@ -315,7 +315,7 @@
 		padding: 10px;
 		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 	}
-	.floating-rectan {
+	.report-cli .floating-rectan {
 		position: absolute;
 		left: 50%;
 		transform: translateX(-50%);
@@ -328,14 +328,14 @@
 		padding: 10px;
 		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 	}
-	.fill-height {
+	.report-cli .fill-height {
 		height: 100%;
 	}
-	.tabla {
+	.report-cli .tabla {
 		width: 97%;
 		margin-left: 27px;
 	}
-	.custom-table thead th {
+	.report-cli .custom-table thead th {
 		background-color: rgb(11, 13, 105);
 		color: #ffffff !important;
 	}
