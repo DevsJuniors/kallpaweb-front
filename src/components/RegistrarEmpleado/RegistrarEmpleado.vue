@@ -237,6 +237,9 @@
 				</div>
 			</div>
 		</v-container>
+		<v-overlay :value="loading">
+			<v-progress-circular indeterminate color="primary"></v-progress-circular>
+		</v-overlay>
 	</div>
 </template>
 <style>

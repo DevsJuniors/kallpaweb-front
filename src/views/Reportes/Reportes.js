@@ -30,6 +30,7 @@ export default {
 			chartKeyPie: "",
 			searchDate: "",
 			contratos: [],
+			isLoading: true,
 			end: null,
 			start: null,
 			conteoContratos: {},
