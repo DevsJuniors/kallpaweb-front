@@ -24,37 +24,50 @@
                 <v-col cols="12" sm="9" md="10" lg="10" class="d-flex align-center justify-end"></v-col>
               </v-row>
               <div>
-                <v-row align="center"  style="margin-top: -20%;" >
+                <v-row align="center" style="margin-top: -20%;">
                   <v-col cols="12" sm="5" md="10">
-                    <h2 class="identificarse-1" style="margin-bottom: 0.5rem;">
+                    <h2 class="identificarse-1 alinear" style="margin-bottom: 0.5rem;">
                       Identificarse
-                      <h5 class="bienvenido-1" style="margin-top: 0.3rem; margin-bottom: 0.1rem;">Bienvenido</h5>
+                      <h5 class="bienvenido-1 alinearbien" style="margin-top: 0.3rem; margin-bottom: 0.1rem;">Bienvenido</h5>
                     </h2>
                   </v-col>
                 </v-row>
                 <form @submit.prevent="iniciarSesion">
-                  <v-row align="center" style="margin-top: 10%;" >
+                  <v-row align="center" style="margin-top: 5%;">
                     <v-img
-                    src="../Img/usuario (4).png"
-                    max-height="330"
-                    max-width="150"
-                    style="margin-left: 25%;"
-            ></v-img>
-                    <v-col cols="12" sm="5" md="10">
+                      src="../Img/usuario (4).png"
+                      max-height="330"
+                      max-width="150"
+                      style="margin-left: 25%;"
+                    ></v-img>
+                    <v-col cols="12">
                       <p style="margin-bottom: 0.3rem;">DNI</p>
-                      <v-text-field label="" solo v-model="DNI_Em" ></v-text-field>
-                    </v-col>
-                  </v-row>
-                  <v-row align="center" style="margin-top: -15%;" >
-                    <v-col cols="12" sm="5" md="10">
+                      <v-text-field
+                        label=""
+                        solo
+                        v-model="DNI_Em"
+                        :clearable="false"
+                        dense
+                        style="width: 100%"
+                      ></v-text-field>
                       <p style="margin-bottom: 0.3rem;">Nombre de usuario</p>
-                      <v-text-field label="" solo v-model="nombreusuario" ></v-text-field>
-                    </v-col>
-                  </v-row>
-                  <v-row align="center" style="margin-top: -10%;">
-                    <v-col cols="12" sm="5" md="10">
-                      <p style="margin-bottom: 0.3rem;">Contraseña</p>
-                      <v-text-field label="" solo v-model="contraseña" type="password" ></v-text-field>
+                      <v-text-field
+                      label=""
+                      solo
+                      v-model="nombreusuario"
+                      :clearable="false"
+                      dense
+                      ></v-text-field>
+                      <p style="margin-bottom: 0.3rem; margin-top: 0%;">Contraseña</p>
+                      <v-text-field
+                        label=""
+                        solo
+                        v-model="contraseña"
+                        type="password"
+                        :clearable="false"
+                        dense
+                        style="width: 100% ;"
+                      ></v-text-field>
                       <v-btn
                         type="submit"
                         class="button-1"
@@ -62,13 +75,14 @@
                         color="#033076"
                         block
                         elevation="13"
+                        style="width: 100%;"
                       >
                         <span class="">Iniciar Sesión</span>
                       </v-btn>
                     </v-col>
                   </v-row>
                   <v-row v-if="mensajeError" align="center">
-                    <v-col cols="12" sm="5" md="10">
+                    <v-col cols="12" >
                       <v-alert type="error" class="mt-4">
                         {{ mensajeError }}
                       </v-alert>
@@ -113,7 +127,7 @@
 }
 .button-1 {   
   background: #033076;
-  margin-left: -5%!important;
+  margin-left: 0%!important;
   margin-top: 5% !important;
   width:350px;
   color: #ffffff;
@@ -149,6 +163,12 @@
   border: 4px solid #3ab12c;
   padding: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.alinear{
+  margin-left: -20%;
+}
+.alinearbien{
+  margin-left: 0%;
 }
 </style>
 <script>
