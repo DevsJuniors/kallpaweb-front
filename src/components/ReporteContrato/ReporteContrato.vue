@@ -216,10 +216,10 @@
 		margin-top: 9px;
 		height: 471px;
 	}
-	.report-c .contenedor-cajas-X {
+	.report-c .contenedor-cajas-F {
 		border: 4px solid #010361;
 		padding: 10px;
-		margin-top: -483px;
+		margin-top: 10px;
 		height: 100%;
 	}
 	.report-c .contenedor-cajas-B {
