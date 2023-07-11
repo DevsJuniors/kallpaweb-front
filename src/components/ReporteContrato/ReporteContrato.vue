@@ -1,107 +1,101 @@
 <template>
-	<div>
-		<div>
-			<v-app-bar color="white" dense dark height="80">
-				<v-toolbar-title>
-					<v-img
-						src="../../views/Img/Kallpa.png"
-						max-height="300"
-						max-width="200"
-						class="kallpa-image">
-					</v-img>
-				</v-toolbar-title>
-
-				<v-spacer></v-spacer>
-
+	<div class="report-c">
+		<v-app-bar color="white" dense dark height="90">
+			<v-toolbar-title>
 				<v-img
-					src="../../views/Img/usuario (3).png"
-					max-height="100"
-					max-width="50">
+					src="../../views/Img/Kallpa.png"
+					max-height="300"
+					max-width="200"
+					class="kallpa-image">
 				</v-img>
-			</v-app-bar>
+			</v-toolbar-title>
 
-			<v-footer color="#33cc33" app height="60">
-				<v-row align="center" justify="center">
-					<v-col cols="12" class="text-center white--text">
-						&copy; 2023 KALLPA. Todos los derechos reservados.
-					</v-col>
-				</v-row>
-			</v-footer>
+			<v-spacer></v-spacer>
 
-			<div style="margin-top: 28px">
-				<h1 class="text-center" style="font-family: 'Trebuchet MS'">
-					<span style="color: #32cc32">REPORTE</span>
-					<span style="color: #203864"> - CONTRATO</span>
-				</h1>
-			</div>
+			<v-img
+				src="../../views/Img/usuario (3).png"
+				max-height="100"
+				max-width="50">
+			</v-img>
+		</v-app-bar>
+
+		<v-footer color="#33cc33" app height="60">
+			<v-row align="center" justify="center">
+				<v-col cols="12" class="text-center white--text">
+					&copy; 2023 KALLPA. Todos los derechos reservados.
+				</v-col>
+			</v-row>
+		</v-footer>
+
+		<div style="margin-top: 28px">
+			<h1 class="text-center" style="font-family: 'Trebuchet MS'">
+				<span style="color: #32cc32">REPORTE</span>
+				<span style="color: #203864"> - CONTRATO</span>
+			</h1>
 		</div>
-
-		<div>
-			<div class="container" style="margin-left: 14px">
-				<div class="filtros contenedor-cajas-E">
-					<v-card-title style="color: rgb(11, 13, 105); font-size: 30px"
-						>Filtros</v-card-title
-					>
-
-					<v-card-text>
-						<div class="contenedor-cajas-A">
-							<p style="color: rgb(40, 180, 40); font-size: 18px">
-								Estado Contrato
-							</p>
-							<v-radio-group v-model="estadoSeleccionado">
-								<v-radio
-									v-for="estado in estadosContratos"
-									:key="estado"
-									:label="estado"
-									:value="estado">
-								</v-radio>
-							</v-radio-group>
-						</div>
-
-						<div class="contenedor-cajas-A">
-							<p style="color: rgb(40, 180, 40); font-size: 18px">Asesor</p>
-							<v-combobox
-								v-model="empleadoSeleccionado"
-								:items="empleadosCategoria1"
-								item-text="nombreCompleto"
-								item-value="DNI_Em"
-								label="Seleccionar Asesor"
-								clearable
-								solo>
-							</v-combobox>
-						</div>
-					</v-card-text>
-
-					<v-card-actions>
-						<v-btn
-							@click="generarReporte"
-							style="
-								font-family: 'Trebuchet MS';
-								width: 229px;
-								background-color: rgb(11, 13, 105);
-								color: #ffffff;
-							"
-							>Generar Reporte</v-btn
+		<div class="d-flex">
+			<div>
+				<div style="margin-left: 14px">
+					<div class="filtros contenedor-cajas-E">
+						<v-card-title style="color: rgb(11, 13, 105); font-size: 30px"
+							>Filtros</v-card-title
 						>
-						<v-btn
-							@click="reporte"
-							style="
-								font-family: 'Trebuchet MS';
-								width: 229px;
-								background-color: rgb(11, 13, 105);
-								color: #ffffff;
-							"
-							>Atras</v-btn
-						>
-					</v-card-actions>
+
+						<v-card-text>
+							<div class="contenedor-cajas-A">
+								<p style="color: rgb(40, 180, 40); font-size: 18px">
+									Estado Contrato
+								</p>
+								<v-radio-group v-model="estadoSeleccionado">
+									<v-radio
+										v-for="estado in estadosContratos"
+										:key="estado"
+										:label="estado"
+										:value="estado">
+									</v-radio>
+								</v-radio-group>
+							</div>
+
+							<div class="contenedor-cajas-A">
+								<p style="color: rgb(40, 180, 40); font-size: 18px">Asesor</p>
+								<v-combobox
+									v-model="empleadoSeleccionado"
+									:items="empleadosCategoria1"
+									item-text="nombreCompleto"
+									item-value="DNI_Em"
+									label="Seleccionar Asesor"
+									clearable
+									solo>
+								</v-combobox>
+							</div>
+						</v-card-text>
+
+						<v-card-actions>
+							<v-btn
+								@click="generarReporte"
+								style="
+									font-family: 'Trebuchet MS';
+									width: 170px;
+									background-color: rgb(11, 13, 105);
+									color: #ffffff;
+								"
+								>Generar Reporte</v-btn
+							>
+							<v-btn
+								@click="reporte"
+								style="
+									font-family: 'Trebuchet MS';
+									width: 170px;
+									background-color: rgb(11, 13, 105);
+									color: #ffffff;
+								"
+								>Atras</v-btn
+							>
+						</v-card-actions>
+					</div>
 				</div>
 			</div>
-		</div>
-
-		<div>
-			<div
-				style="margin-left: 551px; margin-right: 733px"
-				class="contenedor-cajas-F">
+			<div class="contenedor-cajas-F">
 				<v-card-title style="color: rgb(11, 13, 105); font-size: 30px"
 					>Fecha</v-card-title
 				>
@@ -114,11 +108,9 @@
 					</v-col>
 				</v-row>
 			</div>
-		</div>
 
-		<div>
 			<div class="reportec">
-				<v-container style="margin-right: 14px" class="contenedor-cajas-B">
+				<v-container style="margin-right: -10px" class="contenedor-cajas-B">
 					<v-card outlined class="reporte">
 						<v-card-title style="color: #32cc32; font-size: 30px"
 							>Reporte de Contrato</v-card-title
@@ -142,7 +134,7 @@
 		</div>
 
 		<div>
-			<div class="tabla fill-height">
+			<div class="tabla fill-height" style="margin-top: 30px">
 				<v-data-table
 					:headers="headers"
 					:items="contratos"
@@ -164,9 +156,6 @@
 							</v-text-field>
 						</v-toolbar>
 					</template>
-					<template v-slot:item="{ item }">
-						<tr></tr>
-					</template>
 				</v-data-table>
 			</div>
 		</div>
@@ -174,28 +163,27 @@
 </template>
 
 <style>
-	.max-width-400 {
+	.report-c .max-width-400 {
 		max-width: 400px;
 	}
-	.reporte {
-		width: 687px;
+	.report-c .reporte {
+		width: 387px;
 		padding: 4px;
 	}
-	.filtros {
-		width: 510px;
+	.report-c .filtros {
+		width: 400px;
 		margin-right: auto;
 	}
-	.reportec {
+	.report-c .reportec {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		height: 20px;
 	}
-	.container {
+	.report-c /* .container {
 		display: flex;
 		justify-content: flex-end;
-	}
-	textarea {
+	} */
+	.report-c textarea {
 		width: 100%;
 		height: 100%;
 		resize: none;
@@ -205,53 +193,53 @@
 		color: #333;
 		background-color: #f5f5f5;
 	}
-	.texto-derecha {
+	.report-c .texto-derecha {
 		text-align: right;
 	}
-	.texto-center {
+	.report-c .texto-center {
 		text-align: center;
 	}
-	.kallpa-image {
+	.report-c .kallpa-image {
 		margin-top: 35px;
 	}
-	.titulo-bienvenido {
+	.report-c .titulo-bienvenido {
 		font-size: 32px;
 		font-family: Sans-serif;
 		color: rgb(252, 252, 252);
 	}
-	.contenedor-cajas-E {
+	.report-c .contenedor-cajas-E {
 		border: 4px solid #010361;
 		padding: 10px;
 		margin-top: 9px;
 		height: 471px;
 	}
-	.contenedor-cajas-F {
+	.report-c .contenedor-cajas-F {
 		border: 4px solid #010361;
 		padding: 10px;
-		margin-top: -483px;
+		margin-top: 9px;
 		height: 100%;
+		margin-left: 12px;
 	}
-	.contenedor-cajas-B {
+	.report-c .contenedor-cajas-B {
 		border: 4px solid #0fa14700;
 		padding: 10px;
-		margin-top: -490px;
 		height: 499px;
 		border-radius: 10%;
 	}
-	.contenedor-cajas-A {
+	.report-c .contenedor-cajas-A {
 		border: 3px solid #32cc32;
 		margin-top: 10px;
 		padding: 10px;
 	}
-	.titulo {
+	.report-c .titulo {
 		font-size: 32px;
 		font-family: Sans-serif;
 		color: rgb(252, 252, 252);
 	}
-	.kallpa-image {
+	.report-c .kallpa-image {
 		margin-top: 35px;
 	}
-	.texto-encima {
+	.report-c .texto-encima {
 		position: absolute;
 		top: 2;
 		left: 0;
@@ -267,7 +255,7 @@
 		z-index: 1; /* Asegura que el texto esté por encima de los botones */
 	}
 	/* Estilos para los botones */
-	.btn-container {
+	.report-c .btn-container {
 		display: flex;
 		flex-direction: row-reverse;
 		flex-wrap: wrap;
@@ -275,25 +263,25 @@
 		/* Agrega margen superior para separar el texto de los botones si lo deseas */
 		margin-top: 40px;
 	}
-	.btn-wide {
+	.report-c .btn-wide {
 		width: 20px;
 		margin-left: auto;
 	}
-	.border {
+	.report-c .border {
 		background-color: #33cc33;
 		border: 3px solid #33cc33;
 		padding: 10px;
 		display: inline-block;
 		border-radius: 25px;
 	}
-	.border-bien {
+	.report-c .border-bien {
 		background-color: #33cc33;
 		border: 3px solid #33cc33;
 		padding: 10px;
 		display: fixed;
 		border-radius: 25px;
 	}
-	.floating-rectangle {
+	.report-c .floating-rectangle {
 		position: absolute;
 		left: 25%;
 		transform: translateX(-50%);
@@ -306,7 +294,7 @@
 		padding: 10px;
 		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 	}
-	.floating-rectan {
+	.report-c .floating-rectan {
 		position: absolute;
 		left: 50%;
 		transform: translateX(-50%);
@@ -319,14 +307,14 @@
 		padding: 10px;
 		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 	}
-	.fill-height {
+	.report-c .fill-height {
 		height: 100%;
 	}
-	.tabla {
+	.report-c .tabla {
 		width: 97%;
 		margin-left: 27px;
 	}
-	.custom-table thead th {
+	.report-c .custom-table thead th {
 		background-color: rgb(11, 13, 105);
 		color: #ffffff !important;
 	}

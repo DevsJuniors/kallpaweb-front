@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="consultar-contrato">
 		<v-app-bar color="white" dense dark height="80">
 			<v-toolbar-title>
 				<v-img
@@ -130,38 +130,44 @@
 				<div class="contrato">
 					<h3>Datos del Contrato</h3>
 					<div class="contenedor-cajas">
-						<v-text-field
-							label="IDContrato "
-							placeholder=""
-							filled
-							:disabled="!Select"
-							v-model="frmContrato.IDContrato"
-							class="full-width"></v-text-field>
-						<v-text-field
-							label="Fecha"
-							placeholder=""
-							filled
-							:disabled="!Select"
-							v-model="frmContrato.Fecha_Con"></v-text-field>
-						<v-text-field
-							label="Numero de Suministro"
-							placeholder=""
-							filled
-							:disabled="!Select"
-							v-model="frmContrato.numSum"></v-text-field>
-						<v-text-field
-							label="Estado"
-							placeholder=""
-							filled
-							:disabled="!Select"
-							v-model="frmContrato.estado"></v-text-field>
-						<v-text-field
-							label="Numero de Radicado"
-							placeholder=""
-							filled
-							:disabled="!Select"
-							v-model="frmContrato.NumeroRadicado_Con"></v-text-field>
-						<div class="text-center"></div>
+						<div class="txtfield">
+							<v-text-field
+								class="custom-text-field"
+								label="IDContrato"
+								placeholder=""
+								filled
+								:disabled="!Select"
+								v-model="frmContrato.IDContrato"></v-text-field>
+							<v-text-field
+								class="custom-text-field"
+								label="Fecha"
+								placeholder=""
+								filled
+								:disabled="!Select"
+								v-model="frmContrato.Fecha_Con"></v-text-field>
+							<v-text-field
+								class="custom-text-field"
+								label="Numero de Suministro"
+								placeholder=""
+								filled
+								:disabled="!Select"
+								v-model="frmContrato.numSum"></v-text-field>
+							<v-text-field
+								class="custom-text-field"
+								label="Estado"
+								placeholder=""
+								filled
+								:disabled="!Select"
+								v-model="frmContrato.estado"></v-text-field>
+							<v-text-field
+								class="custom-text-field"
+								label="Numero de Radicado"
+								placeholder=""
+								filled
+								:disabled="!Select"
+								v-model="frmContrato.NumeroRadicado_Con"></v-text-field>
+						</div>
+
 						<v-dialog v-model="dialogError" :width="500">
 							<v-card color="#ec4a4a">
 								<v-card-title>
@@ -238,30 +244,30 @@
 </template>
 <script src="./consultarContratos.js"></script>
 <style>
-	.tabla {
+	.consultar-contrato .tabla {
 		flex-grow: 1;
 	}
-	.elevation-1 {
+	.consultar-contrato .elevation-1 {
 		width: 100%;
 		box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16),
 			0 2px 10px 0 rgba(0, 0, 0, 0.12);
 	}
-	.contenedor-cajas {
+	.consultar-contrato .contenedor-cajas {
 		border: 2px solid #abf5b7;
 		padding: 10px;
 	}
 
-	.contenedor-cajas input {
+	.consultar-contrato .contenedor-cajas input {
 		margin-bottom: 5px;
 		width: 100%;
-		padding: 5px;
-		margin-top: 10px;
+		padding: 6px;
+		margin-top: 20px;
 	}
-	.custom-table thead th {
+	.consultar-contrato .custom-table thead th {
 		background-color: #095ba8;
 		color: #ffffff !important;
 	}
-	.button-1 {
+	.consultar-contrato .button-1 {
 		background: #033076;
 		color: #ffffff;
 		border-color: #232323;
@@ -269,14 +275,14 @@
 		border-style: solid;
 		border-radius: 2px 2px 2px 2px;
 		font-weight: 400;
-		font-size: 24px;
+		font-size: 14px;
 		text-align: right;
 		margin: 10px;
 	}
-	.kallpa-image {
+	.consultar-contrato .kallpa-image {
 		margin-top: 35px;
 	}
-	.orden {
+	.consultar-contrato .orden {
 		margin: 2px;
 		flex-grow: 1;
 		margin-top: 10px;

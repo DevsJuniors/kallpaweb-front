@@ -1,6 +1,6 @@
 <template>
-	<div>
-		<v-app-bar color="white" dense dark height="80">
+	<div class="asignar-h">
+		<v-app-bar color="white" dense dark height="100">
 			<v-toolbar-title>
 				<v-img
 					src="../../views/Img/Kallpa.png"
@@ -217,15 +217,15 @@
 </template>
 <script src="./asignarHabilitador.js"></script>
 <style>
-	.tabla {
+	.asignar-h .tabla {
 		flex-grow: 1;
 	}
-	.orden {
+	.asignar-h .orden {
 		margin: 8px;
 		flex-grow: 1;
 		margin-top: 15px;
 	}
-	.button-1 {
+	.asignar-h .button-1 {
 		background: #033076;
 		color: #ffffff;
 		border-color: #232323;
@@ -233,38 +233,38 @@
 		border-style: solid;
 		border-radius: 2px 2px 2px 2px;
 		font-weight: 400;
-		font-size: 24px;
+		font-size: 14px;
 		text-align: right;
 		margin: 10px;
 	}
-	.border-bien {
+	.asignar-h .border-bien {
 		border: 3px solid #33cc33;
 		padding: 10px;
 		display: fixed;
 		border-radius: 100px;
 	}
-	.contenedor-cajas {
+	.asignar-h .contenedor-cajas {
 		border: 2px solid #33cc33;
 		padding: 10px;
 	}
 
-	.contenedor-cajas input {
+	.asignar-h .contenedor-cajas input {
 		margin-bottom: 5px;
 		width: 100%;
 		padding: 5px;
-		margin-top: 10px;
+		margin-top: 20px;
 	}
 
-	.elevation-1 {
+	.asignar-h .elevation-1 {
 		width: 100%;
 		box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16),
 			0 2px 10px 0 rgba(0, 0, 0, 0.12);
 	}
-	.custom-table thead th {
+	.asignar-h .custom-table thead th {
 		background-color: #095ba8;
 		color: #ffffff !important;
 	}
-	.kallpa-image {
+	.asignar-h .kallpa-image {
 		margin-top: 35px;
 	}
 </style>

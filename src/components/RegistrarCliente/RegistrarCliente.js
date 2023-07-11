@@ -160,7 +160,7 @@ export default {
 		},
 		aceptar() {
 			this.dialogVisible = false;
-			this.window.location.reload();
+			window.location.reload();
 			this.resetForm();
 		},
 		cerrar() {

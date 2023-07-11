@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="registrar-e">
 		<v-app-bar color="white" dense dark height="100">
 			<v-toolbar-title>
 				<v-img
@@ -88,6 +88,31 @@
 							<v-card-title>
 								<span class="mx-auto" style="color: white"
 									>¡Registrado con Exito!</span
+								>
+							</v-card-title>
+							<v-card-text>
+								<v-alert
+									v-if="mensaje !== ''"
+									color="white"
+									:type="typemsg"
+									outlined
+									>{{ mensaje }}</v-alert
+								>
+							</v-card-text>
+							<v-card-actions style="display: flex; justify-content: center">
+								<v-btn
+									style="background-color: #033076; color: #ffffff"
+									@click="aceptar">
+									Aceptar
+								</v-btn>
+							</v-card-actions>
+						</v-card>
+					</v-dialog>
+					<v-dialog v-model="dialogActu" :width="500">
+						<v-card color="#47d847">
+							<v-card-title>
+								<span class="mx-auto" style="color: white"
+									>¡Actualizado con Exito!</span
 								>
 							</v-card-title>
 							<v-card-text>
@@ -237,59 +262,49 @@
 				</div>
 			</div>
 		</v-container>
-		<v-overlay :value="loading">
-			<v-progress-circular
-				:rotate="360"
-				:size="100"
-				:width="15"
-				:value="value"
-				color="teal">
-				{{ value }}
-			</v-progress-circular>
-		</v-overlay>
 	</div>
 </template>
 <style>
-	.v-progress-circular {
+	.registrar-e .v-progress-circular {
 		margin: 1rem;
 	}
-	.custom-table thead th {
+	.registrar-e .custom-table thead th {
 		background-color: #095ba8;
 		color: #ffffff !important;
 	}
-	.contenedor-cajas {
+	.registrar-e .contenedor-cajas {
 		border: 2px solid #47d847;
 		padding: 10px;
 	}
-	.contenedor-cajas-E {
+	.registrar-e .contenedor-cajas-E {
 		border: 2px solid #47d847;
 		padding: 10px;
 	}
-	.contenedor-cajas input {
+	.registrar-e .contenedor-cajas input {
 		margin-bottom: 5px;
 		width: 100%;
 		padding: 5px;
 	}
-	.fill-height {
+	.registrar-e .fill-height {
 		height: 100%;
 	}
-	.tabla {
+	.registrar-e .tabla {
 		width: 100%;
 	}
-	.custom-text {
-		font-size: 12px; /* Modifica el tamaño de letra según tus necesidades */
+	.registrar-e .custom-text {
+		font-size: 10px; /* Modifica el tamaño de letra según tus necesidades */
 	}
-	.credenciales {
+	.registrar-e .credenciales {
 		position: absolute;
 		top: 60px;
 		right: 0;
 		margin-right: 50px;
 	}
-	.empleado {
+	.registrar-e .empleado {
 		margin: 20px;
 		max-width: 30%;
 	}
-	.button-1 {
+	.registrar-e .button-1 {
 		background: #033076;
 		color: #ffffff;
 		border-color: #232323;
@@ -297,11 +312,11 @@
 		border-style: solid;
 		border-radius: 3px 3px 3px 3px;
 		font-weight: 400;
-		font-size: 24px;
+		font-size: 15px;
 		text-align: right;
 		margin: 20px;
 	}
-	.kallpa-image {
+	.registrar-e .kallpa-image {
 		margin-top: 35px;
 	}
 </style>

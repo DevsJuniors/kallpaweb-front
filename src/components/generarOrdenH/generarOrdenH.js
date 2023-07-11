@@ -14,7 +14,7 @@ export default {
 			menCabecera: "",
 			TextFieldAble: false,
 			Select: false,
-			selectedEtapa: "Habilitacion",
+			selectedEtapa: "Habilitación",
 			etapas: [],
 			ordenes: [],
 			contratos: [],
