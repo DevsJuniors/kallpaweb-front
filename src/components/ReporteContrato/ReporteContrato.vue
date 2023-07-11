@@ -75,7 +75,7 @@
 								@click="generarReporte"
 								style="
 									font-family: 'Trebuchet MS';
-									width: 229px;
+									width: 170px;
 									background-color: rgb(11, 13, 105);
 									color: #ffffff;
 								"
@@ -85,7 +85,7 @@
 								@click="reporte"
 								style="
 									font-family: 'Trebuchet MS';
-									width: 229px;
+									width: 170px;
 									background-color: rgb(11, 13, 105);
 									color: #ffffff;
 								"
@@ -110,7 +110,7 @@
 			</div>
 
 			<div class="reportec">
-				<v-container style="margin-right: 14px" class="contenedor-cajas-B">
+				<v-container style="margin-right: -10px" class="contenedor-cajas-B">
 					<v-card outlined class="reporte">
 						<v-card-title style="color: #32cc32; font-size: 30px"
 							>Reporte de Contrato</v-card-title
@@ -170,11 +170,11 @@
 		max-width: 400px;
 	}
 	.report-c .reporte {
-		width: 687px;
+		width: 387px;
 		padding: 4px;
 	}
 	.report-c .filtros {
-		width: 510px;
+		width: 400px;
 		margin-right: auto;
 	}
 	.report-c .reportec {
@@ -219,13 +219,13 @@
 	.report-c .contenedor-cajas-F {
 		border: 4px solid #010361;
 		padding: 10px;
-		margin-top: 10px;
+		margin-top: 9px;
 		height: 100%;
+		margin-left: 12px;
 	}
 	.report-c .contenedor-cajas-B {
 		border: 4px solid #0fa14700;
 		padding: 10px;
-
 		height: 499px;
 		border-radius: 10%;
 	}
