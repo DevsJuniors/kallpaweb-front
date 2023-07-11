@@ -2,10 +2,7 @@ import { VOverlay, VProgressCircular } from "vuetify/lib";
 
 export default {
 	name: "Empleado",
-	components: {
-		VOverlay,
-		VProgressCircular,
-	},
+
 	data() {
 		return {
 			frmEmpleado: {
@@ -30,9 +27,7 @@ export default {
 			mensaje: "",
 			dialogVisible: false,
 			dialogError: false,
-			loading: true,
-			interval: {},
-			value: 0,
+			dialogActu: false,
 		};
 	},
 	beforeDestroy() {
@@ -203,7 +198,7 @@ export default {
 				this.obtenerEmpleados();
 				this.resetForm();
 				this.TextFieldAble = true;
-				this.dialogVisible = true;
+				this.dialogActu = true;
 				return window.location.reload();
 			}
 		},

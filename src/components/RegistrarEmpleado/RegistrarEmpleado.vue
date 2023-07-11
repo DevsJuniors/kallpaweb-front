@@ -108,6 +108,31 @@
 							</v-card-actions>
 						</v-card>
 					</v-dialog>
+					<v-dialog v-model="dialogActu" :width="500">
+						<v-card color="#47d847">
+							<v-card-title>
+								<span class="mx-auto" style="color: white"
+									>¡Actualizado con Exito!</span
+								>
+							</v-card-title>
+							<v-card-text>
+								<v-alert
+									v-if="mensaje !== ''"
+									color="white"
+									:type="typemsg"
+									outlined
+									>{{ mensaje }}</v-alert
+								>
+							</v-card-text>
+							<v-card-actions style="display: flex; justify-content: center">
+								<v-btn
+									style="background-color: #033076; color: #ffffff"
+									@click="aceptar">
+									Aceptar
+								</v-btn>
+							</v-card-actions>
+						</v-card>
+					</v-dialog>
 				</div>
 				<div class="tabla fill-height">
 					<v-data-table
@@ -237,16 +262,6 @@
 				</div>
 			</div>
 		</v-container>
-		<v-overlay :value="loading">
-			<v-progress-circular
-				:rotate="360"
-				:size="100"
-				:width="15"
-				:value="value"
-				color="teal">
-				{{ value }}
-			</v-progress-circular>
-		</v-overlay>
 	</div>
 </template>
 <style>

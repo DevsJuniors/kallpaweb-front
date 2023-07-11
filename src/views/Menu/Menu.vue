@@ -8,7 +8,7 @@
 			</div>
 			<div style="margin-top: 1px">
 				<v-container>
-					<v-row class="mx-auto " style="margin-top: 10%"  >
+					<v-row class="mx-auto" style="margin-top: 10%">
 						<!-- BOTON REGISTRAR EMPLEADO 1 -->
 						<v-col cols="12" sm="4">
 							<v-btn
@@ -29,10 +29,12 @@
 									max-width="150"
 									class="icon-center"></v-img>
 							</v-btn>
-              <h1 class="titulo-btn btnempleado texcolor">Registrar Empleado</h1>
+							<h1 class="titulo-btn btnempleado texcolor">
+								Registrar Empleado
+							</h1>
 						</v-col>
-							<!-- BOTON REGISTRAR CLIENTE 2 -->
-              <v-col cols="12" sm="4">
+						<!-- BOTON REGISTRAR CLIENTE 2 -->
+						<v-col cols="12" sm="4">
 							<v-btn
 								dark
 								text
@@ -51,10 +53,10 @@
 									max-width="150"
 									class="icon-center"></v-img>
 							</v-btn>
-              <h1 class="titulo-btn btncliente texcolor">Registrar Cliente</h1>
+							<h1 class="titulo-btn btncliente texcolor">Registrar Cliente</h1>
 						</v-col>
-							<!-- BOTON REGISTRAR CONTRATO 3-->
-              <v-col cols="12" sm="4">
+						<!-- BOTON REGISTRAR CONTRATO 3-->
+						<v-col cols="12" sm="4">
 							<v-btn
 								dark
 								text
@@ -73,7 +75,9 @@
 									max-width="150"
 									class="icon-center"></v-img>
 							</v-btn>
-              <h1 class="titulo-btn btncontrato texcolor">Registrar Contrato</h1>
+							<h1 class="titulo-btn btncontrato texcolor">
+								Registrar Contrato
+							</h1>
 						</v-col>
 					</v-row>
 					<v-row class="mx-auto">
@@ -97,10 +101,12 @@
 									max-width="150"
 									class="icon-center"></v-img>
 							</v-btn>
-              <h1 class="titulo-btn btnconsultar texcolor">Consultar Contrato</h1>
+							<h1 class="titulo-btn btnconsultar texcolor">
+								Consultar Contrato
+							</h1>
 						</v-col>
-							<!-- BOTON EVALUAR CONTRATO 5-->
-              <v-col cols="12" sm="4">
+						<!-- BOTON EVALUAR CONTRATO 5-->
+						<v-col cols="12" sm="4">
 							<v-btn
 								dark
 								text
@@ -118,13 +124,12 @@
 									max-height="150"
 									max-width="150"
 									class="icon-center"></v-img>
-
 							</v-btn>
-              <h1 class="titulo-btn btnevaluar texcolor">Evaluar Contrato</h1>
+							<h1 class="titulo-btn btnevaluar texcolor">Evaluar Contrato</h1>
 						</v-col>
-							<!-- BOTON GENERAR ORDEN DE INSTALACION 6 -->
-							<v-col cols="12" sm="4">
-              <v-btn
+						<!-- BOTON GENERAR ORDEN DE INSTALACION 6 -->
+						<v-col cols="12" sm="4">
+							<v-btn
 								dark
 								text
 								class="border-btnA"
@@ -142,7 +147,7 @@
 									max-width="150"
 									class="icon-center"></v-img>
 							</v-btn>
-              <h1 class="titulo-btn btnreportes texcolor">Reportes</h1>
+							<h1 class="titulo-btn btnreportes texcolor">Reportes</h1>
 						</v-col>
 					</v-row>
 				</v-container>
@@ -167,7 +172,7 @@
 						class="mx-auto usuar"
 						style="margin-top: -10%"></v-img>
 					<h1 class="texto-center titulo-nom">¡HOLA!</h1>
-					<h2 class="texto-center titulo-nom">...</h2>
+
 					<h3
 						style="margin-top: 3%"
 						class="texto-center titulo-acc border-bien">
@@ -394,9 +399,9 @@
 		font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif !important;
 		color: #000000;
 	}
-  .menu .texcolor {
+	.menu .texcolor {
 		color: #ffffff;
-    font-family: Tahoma !important;
+		font-family: Tahoma !important;
 	}
 	.menu .titulo-bien {
 		font-size: 50px;
@@ -413,24 +418,24 @@
 		font-family: Tahoma !important;
 		color: #ffffff;
 	}
-  .menu .btncliente{
-    margin-left: -45% !important;
-  }
-  .menu .btnempleado{
-    margin-left: -45% !important;
-  }
-  .menu .btncontrato{
-    margin-left: -45% !important;
-  }
-  .menu .btnconsultar{
-    margin-left: -45% !important;
-  }
-  .menu .btnevaluar{
-    margin-left: -45% !important;
-  }
-  .menu .btnreportes{
-    margin-left: -45% !important;
-  }
+	.menu .btncliente {
+		margin-left: -45% !important;
+	}
+	.menu .btnempleado {
+		margin-left: -45% !important;
+	}
+	.menu .btncontrato {
+		margin-left: -45% !important;
+	}
+	.menu .btnconsultar {
+		margin-left: -45% !important;
+	}
+	.menu .btnevaluar {
+		margin-left: -45% !important;
+	}
+	.menu .btnreportes {
+		margin-left: -45% !important;
+	}
 	.menu .btnmaps {
 		margin-left: -20% !important;
 	}
@@ -457,7 +462,6 @@
 		display: inline-flex;
 		border-radius: 20px;
 	}
-
 
 	.menu .border-btn {
 		border: 3px solid #33cc33;
