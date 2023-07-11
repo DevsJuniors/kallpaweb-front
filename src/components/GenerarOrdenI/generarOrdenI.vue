@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="generar-orden-i">
 		<v-app-bar color="white" dense dark height="80">
 			<v-toolbar-title>
 				<v-img
@@ -289,25 +289,25 @@
 	</div>
 </template>
 <style>
-	.spacer {
+	.generar-orden-i .spacer {
 		margin-top: 20px; /* Ajusta la cantidad de espacio según tus necesidades */
 	}
 
-	.custom-text {
+	.generar-orden-i .custom-text {
 		font-size: 12px; /* Modifica el tamaño de letra según tus necesidades */
 	}
-	.orden {
+	.generar-orden-i .orden {
 		margin: 2px;
 		max-width: 27%;
 	}
-	.contenedor-cajas {
+	.generar-orden-i .contenedor-cajas {
 		border: 2px solid #abf5b7;
 		padding: 10px;
 		background-color: #ffffff;
 		margin-left: 15px;
 		margin-right: 15px;
 	}
-	.contenedor-cajas-1 {
+	.generar-orden-i .contenedor-cajas-1 {
 		border: 2px solid #abf5b7;
 		padding: 10px;
 		background-color: #ffffff;
@@ -315,12 +315,12 @@
 		margin-right: 15px;
 	}
 
-	.contenedor-cajas input {
+	.generar-orden-i .contenedor-cajas input {
 		margin-bottom: 5px;
 		width: 100%;
 		padding: 5px;
 	}
-	.button-1 {
+	.generar-orden-i .button-1 {
 		background: #033076;
 		color: #ffffff;
 		border-color: #232323;
@@ -328,22 +328,22 @@
 		border-style: solid;
 		border-radius: 3px 3px 3px 3px;
 		font-weight: 400;
-		font-size: 24px;
+		font-size: 14px;
 		text-align: right;
 		margin: 20px;
 	}
-	.kallpa-image {
+	.generar-orden-i .kallpa-image {
 		margin-top: 35px;
 	}
-	.fill-height {
+	.generar-orden-i .fill-height {
 		height: 100%;
 	}
 
-	.tabla {
+	.generar-orden-i .tabla {
 		width: 100%;
 	}
 
-	.custom-table thead th {
+	.generar-orden-i .custom-table thead th {
 		background-color: #095ba8;
 		color: #ffffff !important;
 	}

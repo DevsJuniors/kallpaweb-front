@@ -8,6 +8,19 @@ export default {
 			empleadoSeleccionado: null,
 			empleadosCategoria1: [],
 			reporteContratos: "",
+			IDContrato: "",
+			Fecha_Con: "",
+			NumeroRadicado_Con: "",
+			PuntoInstalacion_Con: "",
+			numSum: "",
+			estado: "",
+			IDDomicilio: "",
+			DNI_cli: "",
+
+			DNI_Em: "",
+			nameemp: "",
+			IDGabineteCategoria: "",
+			IDTipoInst: "",
 		};
 	},
 	watch: {
@@ -21,14 +34,19 @@ export default {
 	computed: {
 		headers() {
 			return [
-			  { text: "Id", value: "" },
-			  { text: "Dni Cliente", value: "" },
-			  { text: "Dni Empleado", value: "" },
-			  { text: "Estado", value: "" },
-			  { text: "Fecha", value: "" },
-			  { text: "Número de Suministro", value: "" },
+				{ text: "ID Contrato", value: "IDContrato" },
+				{ text: "Fecha Contrato", value: "Fecha_Con" },
+				{ text: "Numer Radicado", value: "NumeroRadicado_Con" },
+				{ text: "Puntos de Instalacion", value: "PuntoInstalacion_Con" },
+				{ text: "Número de Suministro", value: "numSum" },
+				{ text: "Estado", value: "estado" },
+
+				{ text: "DNI Cliente", value: "DNI_cli" },
+				{ text: "DNI Empleado", value: "DNI_Em" },
+				{ text: "Categoria de Gabinete", value: "IDGabineteCategoria" },
+				{ text: "Tipo Instalacion", value: "IDTipoInst" },
 			];
-		  },
+		},
 		estadosContratos() {
 			const estados = new Set();
 			this.contratos.forEach((contrato) => {
@@ -64,7 +82,9 @@ export default {
 					(!this.distritoSeleccionado ||
 						contrato.distrito === this.distritoSeleccionado) &&
 					(!this.start || contrato.Fecha_Con >= this.start) &&
-					(!this.end || contrato.Fecha_Con <= this.end)
+					(!this.end || contrato.Fecha_Con <= this.end) &&
+					(!this.empleadoSeleccionado ||
+						empleado.DNI_Em === this.empleadoSeleccionado.DNI_Em)
 				);
 			});
 
@@ -76,19 +96,19 @@ export default {
 			const fechaFin = this.end || "Sin fecha de fin";
 
 			let contenidoReporte = `Nombre del Asesor: ${nombreAsesor}
-      Estado del Contrato: ${estadoContrato}
-      Fecha de Inicio: ${fechaInicio}
-      Fecha de Fin: ${fechaFin}
-      
-      
-      Contratos Encontrados: ${contratosFiltrados.length}
-      
-      `;
+		  Estado del Contrato: ${estadoContrato}
+		  Fecha de Inicio: ${fechaInicio}
+		  Fecha de Fin: ${fechaFin}
+		  
+		  
+		  Contratos Encontrados: ${contratosFiltrados.length}
+		  
+		  `;
 			contratosFiltrados.forEach((contrato) => {
 				contenidoReporte += `- ID Contrato: ${contrato.IDContrato}
-      Cliente: ${contrato.DNI_cli}
-      Empleado: ${contrato.DNI_Em}
-      `;
+		  Cliente: ${contrato.DNI_cli}
+		  Empleado: ${contrato.DNI_Em}\n----------------------------------------------------
+		  `;
 			});
 
 			this.reporteContratos = contenidoReporte;

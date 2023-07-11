@@ -22,7 +22,7 @@ export default {
 			search: "",
 			TextFieldAble: false,
 			selectedDate: null,
-			selectedEtapa: "Instalacion",
+			selectedEtapa: "Instalación",
 			etapas: [],
 			ordenes: [],
 			contratos: [],

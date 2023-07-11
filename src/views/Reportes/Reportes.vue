@@ -213,6 +213,9 @@
 		border: 3px #08622e;
 		height: 100px;
 	}
+	.report-main .kallpa-image {
+		margin-top: 35px;
+	}
 </style>
 
 <script src="./Reportes"></script>

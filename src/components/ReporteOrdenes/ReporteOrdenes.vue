@@ -44,8 +44,8 @@
 					>
 
 					<v-card-text>
-						<p style="margin-top: -25px;">Fecha</p>
-						<v-row style="margin-top: -25px;">
+						<p style="margin-top: -24px">Fecha</p>
+						<v-row style="margin-top: -25px">
 							<v-col cols="12" sm="12">
 								<v-date-picker
 									v-model="start"
@@ -55,7 +55,7 @@
 						</v-row>
 					</v-card-text>
 
-					<v-card-actions style="margin-top: -20px;">
+					<v-card-actions style="margin-top: -20px">
 						<v-btn
 							@click="generarReporte"
 							style="
@@ -109,16 +109,15 @@
 			<div class="tabla-RO fill-height">
 				<v-data-table
 					:headers="headers"
-					:items="clientes"
+					:items="detalleEtapaMaterial"
 					:search="search"
-					:loading="loading"
 					:items-per-page="5"
 					class="custom-table">
 					<template v-slot:top>
 						<v-toolbar flat>
 							<v-card-title
 								style="color: #32cc32; font-size: 30px; margin-left: -33px"
-								>Lista de Reportes de Clientes</v-card-title
+								>Lista de Reportes de Ordenes</v-card-title
 							>
 							<v-spacer></v-spacer>
 
@@ -130,9 +129,6 @@
 								hide-details>
 							</v-text-field>
 						</v-toolbar>
-					</template>
-					<template v-slot:item="{ item }">
-						<tr></tr>
 					</template>
 				</v-data-table>
 			</div>

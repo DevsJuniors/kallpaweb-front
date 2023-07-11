@@ -130,7 +130,7 @@
 						>
 						<v-card-text>
 							<textarea
-								v-model="reporteContratos"
+								v-model="reporteClientes"
 								style="
 									height: 385px;
 									width: 340px;
@@ -172,9 +172,6 @@
 								hide-details>
 							</v-text-field>
 						</v-toolbar>
-					</template>
-					<template v-slot:item="{ item }">
-						<tr></tr>
 					</template>
 				</v-data-table>
 			</div>

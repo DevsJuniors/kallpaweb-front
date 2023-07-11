@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="registrar-d">
 		<v-app-bar color="white" dense dark height="100">
 			<v-toolbar-title>
 				<v-img
@@ -208,11 +208,11 @@
 	</div>
 </template>
 <style>
-	.domicilio {
+	.registrar-d .domicilio {
 		margin: 20px;
 		max-width: 30%;
 	}
-	.my-container-2 {
+	.registrar-d .my-container-2 {
 		width: 850px;
 		height: 520px;
 		padding: 10px 10px 10px 10px;
@@ -226,11 +226,11 @@
 		margin-top: -605px;
 	}
 
-	.info {
+	.registrar-d .info {
 		display: flex;
 		align-items: center;
 	}
-	.image-container {
+	.registrar-d .image-container {
 		margin-right: 300px;
 	}
 
@@ -238,7 +238,7 @@
 		background-color: white !important;
 		border-color: white !important;
 	}
-	.button-1 {
+	.registrar-d .button-1 {
 		background: #033076;
 		color: #ffffff;
 		border-color: #232323;
@@ -246,11 +246,11 @@
 		border-style: solid;
 		border-radius: 3px 3px 3px 3px;
 		font-weight: 400;
-		font-size: 24px;
+		font-size: 14px;
 		text-align: right;
 		margin: 20px;
 	}
-	.custom-text-field {
+	.registrar-d .custom-text-field {
 		width: 470px;
 		height: 50px;
 		padding: 8px 4px 8px 4px;
@@ -260,7 +260,7 @@
 		text-align: left;
 		margin-bottom: 60px;
 	}
-	.my-container {
+	.registrar-d .my-container {
 		width: 500px;
 		height: 520px;
 		padding: 10px 10px 10px 10px;
@@ -272,33 +272,36 @@
 		z-index: 1;
 		margin-top: -0px;
 	}
-	.btn3 {
+	.registrar-d .btn3 {
 		margin-top: 20px;
-		margin-left: 1070px;
+		margin-left: 1250px;
 	}
-	.text h4 {
+	.registrar-d .text h4 {
 		margin-bottom: 13px;
+	}
+	.registrar-d .kallpa-image {
+		margin-top: 35px;
 	}
 
 	@media screen and (max-width: 768px) {
-		.my-container-2 {
+		.registrar-d .my-container-2 {
 			width: 100%;
 			height: auto;
 			margin-left: 0;
 			margin-top: 0;
 		}
 
-		.info {
+		.registrar-d .info {
 			flex-direction: column;
 			align-items: flex-start;
 		}
 
-		.image-container {
+		.registrar-d .image-container {
 			margin-right: 0;
 			margin-bottom: 20px;
 		}
 
-		.custom-text-field {
+		.registrar-d .custom-text-field {
 			width: 100%;
 			margin-bottom: 30px;
 		}

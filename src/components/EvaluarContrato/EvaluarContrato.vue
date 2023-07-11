@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="evaluar-contrato">
 		<v-app-bar color="white" dense dark height="120">
 			<v-toolbar-title>
 				<v-img
@@ -239,31 +239,34 @@
 	</div>
 </template>
 <style>
-	.cliente {
+	.evaluar-contrato .cliente {
 		margin: 20px;
 		max-width: 100%;
 	}
-	.contenedor-cajas-E {
+	.evaluar-contrato .contenedor-cajas-E {
 		border: 2px solid #47d847;
 		padding: 10px;
 		padding-top: 15px;
 	}
-	.contenedor-cajas-A {
+	.evaluar-contrato .contenedor-cajas-A {
 		border: 2px solid #ffffff;
 		padding: 10px;
 	}
-	.contenedor-cajas {
+	.evaluar-contrato .contenedor-cajas {
 		outline: 2px;
 		border: 2px solid #095ba8;
 		padding: 10px;
 	}
-	.custom-table thead th {
+	.evaluar-contrato .custom-table thead th {
 		background-color: #095ba8;
 		color: #ffffff !important;
 	}
-	.a {
+	.evaluar-contrato .a {
 		text-align: left;
 		padding-top: 1px;
+	}
+	.evaluar-contrato .kallpa-image {
+		margin-top: 35px;
 	}
 </style>
 

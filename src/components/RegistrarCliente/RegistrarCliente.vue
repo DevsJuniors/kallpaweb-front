@@ -1,6 +1,6 @@
 <template>
-	<div>
-		<v-app-bar color="white" dense dark height="100">
+	<div class="registrar-cli">
+		<v-app-bar color="white" dense dark height="110">
 			<v-toolbar-title>
 				<v-img
 					src="../../views/Img/Kallpa.png"
@@ -243,11 +243,11 @@
 	</div>
 </template>
 <style>
-	.cliente {
+	.registrar-cli .cliente {
 		margin: 20px;
 		max-width: 30%;
 	}
-	.button-1 {
+	.registrar-cli .button-1 {
 		background: #033076;
 		color: #ffffff;
 		border-color: #232323;
@@ -255,13 +255,13 @@
 		border-style: solid;
 		border-radius: 3px 3px 3px 3px;
 		font-weight: 400;
-		font-size: 24px;
+		font-size: 14px;
 		text-align: right;
 		margin: 20px;
 		width: 200px;
 		height: 1000px;
 	}
-	.my-container {
+	.registrar-cli .my-container {
 		width: 500px;
 		height: 450px;
 		padding: 10px 10px 10px 10px;
@@ -273,20 +273,20 @@
 		z-index: 1;
 		margin-top: -0px;
 	}
-	.btn-container {
+	.registrar-cli .btn-container {
 		display: flex;
 		justify-content: space-between;
 	}
 
-	.btn1 {
+	.registrar-cli .btn1 {
 		margin-right: 990px;
 	}
 
-	.btn3 {
+	.registrar-cli .btn3 {
 		margin-top: -65px;
 		margin-left: 540px; /* Ajusta el valor del margen según tus preferencias */
 	}
-	.custom-text-field {
+	.registrar-cli .custom-text-field {
 		width: 470px;
 		height: 50px;
 		padding: 8px 4px 8px 4px;
@@ -296,7 +296,7 @@
 		text-align: left;
 		margin-bottom: 60px;
 	}
-	.my-container-2 {
+	.registrar-cli .my-container-2 {
 		width: 890px;
 		height: 530px;
 		padding: 10px 10px 10px 10px;
@@ -313,15 +313,18 @@
 		background-color: white !important;
 		border-color: white !important;
 	}
-	.info {
+	.registrar-cli .info {
 		display: flex;
 		align-items: center;
 	}
-	.image-container {
+	.registrar-cli .image-container {
 		margin-right: 300px;
 	}
-	.text h4 {
+	.registrar-cli .text h4 {
 		margin-bottom: 12px;
+	}
+	.registrar-cli .kallpa-image {
+		margin-top: 35px;
 	}
 </style>
 <script src="./RegistrarCliente.js"></script>

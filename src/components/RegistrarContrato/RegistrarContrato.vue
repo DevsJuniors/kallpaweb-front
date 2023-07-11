@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="registrar-con">
 		<v-app-bar color="white" dense dark height="100">
 			<v-toolbar-title>
 				<v-img
@@ -287,7 +287,7 @@
 	</div>
 </template>
 <style>
-	.my-containerC {
+	.registrar-con .my-containerC {
 		width: 500px;
 		height: 350px;
 		padding: 10px 10px 10px 10px;
@@ -299,7 +299,7 @@
 		z-index: 1;
 		margin-top: -0px;
 	}
-	.my-containerRC {
+	.registrar-con .my-containerRC {
 		width: 500px;
 		height: 450px;
 		padding: 10px 10px 10px 10px;
@@ -311,7 +311,7 @@
 		z-index: 1;
 		margin-top: -0px;
 	}
-	.contrato {
+	.registrar-con .contrato {
 		margin: 20px;
 		max-width: 30%;
 	}
@@ -320,7 +320,7 @@
 		border-color: white !important;
 		margin-top: 10px;
 	}
-	.my-container-2 {
+	.registrar-con .my-container-2 {
 		width: 850px;
 		height: 830px;
 		padding: 10px 10px 10px 10px;
@@ -333,7 +333,7 @@
 		margin-left: 550px;
 		margin-top: -855px;
 	}
-	.button-1 {
+	.registrar-con .button-1 {
 		background: #033076;
 		color: #ffffff;
 		border-color: #232323;
@@ -341,46 +341,48 @@
 		border-style: solid;
 		border-radius: 3px 3px 3px 3px;
 		font-weight: 400;
-		font-size: 24px;
+		font-size: 14px;
 		text-align: right;
 		margin: 20px;
 	}
-	.image-container {
+	.registrar-con .image-container {
 		margin-right: 300px;
 	}
-	.info {
+	.registrar-con .info {
 		display: flex;
 		align-items: center;
 	}
-	.btn3 {
+	.registrar-con .btn3 {
 		display: flex;
 		margin-top: 10px;
 		margin-left: 790px; /* Ajusta el valor del margen según tus preferencias */
 	}
-	.text h4 {
+	.registrar-con .text h4 {
 		margin-top: 20px;
 		margin-bottom: 20px;
 	}
-
+	.registrar-con .kallpa-image {
+		margin-top: 35px;
+	}
 	/* Media queries para hacerlo responsive */
 
 	@media screen and (max-width: 768px) {
-		.my-containerC {
+		.registrar-con .my-containerC {
 			width: 100%;
 			height: auto;
 		}
 
-		.contrato {
+		.registrar-con .contrato {
 			max-width: 100%;
 		}
 
-		.button-1 {
+		.registrar-con .button-1 {
 			font-size: 20px;
 		}
 	}
 
 	@media screen and (max-width: 480px) {
-		.button-1 {
+		.registrar-con .button-1 {
 			font-size: 18px;
 		}
 	}

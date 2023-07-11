@@ -1,6 +1,6 @@
 <template>
 	<div class="report-c">
-		<v-app-bar color="white" dense dark height="80">
+		<v-app-bar color="white" dense dark height="90">
 			<v-toolbar-title>
 				<v-img
 					src="../../views/Img/Kallpa.png"
@@ -134,7 +134,7 @@
 		</div>
 
 		<div>
-			<div class="tabla fill-height">
+			<div class="tabla fill-height" style="margin-top: 30px">
 				<v-data-table
 					:headers="headers"
 					:items="contratos"
@@ -155,9 +155,6 @@
 								hide-details>
 							</v-text-field>
 						</v-toolbar>
-					</template>
-					<template v-slot:item="{ item }">
-						<tr></tr>
 					</template>
 				</v-data-table>
 			</div>

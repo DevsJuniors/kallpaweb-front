@@ -144,6 +144,7 @@ export default {
 					this.frmEmpleado.Nombre_Em;
 				this.typemsg = "success";
 				this.dialogVisible = true;
+				window.location.reload();
 			}
 		},
 		aceptar() {
